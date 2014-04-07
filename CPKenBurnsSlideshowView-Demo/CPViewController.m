@@ -11,6 +11,7 @@
 #import "CPKenBurnsSlideshowView.h"
 @interface CPViewController ()
 @property (weak, nonatomic) IBOutlet CPKenBurnsSlideshowView *kenburnsSlideshowView;
+@property (weak, nonatomic) IBOutlet UISlider *slider;
 
 @end
 
@@ -39,6 +40,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)valueChanged:(id)sender {
+    CGRect rect = self.kenburnsSlideshowView.frame;
+    rect.size.height = 320 + 100 * [(UISlider *)sender value];
+    self.kenburnsSlideshowView.frame = rect;
 }
 
 @end
