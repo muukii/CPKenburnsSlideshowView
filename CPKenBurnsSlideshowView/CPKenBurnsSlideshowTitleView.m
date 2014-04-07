@@ -27,7 +27,8 @@
     self.backgroundColor = [UIColor clearColor];
     self.opaque = NO;
 
-    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.bounds) - 30, 200, 20)];
+    self.titleLabel.backgroundColor = [UIColor blueColor];
     self.subTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
 
     [self addSubview:self.titleLabel];

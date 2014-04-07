@@ -17,28 +17,6 @@
 
 
 @implementation CPKenBurnsInfiniteScrollView
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    if ((self = [super initWithCoder:aDecoder]))
-    {
-        self.contentSize = CGSizeMake(5000, self.frame.size.height);
-        
-        _visibleLabels = [[NSMutableArray alloc] init];
-        
-        _labelContainerView = [[UIView alloc] init];
-        self.labelContainerView.frame = CGRectMake(0, 0, self.contentSize.width, self.contentSize.height/2);
-        [self addSubview:self.labelContainerView];
-
-        [self.labelContainerView setUserInteractionEnabled:NO];
-        
-        // hide horizontal scroll indicator so our recentering trick is not revealed
-        [self setShowsHorizontalScrollIndicator:NO];
-    }
-    return self;
-}
-
-
 #pragma mark - Layout
 
 // recenter content periodically to achieve impression of infinite scrolling
@@ -69,7 +47,7 @@
     [self recenterIfNecessary];
  
     // tile content in visible bounds
-    CGRect visibleBounds = [self convertRect:[self bounds] toView:self.labelContainerView];
+    CGRect visibleBounds = self.bounds;
     CGFloat minimumVisibleX = CGRectGetMinX(visibleBounds);
     CGFloat maximumVisibleX = CGRectGetMaxX(visibleBounds);
     

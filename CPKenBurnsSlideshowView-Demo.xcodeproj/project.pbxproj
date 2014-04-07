@@ -32,6 +32,9 @@
 		4B617A9318F2580D0005CA97 /* CPKenBurnsImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B617A9218F2580D0005CA97 /* CPKenBurnsImage.m */; };
 		4BDFF03818F27D4900306C73 /* CPKenBurnsSlideshowTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDFF03718F27D4900306C73 /* CPKenBurnsSlideshowTitleView.m */; };
 		4BDFF03B18F2801A00306C73 /* CPKenBurnsInfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDFF03A18F2801A00306C73 /* CPKenBurnsInfiniteScrollView.m */; };
+		4BDFF03D18F284F800306C73 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BDFF03C18F284F800306C73 /* Reveal.framework */; };
+		4BDFF03F18F2850300306C73 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BDFF03E18F2850300306C73 /* QuartzCore.framework */; };
+		4BDFF04118F2850900306C73 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BDFF04018F2850900306C73 /* CFNetwork.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,9 @@
 		4BDFF03718F27D4900306C73 /* CPKenBurnsSlideshowTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPKenBurnsSlideshowTitleView.m; sourceTree = "<group>"; };
 		4BDFF03918F2801A00306C73 /* CPKenBurnsInfiniteScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPKenBurnsInfiniteScrollView.h; sourceTree = "<group>"; };
 		4BDFF03A18F2801A00306C73 /* CPKenBurnsInfiniteScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPKenBurnsInfiniteScrollView.m; sourceTree = "<group>"; };
+		4BDFF03C18F284F800306C73 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
+		4BDFF03E18F2850300306C73 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4BDFF04018F2850900306C73 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,9 +93,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BDFF04118F2850900306C73 /* CFNetwork.framework in Frameworks */,
+				4BDFF03F18F2850300306C73 /* QuartzCore.framework in Frameworks */,
 				4B61799D18F244E60005CA97 /* CoreGraphics.framework in Frameworks */,
 				4B61799F18F244E60005CA97 /* UIKit.framework in Frameworks */,
 				4B61799B18F244E60005CA97 /* Foundation.framework in Frameworks */,
+				4BDFF03D18F284F800306C73 /* Reveal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +118,7 @@
 		4B61798E18F244E60005CA97 = {
 			isa = PBXGroup;
 			children = (
+				4BDFF03C18F284F800306C73 /* Reveal.framework */,
 				4B617A8A18F253B30005CA97 /* CPKenBurnsSlideshowView */,
 				4B6179A018F244E60005CA97 /* CPKenBurnsSlideshowView-Demo */,
 				4B6179BF18F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests */,
@@ -129,6 +139,8 @@
 		4B61799918F244E60005CA97 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4BDFF04018F2850900306C73 /* CFNetwork.framework */,
+				4BDFF03E18F2850300306C73 /* QuartzCore.framework */,
 				4B61799A18F244E60005CA97 /* Foundation.framework */,
 				4B61799C18F244E60005CA97 /* CoreGraphics.framework */,
 				4B61799E18F244E60005CA97 /* UIKit.framework */,
@@ -447,9 +459,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Prefix.pch";
 				INFOPLIST_FILE = "CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -460,9 +477,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Prefix.pch";
 				INFOPLIST_FILE = "CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
