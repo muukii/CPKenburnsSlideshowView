@@ -8,13 +8,21 @@
 
 #import <UIKit/UIKit.h>
 @class CPKenBurnsImage;
+
+typedef void(^DownloadCompletionBlock)(UIImage *image);
+
+@protocol CPkenBurnsSlideshowViewDeleagte;
 @interface CPKenBurnsSlideshowView : UIView
 - (id)initWithFrame:(CGRect)frame;
-
+@property (nonatomic, assign) id <CPkenBurnsSlideshowViewDeleagte> delegate;
 @property (nonatomic, strong) NSArray *images;
 @property (nonatomic, assign) BOOL slideshow;
 @property (nonatomic, assign) CGFloat slideshowDuration;
 @property (nonatomic, assign) CGFloat automaticFadeDuration;
-
 @property (nonatomic, assign) Class titleViewClass;
+@end
+
+@protocol CPkenBurnsSlideshowViewDeleagte <NSObject>
+@optional
+- (void)slideshowView:(CPKenBurnsSlideshowView *)slideshowView downloadImageUrl:(NSURL *)imageUrl completionBlock:(DownloadCompletionBlock)completionBlock;
 @end

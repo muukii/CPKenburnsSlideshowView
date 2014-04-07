@@ -10,6 +10,7 @@
 
 @interface CPKenBurnsImage : NSObject
 @property (nonatomic,assign) UIImage *image;
+@property (nonatomic,strong) NSURL *imageUrl;
 @property (nonatomic,assign) CGFloat latitude;
 @property (nonatomic,assign) CGFloat longitude;
 @property (nonatomic,strong) NSString *title;
