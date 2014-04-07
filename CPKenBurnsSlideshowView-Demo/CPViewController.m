@@ -7,7 +7,7 @@
 //
 
 #import "CPViewController.h"
-
+#import "CPKenBurnsImage.h"
 @interface CPViewController ()
 
 @end
@@ -17,6 +17,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    NSMutableArray *images = [NSMutableArray array];
+    for (int i = 0; i < 6; i++) {
+        CPKenBurnsImage *image = [CPKenBurnsImage new];
+        image.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d.jpg",i]];
+        [images addObject:image];
+    }
+
+    NSLog(@"%@",images);
+
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

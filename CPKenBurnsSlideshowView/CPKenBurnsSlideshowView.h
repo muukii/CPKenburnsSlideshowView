@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class CPKenBurnsImage;
 @interface CPKenBurnsSlideshowView : UIView
+- (id)initWithFrame:(CGRect)frame;
+
 @property (nonatomic, strong) NSArray *images;
 @property (nonatomic, assign) BOOL slideshow;
 @property (nonatomic, assign) CGFloat slideshowDuration;

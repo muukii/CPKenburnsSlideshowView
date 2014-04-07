@@ -1,42 +1,37 @@
-//
-//  CPKenBurnsSlideshowView.m
-//  CPKenBurnsSlideshowView-Demo
-//
-//  Created by Muukii on 4/7/14.
-//  Copyright (c) 2014 Muukii. All rights reserved.
-//
-
 #import "CPKenBurnsSlideshowView.h"
-#import "CPKenburnsView.h"
+#import "CPKenBurnsSlideshowTitleView.h"
+#import "CPKenBurnsInfiniteScrollView.h"
 
 @interface CPKenBurnsSlideshowView ()
 @property (nonatomic, strong) NSMutableArray *kenburnsViews;
 @property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, assign) NSInteger currentIndex;
 @end
 
 @implementation CPKenBurnsSlideshowView
-
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        [self configureView];
     }
     return self;
 }
 
-- (void)setImages:(NSArray *)images
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    _images = images;
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self configureView];
+    }
+    return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (void)configureView
 {
-    // Drawing code
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds) * 3, CGRectGetHeight(self.bounds))];
+    
 }
-*/
+
 
 @end
