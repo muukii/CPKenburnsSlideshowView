@@ -13,6 +13,9 @@
 @end
 
 @implementation CPKenBurnsInfiniteScrollView
+{
+    id <UIScrollViewDelegate> delegateCache;
+}
 #pragma mark - Layout
 // recenter content periodically to achieve impression of infinite scrolling
 - (id)initWithFrame:(CGRect)frame
@@ -23,28 +26,39 @@
     }
     return self;
 }
-
 - (void)recenterIfNecessary
 {
     CGPoint currentOffset = [self contentOffset];
     CGFloat contentWidth = [self contentSize].width;
     CGFloat centerOffsetX = (contentWidth - [self bounds].size.width) / 2.0;
+    CGFloat distanceFromCenter = (currentOffset.x - centerOffsetX);
 
-    if (currentOffset.x >= contentWidth/3 * 2) {
+//    NSLog(@"%f",distanceFromCenter);
+    if (distanceFromCenter > 0) {
             //next page
-        self.contentOffset = CGPointMake(ceilf(centerOffsetX), currentOffset.y);
-        if ([self.callBack respondsToSelector:@selector(infiniteScrollView:didShowNextItem:currentItem:)]) {
-            NSInteger nextItem = self.currentItem + 2;
-            self.currentItem++;
-            [self.callBack infiniteScrollView:self didShowNextItem:nextItem currentItem:self.currentItem];
+        if (distanceFromCenter >= 320) {
+            delegateCache = self.delegate;
+            self.delegate = nil;
+            self.contentOffset = CGPointMake(ceilf(centerOffsetX), currentOffset.y);
+            self.delegate = delegateCache;
+            if ([self.callBack respondsToSelector:@selector(infiniteScrollView:didShowNextItem:currentItem:)]) {
+                NSInteger nextItem = self.currentItem + 2;
+                self.currentItem++;
+                [self.callBack infiniteScrollView:self didShowNextItem:nextItem currentItem:self.currentItem];
+            }
         }
-    } else if (currentOffset.x < 0.5) {
+    } else {
             //previous page
-        self.contentOffset = CGPointMake(ceilf(centerOffsetX), currentOffset.y);
-        if ([self.callBack respondsToSelector:@selector(infiniteScrollView:didShowPreviousItem:currentItem:)]) {
-            NSInteger previousItem = self.currentItem - 2;
-            self.currentItem--;
-            [self.callBack infiniteScrollView:self didShowPreviousItem:previousItem currentItem:self.currentItem];
+        if (distanceFromCenter <= -320) {
+            delegateCache = self.delegate;
+            self.delegate = nil;
+            self.contentOffset = CGPointMake(ceilf(centerOffsetX), currentOffset.y);
+            self.delegate = delegateCache;
+            if ([self.callBack respondsToSelector:@selector(infiniteScrollView:didShowPreviousItem:currentItem:)]) {
+                NSInteger previousItem = self.currentItem - 2;
+                self.currentItem--;
+                [self.callBack infiniteScrollView:self didShowPreviousItem:previousItem currentItem:self.currentItem];
+            }
         }
     }
 }

@@ -82,7 +82,7 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 - (NSInteger)validateItem:(NSInteger)item
 {
     if (item < 0) {
-        NSInteger _item = self.images.count - (int)fabs(item);
+        NSInteger _item = self.images.count - (int)fabs(item)%self.images.count;
         return _item;
     } else  if (self.images.count <= item) {
         NSInteger _item = (item % (self.images.count));
@@ -138,17 +138,20 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     if (_alpha > 0.999) {
         _alpha = 1.f;
     }
-//    NSLog(@"%f",_alpha);
+
     if (ceilf((scrollView.contentOffset.x - width)) < 0) {
             //drag right
-        [[self previousKenBurnsView] setAlpha:1-_alpha];
+//        [[self previousKenBurnsView] setAlpha:_alpha];
+        [[self currentKenBurnsView] setAlpha:_alpha];
+        [[self previousKenBurnsView] setAlpha:1];
         [[self nextKenBurnsView] setAlpha:0];
     } else {
             //drag left
         [[self currentKenBurnsView] setAlpha:_alpha];
+        [[self previousKenBurnsView] setAlpha:0];
         [[self nextKenBurnsView] setAlpha:1];
     }
-
+    NSLog(@"%f %f %f",[[self previousKenBurnsView] alpha],[[self currentKenBurnsView] alpha],[[self nextKenBurnsView] alpha]);
 }
 
 - (void)swapKenBurnsView:(CPKenBurnsSlideshowViewOrder)order1 order2:(CPKenBurnsSlideshowViewOrder)order2
@@ -176,10 +179,10 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     [[self nextKenBurnsView] setImage:[self imageWithItem:item]];
 
     [self insertSubview:[self nextKenBurnsView] atIndex:0];
-    [self insertSubview:[self currentKenBurnsView] atIndex:1];
-    [self insertSubview:[self previousKenBurnsView] atIndex:2];
+    [self insertSubview:[self currentKenBurnsView] atIndex:2];
+    [self insertSubview:[self previousKenBurnsView] atIndex:1];
 
-    [[self previousKenBurnsView] setAlpha:0];
+    [[self previousKenBurnsView] setAlpha:1];
     [[self currentKenBurnsView] setAlpha:1];
     [[self nextKenBurnsView] setAlpha:1];
 }
@@ -190,22 +193,20 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     CPKenBurnsView *currentView = [self currentKenBurnsView];
     CPKenBurnsView *nextView = [self nextKenBurnsView];
     CPKenBurnsView *previousView = [self previousKenBurnsView];
+    nextView.alpha = 0;
 
     [self setPreviousKenBurnsView:nextView];
+    [[self previousKenBurnsView] setImage:[self imageWithItem:item]];
     [self setNextKenBurnsView:currentView];
     [self setCurrentKenBurnsView:previousView];
 
-
-    [[self previousKenBurnsView] setAlpha:0];
+    [[self previousKenBurnsView] setAlpha:1];
     [[self currentKenBurnsView] setAlpha:1];
-    [[self nextKenBurnsView] setAlpha:0];
+    [[self nextKenBurnsView] setAlpha:1];
 
-    [self insertSubview:[self previousKenBurnsView] atIndex:2];
-    [self insertSubview:[self currentKenBurnsView] atIndex:1];
     [self insertSubview:[self nextKenBurnsView] atIndex:0];
-
-    [[self previousKenBurnsView] setImage:[self imageWithItem:item]];
-
+    [self insertSubview:[self currentKenBurnsView] atIndex:2];
+    [self insertSubview:[self previousKenBurnsView] atIndex:1];
 }
 
 @end
