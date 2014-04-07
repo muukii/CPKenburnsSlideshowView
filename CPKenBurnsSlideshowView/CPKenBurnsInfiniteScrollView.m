@@ -15,6 +15,14 @@
 @implementation CPKenBurnsInfiniteScrollView
 #pragma mark - Layout
 // recenter content periodically to achieve impression of infinite scrolling
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.currentItem = 0;
+    }
+    return self;
+}
 
 - (void)recenterIfNecessary
 {
@@ -24,16 +32,20 @@
 
     if (currentOffset.x >= contentWidth/3 * 2) {
             //next page
+        self.contentOffset = CGPointMake(ceilf(centerOffsetX), currentOffset.y);
         if ([self.callBack respondsToSelector:@selector(infiniteScrollView:didShowNextItem:currentItem:)]) {
-            [self.callBack infiniteScrollView:self didShowNextItem:++self.currentItem currentItem:self.currentItem];
+            NSInteger nextItem = self.currentItem + 2;
+            self.currentItem++;
+            [self.callBack infiniteScrollView:self didShowNextItem:nextItem currentItem:self.currentItem];
         }
-        self.contentOffset = CGPointMake(centerOffsetX, currentOffset.y);
     } else if (currentOffset.x < 0.5) {
             //previous page
+        self.contentOffset = CGPointMake(ceilf(centerOffsetX), currentOffset.y);
         if ([self.callBack respondsToSelector:@selector(infiniteScrollView:didShowPreviousItem:currentItem:)]) {
-            [self.callBack infiniteScrollView:self didShowPreviousItem:--self.currentItem currentItem:self.currentItem];
+            NSInteger previousItem = self.currentItem - 2;
+            self.currentItem--;
+            [self.callBack infiniteScrollView:self didShowPreviousItem:previousItem currentItem:self.currentItem];
         }
-        self.contentOffset = CGPointMake(centerOffsetX, currentOffset.y);
     }
 }
 

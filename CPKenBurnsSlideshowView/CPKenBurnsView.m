@@ -163,7 +163,6 @@
     }
     self.imageView.transform = CGAffineTransformIdentity;
     CGRect imageViewRect = self.imageView.bounds;
-    NSLog(@"%@",NSStringFromCGRect(imageViewRect));
     imageViewRect.size = resizedImageSize;
     self.imageView.frame = imageViewRect;
     self.imageView.image = image;
