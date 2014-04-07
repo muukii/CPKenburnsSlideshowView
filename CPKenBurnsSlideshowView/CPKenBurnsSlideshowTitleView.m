@@ -8,8 +8,7 @@
 
 #import "CPKenBurnsSlideshowTitleView.h"
 @interface CPKenBurnsSlideshowTitleView ()
-@property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) UILabel *subTitleLabel;
+
 @end
 @implementation CPKenBurnsSlideshowTitleView
 

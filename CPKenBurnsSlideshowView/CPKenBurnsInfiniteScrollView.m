@@ -13,9 +13,6 @@
 @end
 
 @implementation CPKenBurnsInfiniteScrollView
-{
-    id <UIScrollViewDelegate> delegateCache;
-}
 #pragma mark - Layout
 // recenter content periodically to achieve impression of infinite scrolling
 - (id)initWithFrame:(CGRect)frame
@@ -36,11 +33,8 @@
 //    NSLog(@"%f",distanceFromCenter);
     if (distanceFromCenter > 0) {
             //next page
-        if (distanceFromCenter >= 320) {
-            delegateCache = self.delegate;
-            self.delegate = nil;
+        if (distanceFromCenter >= CGRectGetWidth(self.bounds)) {
             self.contentOffset = CGPointMake(ceilf(centerOffsetX), currentOffset.y);
-            self.delegate = delegateCache;
             if ([self.callBack respondsToSelector:@selector(infiniteScrollView:didShowNextItem:currentItem:)]) {
                 NSInteger nextItem = self.currentItem + 2;
                 self.currentItem++;
@@ -49,11 +43,8 @@
         }
     } else {
             //previous page
-        if (distanceFromCenter <= -320) {
-            delegateCache = self.delegate;
-            self.delegate = nil;
+        if (distanceFromCenter <= -CGRectGetWidth(self.bounds)) {
             self.contentOffset = CGPointMake(ceilf(centerOffsetX), currentOffset.y);
-            self.delegate = delegateCache;
             if ([self.callBack respondsToSelector:@selector(infiniteScrollView:didShowPreviousItem:currentItem:)]) {
                 NSInteger previousItem = self.currentItem - 2;
                 self.currentItem--;

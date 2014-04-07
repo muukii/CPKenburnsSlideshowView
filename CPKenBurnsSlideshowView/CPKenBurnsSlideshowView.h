@@ -16,4 +16,5 @@
 @property (nonatomic, assign) CGFloat slideshowDuration;
 @property (nonatomic, assign) CGFloat automaticFadeDuration;
 
+@property (nonatomic, assign) Class titleViewClass;
 @end

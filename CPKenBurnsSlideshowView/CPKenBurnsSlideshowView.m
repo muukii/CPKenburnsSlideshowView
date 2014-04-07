@@ -22,6 +22,7 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.titleViewClass = [CPKenBurnsSlideshowTitleView class];
         [self configureView];
     }
     return self;
@@ -31,6 +32,7 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
+        self.titleViewClass = [CPKenBurnsSlideshowTitleView class];
         [self configureView];
     }
     return self;
@@ -38,6 +40,13 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 
 - (void)configureView
 {
+    [self.scrollView.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [obj removeFromSuperview];
+    }];
+    [self.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [obj removeFromSuperview];
+    }];
+
     self.scrollView = [[CPKenBurnsInfiniteScrollView alloc] initWithFrame:self.bounds];
     self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bounds)*3, CGRectGetHeight(self.bounds));
     self.scrollView.delegate = self;
@@ -45,20 +54,29 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     self.scrollView.pagingEnabled = YES;
     self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     self.scrollView.contentOffset = CGPointMake(CGRectGetWidth(self.bounds), 0);
+    self.scrollView.showsHorizontalScrollIndicator = NO;
+    self.scrollView.showsVerticalScrollIndicator = NO;
     self.kenburnsViews = [NSMutableArray array];
+    self.kenburnsTitleViews = [NSMutableArray array];
     for (NSInteger i = 0; i < 3; ++i) {
         CPKenBurnsView *kenburnsView = [[CPKenBurnsView alloc] initWithFrame:self.bounds];
-        [kenburnsView setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
+        kenburnsView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         [self.kenburnsViews insertObject:kenburnsView atIndex:0];
         [self addSubview:kenburnsView];
 
         CGRect rect = self.bounds;
         rect.origin.x = CGRectGetWidth(self.bounds) * i;
-        CPKenBurnsSlideshowTitleView *titleView = [[CPKenBurnsSlideshowTitleView alloc] initWithFrame:rect];
+        CPKenBurnsSlideshowTitleView *titleView = [[self.titleViewClass alloc] initWithFrame:rect];
         titleView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        [self.kenburnsTitleViews addObject:titleView];
         [self.scrollView addSubview:titleView];
     }
     [self addSubview:self.scrollView];
+}
+- (void)setTitleViewClass:(Class)titleViewClass
+{
+    _titleViewClass = titleViewClass;
+    [self configureView];
 }
 
 - (void)setImages:(NSArray *)images
@@ -71,19 +89,23 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 - (void)updateImages:(NSInteger)item
 {
     [[self currentKenBurnsView] setImage:[self imageWithItem:item]];
+    [[self previousKenBurnsView] setImage:[self imageWithItem:(item - 1)]];
+    [[self nextKenBurnsView] setImage:[self imageWithItem:(item + 1)]];
 
-    NSInteger previousItem = item - 1;
-    [[self previousKenBurnsView] setImage:[self imageWithItem:previousItem]];
-    [[self previousKenBurnsView] setAlpha:0];
-    NSInteger nextItem = item + 1;
-    [[self nextKenBurnsView] setImage:[self imageWithItem:nextItem]];
+    [[self currentTitleView] setImageObject:self.images[[self validateItem:item]]];
+    [[self previousTitleView] setImageObject:self.images[[self validateItem:(item -1 )]]];
+    [[self nextTitleView] setImageObject:self.images[[self validateItem:(item + 1)]]];
+
+    [self insertSubview:[self nextKenBurnsView] atIndex:0];
+    [self insertSubview:[self currentKenBurnsView] atIndex:2];
+    [self insertSubview:[self previousKenBurnsView] atIndex:1];
 }
 
 - (NSInteger)validateItem:(NSInteger)item
 {
     if (item < 0) {
-        NSInteger _item = self.images.count - (int)fabs(item)%self.images.count;
-        return _item;
+        NSInteger _item = (self.images.count) - (int)fabs(item) % self.images.count;
+        return _item == self.images.count ? 0 : _item;
     } else  if (self.images.count <= item) {
         NSInteger _item = (item % (self.images.count));
         return _item;
@@ -128,6 +150,21 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     [self.kenburnsViews replaceObjectAtIndex:CPKenBurnsSlideshowViewOrderPrevious withObject:kenBurnsView];
 }
 
+- (CPKenBurnsSlideshowTitleView *)currentTitleView
+{
+    return self.kenburnsTitleViews[CPKenBurnsSlideshowViewOrderCurrent];
+}
+
+- (CPKenBurnsSlideshowTitleView *)previousTitleView
+{
+    return self.kenburnsTitleViews[CPKenBurnsSlideshowViewOrderPrevious];
+}
+
+- (CPKenBurnsSlideshowTitleView *)nextTitleView
+{
+    return self.kenburnsTitleViews[CPKenBurnsSlideshowViewOrderNext];
+}
+
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -141,7 +178,6 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 
     if (ceilf((scrollView.contentOffset.x - width)) < 0) {
             //drag right
-//        [[self previousKenBurnsView] setAlpha:_alpha];
         [[self currentKenBurnsView] setAlpha:_alpha];
         [[self previousKenBurnsView] setAlpha:1];
         [[self nextKenBurnsView] setAlpha:0];
@@ -151,54 +187,60 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
         [[self previousKenBurnsView] setAlpha:0];
         [[self nextKenBurnsView] setAlpha:1];
     }
-    NSLog(@"%f %f %f",[[self previousKenBurnsView] alpha],[[self currentKenBurnsView] alpha],[[self nextKenBurnsView] alpha]);
+//    NSLog(@"%f %f %f",[[self previousKenBurnsView] alpha],[[self currentKenBurnsView] alpha],[[self nextKenBurnsView] alpha]);
 }
 
-- (void)swapKenBurnsView:(CPKenBurnsSlideshowViewOrder)order1 order2:(CPKenBurnsSlideshowViewOrder)order2
-{
-    id _order1 = self.kenburnsViews[order1];
-    id _order2 = self.kenburnsViews[order2];
-
-    [self.kenburnsViews replaceObjectAtIndex:order1 withObject:_order2];
-    [self.kenburnsViews replaceObjectAtIndex:order2 withObject:_order1];
-}
 #pragma mark - CPKenBurnsInfiniteScrollViewDelegate
 
 - (void)infiniteScrollView:(CPKenBurnsInfiniteScrollView *)infiniteScrollView didShowNextItem:(NSInteger)item currentItem:(NSInteger)currentItem
 {
-    NSLog(@"next %ld current %ld",item,currentItem);
+//    NSLog(@"next %ld current %ld",item,currentItem);
+    self.currentItem = currentItem;
+
     CPKenBurnsView *currentView = [self currentKenBurnsView];
     CPKenBurnsView *nextView = [self nextKenBurnsView];
     CPKenBurnsView *previousView = [self previousKenBurnsView];
 
     [self setPreviousKenBurnsView:currentView];
-
     [self setCurrentKenBurnsView:nextView];
-
     [self setNextKenBurnsView:previousView];
     [[self nextKenBurnsView] setImage:[self imageWithItem:item]];
+
+    [[self currentTitleView] setImageObject:self.images[[self validateItem:currentItem]]];
+    [[self previousTitleView] setImageObject:self.images[[self validateItem:(currentItem-1)]]];
+    [[self nextTitleView] setImageObject:self.images[[self validateItem:item]]];
+
+    [[self previousKenBurnsView] setAlpha:1];
+    [[self currentKenBurnsView] setAlpha:1];
+    [[self nextKenBurnsView] setAlpha:1];
 
     [self insertSubview:[self nextKenBurnsView] atIndex:0];
     [self insertSubview:[self currentKenBurnsView] atIndex:2];
     [self insertSubview:[self previousKenBurnsView] atIndex:1];
 
-    [[self previousKenBurnsView] setAlpha:1];
-    [[self currentKenBurnsView] setAlpha:1];
-    [[self nextKenBurnsView] setAlpha:1];
+    [self.kenburnsViews enumerateObjectsUsingBlock:^(CPKenBurnsView *view, NSUInteger idx, BOOL *stop) {
+        view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    }];
+
 }
 
 - (void)infiniteScrollView:(CPKenBurnsInfiniteScrollView *)infiniteScrollView didShowPreviousItem:(NSInteger)item currentItem:(NSInteger)currentItem
 {
-    NSLog(@"previous %ld current %ld",item,currentItem);
+//    NSLog(@"previous %ld current %ld",item,currentItem);
+    self.currentItem = currentItem;
+
     CPKenBurnsView *currentView = [self currentKenBurnsView];
     CPKenBurnsView *nextView = [self nextKenBurnsView];
     CPKenBurnsView *previousView = [self previousKenBurnsView];
-    nextView.alpha = 0;
 
     [self setPreviousKenBurnsView:nextView];
-    [[self previousKenBurnsView] setImage:[self imageWithItem:item]];
     [self setNextKenBurnsView:currentView];
     [self setCurrentKenBurnsView:previousView];
+    [[self previousKenBurnsView] setImage:[self imageWithItem:item]];
+
+    [[self currentTitleView] setImageObject:self.images[[self validateItem:currentItem]]];
+    [[self previousTitleView] setImageObject:self.images[[self validateItem:item]]];
+    [[self nextTitleView] setImageObject:self.images[[self validateItem:(currentItem + 1)]]];
 
     [[self previousKenBurnsView] setAlpha:1];
     [[self currentKenBurnsView] setAlpha:1];
@@ -207,6 +249,10 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     [self insertSubview:[self nextKenBurnsView] atIndex:0];
     [self insertSubview:[self currentKenBurnsView] atIndex:2];
     [self insertSubview:[self previousKenBurnsView] atIndex:1];
+    
+    [self.kenburnsViews enumerateObjectsUsingBlock:^(CPKenBurnsView *view, NSUInteger idx, BOOL *stop) {
+        view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    }];
 }
 
 @end
