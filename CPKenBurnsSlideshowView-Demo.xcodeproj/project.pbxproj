@@ -1,0 +1,526 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4B61799B18F244E60005CA97 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B61799A18F244E60005CA97 /* Foundation.framework */; };
+		4B61799D18F244E60005CA97 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B61799C18F244E60005CA97 /* CoreGraphics.framework */; };
+		4B61799F18F244E60005CA97 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B61799E18F244E60005CA97 /* UIKit.framework */; };
+		4B6179A518F244E60005CA97 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179A318F244E60005CA97 /* InfoPlist.strings */; };
+		4B6179A718F244E60005CA97 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6179A618F244E60005CA97 /* main.m */; };
+		4B6179AB18F244E60005CA97 /* CPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6179AA18F244E60005CA97 /* CPAppDelegate.m */; };
+		4B6179AE18F244E60005CA97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179AC18F244E60005CA97 /* Main.storyboard */; };
+		4B6179B118F244E60005CA97 /* CPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6179B018F244E60005CA97 /* CPViewController.m */; };
+		4B6179B318F244E60005CA97 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179B218F244E60005CA97 /* Images.xcassets */; };
+		4B6179BA18F244E60005CA97 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B6179B918F244E60005CA97 /* XCTest.framework */; };
+		4B6179BB18F244E60005CA97 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B61799A18F244E60005CA97 /* Foundation.framework */; };
+		4B6179BC18F244E60005CA97 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B61799E18F244E60005CA97 /* UIKit.framework */; };
+		4B6179C418F244E60005CA97 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179C218F244E60005CA97 /* InfoPlist.strings */; };
+		4B6179C618F244E60005CA97 /* CPKenBurnsSlideshowView_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6179C518F244E60005CA97 /* CPKenBurnsSlideshowView_DemoTests.m */; };
+		4B617A2D18F253730005CA97 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179D018F253730005CA97 /* 1.jpg */; };
+		4B617A2E18F253730005CA97 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179D118F253730005CA97 /* 2.jpg */; };
+		4B617A2F18F253730005CA97 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179D218F253730005CA97 /* 3.jpg */; };
+		4B617A3018F253730005CA97 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179D318F253730005CA97 /* 4.jpg */; };
+		4B617A3118F253730005CA97 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179D418F253730005CA97 /* 5.jpg */; };
+		4B617A3218F253730005CA97 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179D518F253730005CA97 /* 6.jpg */; };
+		4B617A8D18F253E00005CA97 /* CPKenBurnsSlideshowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B617A8C18F253E00005CA97 /* CPKenBurnsSlideshowView.m */; };
+		4B617A9018F254380005CA97 /* CPKenburnsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B617A8E18F254380005CA97 /* CPKenburnsView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4B6179BD18F244E60005CA97 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B61798F18F244E60005CA97 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B61799618F244E60005CA97;
+			remoteInfo = "CPKenBurnsSlideshowView-Demo";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4B61799718F244E60005CA97 /* CPKenBurnsSlideshowView-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CPKenBurnsSlideshowView-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B61799A18F244E60005CA97 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4B61799C18F244E60005CA97 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4B61799E18F244E60005CA97 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4B6179A218F244E60005CA97 /* CPKenBurnsSlideshowView-Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CPKenBurnsSlideshowView-Demo-Info.plist"; sourceTree = "<group>"; };
+		4B6179A418F244E60005CA97 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4B6179A618F244E60005CA97 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4B6179A818F244E60005CA97 /* CPKenBurnsSlideshowView-Demo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CPKenBurnsSlideshowView-Demo-Prefix.pch"; sourceTree = "<group>"; };
+		4B6179A918F244E60005CA97 /* CPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPAppDelegate.h; sourceTree = "<group>"; };
+		4B6179AA18F244E60005CA97 /* CPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPAppDelegate.m; sourceTree = "<group>"; };
+		4B6179AD18F244E60005CA97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4B6179AF18F244E60005CA97 /* CPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPViewController.h; sourceTree = "<group>"; };
+		4B6179B018F244E60005CA97 /* CPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPViewController.m; sourceTree = "<group>"; };
+		4B6179B218F244E60005CA97 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4B6179B818F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CPKenBurnsSlideshowView-DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B6179B918F244E60005CA97 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		4B6179C118F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CPKenBurnsSlideshowView-DemoTests-Info.plist"; sourceTree = "<group>"; };
+		4B6179C318F244E60005CA97 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4B6179C518F244E60005CA97 /* CPKenBurnsSlideshowView_DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPKenBurnsSlideshowView_DemoTests.m; sourceTree = "<group>"; };
+		4B6179D018F253730005CA97 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		4B6179D118F253730005CA97 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		4B6179D218F253730005CA97 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		4B6179D318F253730005CA97 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
+		4B6179D418F253730005CA97 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
+		4B6179D518F253730005CA97 /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
+		4B617A8B18F253E00005CA97 /* CPKenBurnsSlideshowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPKenBurnsSlideshowView.h; sourceTree = "<group>"; };
+		4B617A8C18F253E00005CA97 /* CPKenBurnsSlideshowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPKenBurnsSlideshowView.m; sourceTree = "<group>"; };
+		4B617A8E18F254380005CA97 /* CPKenburnsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPKenburnsView.m; sourceTree = "<group>"; };
+		4B617A8F18F254380005CA97 /* CPKenburnsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPKenburnsView.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4B61799418F244E60005CA97 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B61799D18F244E60005CA97 /* CoreGraphics.framework in Frameworks */,
+				4B61799F18F244E60005CA97 /* UIKit.framework in Frameworks */,
+				4B61799B18F244E60005CA97 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B6179B518F244E60005CA97 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B6179BA18F244E60005CA97 /* XCTest.framework in Frameworks */,
+				4B6179BC18F244E60005CA97 /* UIKit.framework in Frameworks */,
+				4B6179BB18F244E60005CA97 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4B61798E18F244E60005CA97 = {
+			isa = PBXGroup;
+			children = (
+				4B617A8A18F253B30005CA97 /* CPKenBurnsSlideshowView */,
+				4B6179A018F244E60005CA97 /* CPKenBurnsSlideshowView-Demo */,
+				4B6179BF18F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests */,
+				4B61799918F244E60005CA97 /* Frameworks */,
+				4B61799818F244E60005CA97 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4B61799818F244E60005CA97 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4B61799718F244E60005CA97 /* CPKenBurnsSlideshowView-Demo.app */,
+				4B6179B818F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4B61799918F244E60005CA97 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4B61799A18F244E60005CA97 /* Foundation.framework */,
+				4B61799C18F244E60005CA97 /* CoreGraphics.framework */,
+				4B61799E18F244E60005CA97 /* UIKit.framework */,
+				4B6179B918F244E60005CA97 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4B6179A018F244E60005CA97 /* CPKenBurnsSlideshowView-Demo */ = {
+			isa = PBXGroup;
+			children = (
+				4B6179A918F244E60005CA97 /* CPAppDelegate.h */,
+				4B6179AA18F244E60005CA97 /* CPAppDelegate.m */,
+				4B6179AC18F244E60005CA97 /* Main.storyboard */,
+				4B6179AF18F244E60005CA97 /* CPViewController.h */,
+				4B6179B018F244E60005CA97 /* CPViewController.m */,
+				4B6179CF18F252F00005CA97 /* images */,
+				4B6179B218F244E60005CA97 /* Images.xcassets */,
+				4B6179A118F244E60005CA97 /* Supporting Files */,
+			);
+			path = "CPKenBurnsSlideshowView-Demo";
+			sourceTree = "<group>";
+		};
+		4B6179A118F244E60005CA97 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4B6179A218F244E60005CA97 /* CPKenBurnsSlideshowView-Demo-Info.plist */,
+				4B6179A318F244E60005CA97 /* InfoPlist.strings */,
+				4B6179A618F244E60005CA97 /* main.m */,
+				4B6179A818F244E60005CA97 /* CPKenBurnsSlideshowView-Demo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4B6179BF18F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				4B6179C518F244E60005CA97 /* CPKenBurnsSlideshowView_DemoTests.m */,
+				4B6179C018F244E60005CA97 /* Supporting Files */,
+			);
+			path = "CPKenBurnsSlideshowView-DemoTests";
+			sourceTree = "<group>";
+		};
+		4B6179C018F244E60005CA97 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4B6179C118F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests-Info.plist */,
+				4B6179C218F244E60005CA97 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4B6179CF18F252F00005CA97 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				4B6179D018F253730005CA97 /* 1.jpg */,
+				4B6179D118F253730005CA97 /* 2.jpg */,
+				4B6179D218F253730005CA97 /* 3.jpg */,
+				4B6179D318F253730005CA97 /* 4.jpg */,
+				4B6179D418F253730005CA97 /* 5.jpg */,
+				4B6179D518F253730005CA97 /* 6.jpg */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		4B617A8A18F253B30005CA97 /* CPKenBurnsSlideshowView */ = {
+			isa = PBXGroup;
+			children = (
+				4B617A8B18F253E00005CA97 /* CPKenBurnsSlideshowView.h */,
+				4B617A8C18F253E00005CA97 /* CPKenBurnsSlideshowView.m */,
+				4B617A8F18F254380005CA97 /* CPKenburnsView.h */,
+				4B617A8E18F254380005CA97 /* CPKenburnsView.m */,
+			);
+			path = CPKenBurnsSlideshowView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4B61799618F244E60005CA97 /* CPKenBurnsSlideshowView-Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B6179C918F244E60005CA97 /* Build configuration list for PBXNativeTarget "CPKenBurnsSlideshowView-Demo" */;
+			buildPhases = (
+				4B61799318F244E60005CA97 /* Sources */,
+				4B61799418F244E60005CA97 /* Frameworks */,
+				4B61799518F244E60005CA97 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CPKenBurnsSlideshowView-Demo";
+			productName = "CPKenBurnsSlideshowView-Demo";
+			productReference = 4B61799718F244E60005CA97 /* CPKenBurnsSlideshowView-Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4B6179B718F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B6179CC18F244E60005CA97 /* Build configuration list for PBXNativeTarget "CPKenBurnsSlideshowView-DemoTests" */;
+			buildPhases = (
+				4B6179B418F244E60005CA97 /* Sources */,
+				4B6179B518F244E60005CA97 /* Frameworks */,
+				4B6179B618F244E60005CA97 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4B6179BE18F244E60005CA97 /* PBXTargetDependency */,
+			);
+			name = "CPKenBurnsSlideshowView-DemoTests";
+			productName = "CPKenBurnsSlideshowView-DemoTests";
+			productReference = 4B6179B818F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4B61798F18F244E60005CA97 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CP;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Muukii;
+				TargetAttributes = {
+					4B6179B718F244E60005CA97 = {
+						TestTargetID = 4B61799618F244E60005CA97;
+					};
+				};
+			};
+			buildConfigurationList = 4B61799218F244E60005CA97 /* Build configuration list for PBXProject "CPKenBurnsSlideshowView-Demo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4B61798E18F244E60005CA97;
+			productRefGroup = 4B61799818F244E60005CA97 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4B61799618F244E60005CA97 /* CPKenBurnsSlideshowView-Demo */,
+				4B6179B718F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4B61799518F244E60005CA97 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B6179B318F244E60005CA97 /* Images.xcassets in Resources */,
+				4B617A2F18F253730005CA97 /* 3.jpg in Resources */,
+				4B617A3118F253730005CA97 /* 5.jpg in Resources */,
+				4B617A2D18F253730005CA97 /* 1.jpg in Resources */,
+				4B617A3018F253730005CA97 /* 4.jpg in Resources */,
+				4B6179A518F244E60005CA97 /* InfoPlist.strings in Resources */,
+				4B617A2E18F253730005CA97 /* 2.jpg in Resources */,
+				4B6179AE18F244E60005CA97 /* Main.storyboard in Resources */,
+				4B617A3218F253730005CA97 /* 6.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B6179B618F244E60005CA97 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B6179C418F244E60005CA97 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4B61799318F244E60005CA97 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B617A8D18F253E00005CA97 /* CPKenBurnsSlideshowView.m in Sources */,
+				4B617A9018F254380005CA97 /* CPKenburnsView.m in Sources */,
+				4B6179A718F244E60005CA97 /* main.m in Sources */,
+				4B6179AB18F244E60005CA97 /* CPAppDelegate.m in Sources */,
+				4B6179B118F244E60005CA97 /* CPViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B6179B418F244E60005CA97 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B6179C618F244E60005CA97 /* CPKenBurnsSlideshowView_DemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4B6179BE18F244E60005CA97 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4B61799618F244E60005CA97 /* CPKenBurnsSlideshowView-Demo */;
+			targetProxy = 4B6179BD18F244E60005CA97 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4B6179A318F244E60005CA97 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B6179A418F244E60005CA97 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4B6179AC18F244E60005CA97 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B6179AD18F244E60005CA97 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4B6179C218F244E60005CA97 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B6179C318F244E60005CA97 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4B6179C718F244E60005CA97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4B6179C818F244E60005CA97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4B6179CA18F244E60005CA97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Prefix.pch";
+				INFOPLIST_FILE = "CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4B6179CB18F244E60005CA97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Prefix.pch";
+				INFOPLIST_FILE = "CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		4B6179CD18F244E60005CA97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CPKenBurnsSlideshowView-Demo.app/CPKenBurnsSlideshowView-Demo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CPKenBurnsSlideshowView-DemoTests/CPKenBurnsSlideshowView-DemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		4B6179CE18F244E60005CA97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CPKenBurnsSlideshowView-Demo.app/CPKenBurnsSlideshowView-Demo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Prefix.pch";
+				INFOPLIST_FILE = "CPKenBurnsSlideshowView-DemoTests/CPKenBurnsSlideshowView-DemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4B61799218F244E60005CA97 /* Build configuration list for PBXProject "CPKenBurnsSlideshowView-Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B6179C718F244E60005CA97 /* Debug */,
+				4B6179C818F244E60005CA97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B6179C918F244E60005CA97 /* Build configuration list for PBXNativeTarget "CPKenBurnsSlideshowView-Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B6179CA18F244E60005CA97 /* Debug */,
+				4B6179CB18F244E60005CA97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B6179CC18F244E60005CA97 /* Build configuration list for PBXNativeTarget "CPKenBurnsSlideshowView-DemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B6179CD18F244E60005CA97 /* Debug */,
+				4B6179CE18F244E60005CA97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4B61798F18F244E60005CA97 /* Project object */;
+}
