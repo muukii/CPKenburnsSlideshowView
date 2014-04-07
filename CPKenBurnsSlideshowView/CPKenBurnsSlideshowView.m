@@ -72,16 +72,19 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 {
     [[self currentKenBurnsView] setImage:[self imageWithItem:item]];
     [[self previousKenBurnsView] setImage:[self imageWithItem:--item]];
+    [[self previousKenBurnsView] setAlpha:0];
     [[self nextKenBurnsView] setImage:[self imageWithItem:++item]];
 }
 
 - (NSInteger)validateItem:(NSInteger)item
 {
-    if (item > self.images.count) {
-        return item % self.images.count;
+    if (self.images.count <= item) {
+        NSInteger _item = (item % (self.images.count));
+        return _item;
     } else if (item < 0) {
 #warning とりあえず
-        return self.images.count - (int)fabs(item);
+        NSInteger _item = self.images.count - (int)fabs(item);
+        return _item;
     } else {
         return item;
     }
@@ -115,15 +118,36 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     const CGFloat width = CGRectGetWidth(self.bounds);
 
     NSLog(@"%f",(scrollView.contentOffset.x-width)/width);
-    CGFloat _alpha = (scrollView.contentOffset.x-width)/width;
-    [[self currentKenBurnsView] setAlpha:cos((180 * _alpha) * M_PI / 180.0)/2 + 0.5];
+    CGFloat _alpha = cos((180 * (scrollView.contentOffset.x-width)/width) * M_PI / 180.0)/2 + 0.5;
+
+    if ((scrollView.contentOffset.x-width) < 0) {
+            //drag right
+        NSLog(@"drag right");
+        [[self previousKenBurnsView] setAlpha:1-_alpha];
+    } else {
+            //drag left
+        NSLog(@"drag left");
+        [[self currentKenBurnsView] setAlpha:_alpha];
+    }
+
 }
 
+- (void)swapKenBurnsView:(CPKenBurnsSlideshowViewOrder)order1 order2:(CPKenBurnsSlideshowViewOrder)order2
+{
+    id _order1 = self.kenburnsViews[order1];
+    id _order2 = self.kenburnsViews[order2];
+
+    [self.kenburnsViews replaceObjectAtIndex:order1 withObject:_order2];
+    [self.kenburnsViews replaceObjectAtIndex:order2 withObject:_order1];
+}
 #pragma mark - CPKenBurnsInfiniteScrollViewDelegate
 
 - (void)infiniteScrollView:(CPKenBurnsInfiniteScrollView *)infiniteScrollView didShowNextItem:(NSInteger)item currentItem:(NSInteger)currentItem
 {
     NSLog(@"%ld",item);
+    [[self nextKenBurnsView] setImage:[self imageWithItem:item]];
+
+
 }
 
 - (void)infiniteScrollView:(CPKenBurnsInfiniteScrollView *)infiniteScrollView didShowPreviousItem:(NSInteger)item currentItem:(NSInteger)currentItem

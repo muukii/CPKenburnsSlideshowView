@@ -23,17 +23,17 @@
     CGFloat centerOffsetX = (contentWidth - [self bounds].size.width) / 2.0;
 
     if (currentOffset.x >= contentWidth/3 * 2) {
-        self.contentOffset = CGPointMake(centerOffsetX, currentOffset.y);
             //next page
         if ([self.callBack respondsToSelector:@selector(infiniteScrollView:didShowNextItem:currentItem:)]) {
             [self.callBack infiniteScrollView:self didShowNextItem:++self.currentItem currentItem:self.currentItem];
         }
-    } else if (currentOffset.x < 0.5) {
         self.contentOffset = CGPointMake(centerOffsetX, currentOffset.y);
+    } else if (currentOffset.x < 0.5) {
             //previous page
         if ([self.callBack respondsToSelector:@selector(infiniteScrollView:didShowPreviousItem:currentItem:)]) {
             [self.callBack infiniteScrollView:self didShowPreviousItem:--self.currentItem currentItem:self.currentItem];
         }
+        self.contentOffset = CGPointMake(centerOffsetX, currentOffset.y);
     }
 }
 
