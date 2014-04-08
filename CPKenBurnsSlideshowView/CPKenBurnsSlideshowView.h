@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CPKenBurnsView.h"
 @class CPKenBurnsImage;
 
 typedef void(^DownloadCompletionBlock)(UIImage *image);
@@ -25,4 +26,5 @@ typedef void(^DownloadCompletionBlock)(UIImage *image);
 @protocol CPkenBurnsSlideshowViewDeleagte <NSObject>
 @optional
 - (void)slideshowView:(CPKenBurnsSlideshowView *)slideshowView downloadImageUrl:(NSURL *)imageUrl completionBlock:(DownloadCompletionBlock)completionBlock;
+- (void)slideshowView:(CPKenBurnsSlideshowView *)slideshowView willShowKenBurnsView:(CPKenBurnsView *)kenBurnsView;
 @end

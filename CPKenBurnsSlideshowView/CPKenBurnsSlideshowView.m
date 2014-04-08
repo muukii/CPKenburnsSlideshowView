@@ -15,6 +15,8 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 @property (nonatomic, strong) NSMutableArray *kenburnsTitleViews;
 @property (nonatomic, strong) CPKenBurnsInfiniteScrollView *scrollView;
 @property (nonatomic, assign) NSInteger currentItem;
+@property (nonatomic, strong) NSTimer *timer;
+
 @end
 
 @implementation CPKenBurnsSlideshowView
@@ -36,6 +38,12 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
         [self configureView];
     }
     return self;
+}
+
+- (void)configureParameter
+{
+    self.automaticFadeDuration = 2.f;
+    self.slideshowDuration = 13.f;
 }
 
 - (void)configureView
@@ -73,6 +81,13 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     }
     [self addSubview:self.scrollView];
 }
+
+- (void)configureTimer
+{
+    [self.timer invalidate];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:13 target:self selector:@selector(scrollToNextPhoto) userInfo:nil repeats:YES];
+}
+
 - (void)setTitleViewClass:(Class)titleViewClass
 {
     _titleViewClass = titleViewClass;
@@ -84,6 +99,7 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     _images = images;
     self.currentItem = 0;
     [self updateImages:self.currentItem];
+    [self configureTimer];
 }
 
 - (void)updateImages:(NSInteger)item
@@ -92,9 +108,17 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     [self asynchronousSetImageView:[self previousKenBurnsView] imageObject:[self imageObjectWithItem:(item - 1)]];
     [self asynchronousSetImageView:[self nextKenBurnsView] imageObject:[self imageObjectWithItem:(item + 1)]];
 
+    if ([self.delegate respondsToSelector:@selector(slideshowView:willShowKenBurnsView:)]) {
+        [self.delegate slideshowView:self willShowKenBurnsView:[self currentKenBurnsView]];
+        [self.delegate slideshowView:self willShowKenBurnsView:[self previousKenBurnsView]];
+        [self.delegate slideshowView:self willShowKenBurnsView:[self nextKenBurnsView]];
+    }
+
     [[self currentTitleView] setImageObject:[self imageObjectWithItem:item]];
     [[self previousTitleView] setImageObject:[self imageObjectWithItem:(item - 1)]];
     [[self nextTitleView] setImageObject:[self imageObjectWithItem:(item + 1)]];
+
+
 
     [self insertSubview:[self nextKenBurnsView] atIndex:0];
     [self insertSubview:[self currentKenBurnsView] atIndex:2];
@@ -178,7 +202,32 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     return self.kenburnsTitleViews[CPKenBurnsSlideshowViewOrderNext];
 }
 
+- (void)scrollToNextPhoto
+{
+    CGPoint currentOffset = self.scrollView.contentOffset;
+    currentOffset.x += CGRectGetWidth(self.scrollView.bounds);
+
+    [UIView animateWithDuration:self.automaticFadeDuration delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionOverrideInheritedOptions | UIViewAnimationOptionOverrideInheritedDuration animations:^{
+        self.scrollView.contentOffset = currentOffset;
+    } completion:^(BOOL finished) {
+    }];
+}
+
+- (void)scrollToPreviousPhoto
+{
+    CGPoint currentOffset = self.scrollView.contentOffset;
+    currentOffset.x -= CGRectGetWidth(self.scrollView.bounds);
+    [UIView animateWithDuration:self.automaticFadeDuration delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionOverrideInheritedOptions | UIViewAnimationOptionOverrideInheritedDuration animations:^{
+        self.scrollView.contentOffset = currentOffset;
+    } completion:^(BOOL finished) {
+    }];
+}
+
 #pragma mark - UIScrollViewDelegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self configureTimer];
+}
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -217,6 +266,10 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     [self setPreviousKenBurnsView:currentView];
     [self setCurrentKenBurnsView:nextView];
     [self setNextKenBurnsView:previousView];
+
+    if ([self.delegate respondsToSelector:@selector(slideshowView:willShowKenBurnsView:)]) {
+        [self.delegate slideshowView:self willShowKenBurnsView:[self nextKenBurnsView]];
+    }
     [self asynchronousSetImageView:[self nextKenBurnsView] imageObject:[self imageObjectWithItem:item]];
 
     [[self currentTitleView] setImageObject:[self imageObjectWithItem:currentItem]];
@@ -249,6 +302,11 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     [self setPreviousKenBurnsView:nextView];
     [self setNextKenBurnsView:currentView];
     [self setCurrentKenBurnsView:previousView];
+
+    if ([self.delegate respondsToSelector:@selector(slideshowView:willShowKenBurnsView:)]) {
+        [self.delegate slideshowView:self willShowKenBurnsView:[self previousKenBurnsView]];
+    }
+    
     [self asynchronousSetImageView:[self previousKenBurnsView] imageObject:[self imageObjectWithItem:item]];
 
     [[self currentTitleView] setImageObject:[self imageObjectWithItem:currentItem]];
