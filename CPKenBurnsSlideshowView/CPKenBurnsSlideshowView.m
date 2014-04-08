@@ -88,13 +88,13 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 
 - (void)updateImages:(NSInteger)item
 {
-    [[self currentKenBurnsView] setImage:[self imageWithItem:item]];
-    [[self previousKenBurnsView] setImage:[self imageWithItem:(item - 1)]];
-    [[self nextKenBurnsView] setImage:[self imageWithItem:(item + 1)]];
+    [self asynchronousSetImageView:[self currentKenBurnsView] imageObject:[self imageObjectWithItem:item]];
+    [self asynchronousSetImageView:[self previousKenBurnsView] imageObject:[self imageObjectWithItem:(item - 1)]];
+    [self asynchronousSetImageView:[self nextKenBurnsView] imageObject:[self imageObjectWithItem:(item + 1)]];
 
-    [[self currentTitleView] setImageObject:self.images[[self validateItem:item]]];
-    [[self previousTitleView] setImageObject:self.images[[self validateItem:(item -1 )]]];
-    [[self nextTitleView] setImageObject:self.images[[self validateItem:(item + 1)]]];
+    [[self currentTitleView] setImageObject:[self imageObjectWithItem:item]];
+    [[self previousTitleView] setImageObject:[self imageObjectWithItem:(item - 1)]];
+    [[self nextTitleView] setImageObject:[self imageObjectWithItem:(item + 1)]];
 
     [self insertSubview:[self nextKenBurnsView] atIndex:0];
     [self insertSubview:[self currentKenBurnsView] atIndex:2];
@@ -114,10 +114,23 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     }
 }
 
-- (UIImage *)imageWithItem:(NSInteger)item
+- (CPKenBurnsImage *)imageObjectWithItem:(NSInteger)item
 {
     CPKenBurnsImage *image = self.images[[self validateItem:item]];
-    return image.image;
+    return image;
+}
+
+- (void)asynchronousSetImageView:(CPKenBurnsView *)imageView imageObject:(CPKenBurnsImage *)imageObject
+{
+    if (imageObject.image) {
+        imageView.image = imageObject.image;
+    } else {
+        if ([self.delegate respondsToSelector:@selector(slideshowView:downloadImageUrl:completionBlock:)]) {
+            [self.delegate slideshowView:self downloadImageUrl:imageObject.imageUrl completionBlock:^(UIImage *image) {
+                imageView.image = image;
+            }];
+        }
+    }
 }
 
 - (CPKenBurnsView *)currentKenBurnsView
@@ -204,11 +217,11 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     [self setPreviousKenBurnsView:currentView];
     [self setCurrentKenBurnsView:nextView];
     [self setNextKenBurnsView:previousView];
-    [[self nextKenBurnsView] setImage:[self imageWithItem:item]];
+    [self asynchronousSetImageView:[self nextKenBurnsView] imageObject:[self imageObjectWithItem:item]];
 
-    [[self currentTitleView] setImageObject:self.images[[self validateItem:currentItem]]];
-    [[self previousTitleView] setImageObject:self.images[[self validateItem:(currentItem-1)]]];
-    [[self nextTitleView] setImageObject:self.images[[self validateItem:item]]];
+    [[self currentTitleView] setImageObject:[self imageObjectWithItem:currentItem]];
+    [[self previousTitleView] setImageObject:[self imageObjectWithItem:(currentItem - 1)]];
+    [[self nextTitleView] setImageObject:[self imageObjectWithItem:(item)]];
 
     [[self previousKenBurnsView] setAlpha:1];
     [[self currentKenBurnsView] setAlpha:1];
@@ -236,11 +249,11 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     [self setPreviousKenBurnsView:nextView];
     [self setNextKenBurnsView:currentView];
     [self setCurrentKenBurnsView:previousView];
-    [[self previousKenBurnsView] setImage:[self imageWithItem:item]];
+    [self asynchronousSetImageView:[self previousKenBurnsView] imageObject:[self imageObjectWithItem:item]];
 
-    [[self currentTitleView] setImageObject:self.images[[self validateItem:currentItem]]];
-    [[self previousTitleView] setImageObject:self.images[[self validateItem:item]]];
-    [[self nextTitleView] setImageObject:self.images[[self validateItem:(currentItem + 1)]]];
+    [[self currentTitleView] setImageObject:[self imageObjectWithItem:currentItem]];
+    [[self previousTitleView] setImageObject:[self imageObjectWithItem:item]];
+    [[self nextTitleView] setImageObject:[self imageObjectWithItem:(currentItem + 1)]];
 
     [[self previousKenBurnsView] setAlpha:1];
     [[self currentKenBurnsView] setAlpha:1];

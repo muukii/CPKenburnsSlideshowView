@@ -10,7 +10,7 @@
 #import "CPKenBurnsImage.h"
 #import "CPKenBurnsSlideshowView.h"
 #import "CPExampleTitleView.h"
-@interface CPViewController ()
+@interface CPViewController () <CPkenBurnsSlideshowViewDeleagte>
 @property (weak, nonatomic) IBOutlet CPKenBurnsSlideshowView *kenburnsSlideshowView;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 
@@ -33,6 +33,7 @@
     NSLog(@"%@",images);
     self.kenburnsSlideshowView.titleViewClass = [CPExampleTitleView class];
     self.kenburnsSlideshowView.images = images;
+    self.kenburnsSlideshowView.delegate = self;
 	// Do any additional setup after loading the view, typically from a nib.
 }
 - (void)viewDidAppear:(BOOL)animated
@@ -48,6 +49,11 @@
     CGRect rect = self.kenburnsSlideshowView.frame;
     rect.size.height = 320 + 170 * [(UISlider *)sender value];
     self.kenburnsSlideshowView.frame = rect;
+}
+
+- (void)slideshowView:(CPKenBurnsSlideshowView *)slideshowView downloadImageUrl:(NSURL *)imageUrl completionBlock:(DownloadCompletionBlock)completionBlock
+{
+    NSLog(@"%@",imageUrl.absoluteString);
 }
 
 @end

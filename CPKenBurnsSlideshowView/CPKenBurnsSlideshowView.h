@@ -24,5 +24,6 @@ typedef void(^DownloadCompletionBlock)(UIImage *image);
 
 @protocol CPkenBurnsSlideshowViewDeleagte <NSObject>
 @optional
+#warning まだ
 - (void)slideshowView:(CPKenBurnsSlideshowView *)slideshowView downloadImageUrl:(NSURL *)imageUrl completionBlock:(DownloadCompletionBlock)completionBlock;
 @end
