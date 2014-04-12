@@ -86,10 +86,12 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     self.gradientView = [[UIImageView alloc] initWithFrame:self.bounds];
     self.gradientView.contentMode = UIViewContentModeBottom;
     self.gradientView.image = kenBurnsGradationImage(CGSizeMake(CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)/3));
+    self.gradientView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 
     self.darkCoverView = [[UIView alloc] initWithFrame:self.bounds];
     self.darkCoverView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.7];
     self.darkCoverView.alpha = 0;
+    self.darkCoverView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self addSubview:self.darkCoverView];
     [self addSubview:self.gradientView];
     [self addSubview:self.scrollView];
@@ -366,7 +368,7 @@ kenBurnsGradationImage(CGSize size)
     NSArray* gradient2Colors = [NSArray arrayWithObjects:
                                 (id)color.CGColor,
                                 (id)color2.CGColor, nil];
-    CGFloat gradient2Locations[] = {0.05, 1};
+    CGFloat gradient2Locations[] = {0.05, 0.9};
     CGGradientRef gradient2 = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)gradient2Colors, gradient2Locations);
 
         //// Frames
