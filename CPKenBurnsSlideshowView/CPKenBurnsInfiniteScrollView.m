@@ -69,7 +69,7 @@
 {
     if (animated) {
         _animation = YES;
-        [UIView animateWithDuration:self.fadeDuration delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+        [UIView animateWithDuration:self.fadeDuration delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction animations:^{
             [super setContentOffset:contentOffset animated:NO];
         } completion:^(BOOL finished) {
             _animation = NO;
