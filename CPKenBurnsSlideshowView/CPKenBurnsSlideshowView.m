@@ -85,7 +85,7 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 
     self.gradientView = [[UIImageView alloc] initWithFrame:self.bounds];
     self.gradientView.contentMode = UIViewContentModeBottom;
-    self.gradientView.image = gradationImage(CGSizeMake(CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)/3));
+    self.gradientView.image = kenBurnsGradationImage(CGSizeMake(CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)/3));
 
     self.darkCoverView = [[UIView alloc] initWithFrame:self.bounds];
     self.darkCoverView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.7];
@@ -349,7 +349,7 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 }
 
 UIImage *
-gradationImage(CGSize size)
+kenBurnsGradationImage(CGSize size)
 {
 
     UIGraphicsBeginImageContextWithOptions(size, NO, 2);
