@@ -23,7 +23,7 @@
     [super viewDidLoad];
 
     NSMutableArray *images = [NSMutableArray array];
-    for (int i = 1; i < 18; i++) {
+    for (int i = 1; i < 13; i++) {
         CPKenBurnsImage *image = [CPKenBurnsImage new];
         image.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d.jpg",i]];
         image.title = [NSString stringWithFormat:@"%d",i];

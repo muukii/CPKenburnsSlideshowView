@@ -96,6 +96,10 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 
 - (void)setImages:(NSArray *)images
 {
+    if (images.count == 0) {
+        self.scrollView.scrollEnabled = NO;
+        return;
+    }
     _images = images;
     self.currentItem = 0;
     [self updateImages:self.currentItem];
