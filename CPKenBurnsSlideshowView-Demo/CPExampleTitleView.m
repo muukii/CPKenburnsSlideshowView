@@ -21,7 +21,7 @@
 - (void)configureView
 {
     [super configureView];
-    self.titleLabel.backgroundColor = [UIColor grayColor];
+//    self.titleLabel.backgroundColor = [UIColor grayColor];
 }
 
 - (void)setImageObject:(CPKenBurnsImage *)imageObject

@@ -11,7 +11,6 @@
 
 @interface CPKenBurnsSlideshowTitleView : UIView
 @property (nonatomic, strong) CPKenBurnsImage *imageObject;
-
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *subTitleLabel;
 @property (nonatomic, strong) NSString *title;

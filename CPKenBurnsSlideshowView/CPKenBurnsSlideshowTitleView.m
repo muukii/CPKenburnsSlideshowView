@@ -10,6 +10,7 @@
 @interface CPKenBurnsSlideshowTitleView ()
 
 @end
+
 @implementation CPKenBurnsSlideshowTitleView
 
 - (id)initWithFrame:(CGRect)frame
@@ -26,10 +27,12 @@
     self.backgroundColor = [UIColor clearColor];
     self.opaque = NO;
 
-    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.bounds) - 30, 200, 20)];
-    self.titleLabel.backgroundColor = [UIColor blueColor];
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, CGRectGetHeight(self.bounds) - 60, 250, 20)];
+    self.titleLabel.backgroundColor = [UIColor clearColor];
+    self.titleLabel.textColor = [UIColor whiteColor];
     self.titleLabel.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
-    self.subTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+    self.subTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, CGRectGetHeight(self.bounds) - 40, 250, 20)];
+    self.subTitleLabel.textColor = [UIColor whiteColor];
 
     [self addSubview:self.titleLabel];
     [self addSubview:self.subTitleLabel];

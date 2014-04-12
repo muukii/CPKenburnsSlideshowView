@@ -16,7 +16,8 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 @property (nonatomic, strong) CPKenBurnsInfiniteScrollView *scrollView;
 @property (nonatomic, assign) NSInteger currentItem;
 @property (nonatomic, strong) NSTimer *timer;
-
+@property (nonatomic, strong) UIImageView *gradientView;
+@property (nonatomic, strong) UIView *darkCoverView;
 @end
 
 @implementation CPKenBurnsSlideshowView
@@ -81,6 +82,16 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
         [self.kenburnsTitleViews addObject:titleView];
         [self.scrollView addSubview:titleView];
     }
+
+    self.gradientView = [[UIImageView alloc] initWithFrame:self.bounds];
+    self.gradientView.contentMode = UIViewContentModeBottom;
+    self.gradientView.image = gradationImage(CGSizeMake(CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)/3));
+
+    self.darkCoverView = [[UIView alloc] initWithFrame:self.bounds];
+    self.darkCoverView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.7];
+    self.darkCoverView.alpha = 0;
+    [self addSubview:self.darkCoverView];
+    [self addSubview:self.gradientView];
     [self addSubview:self.scrollView];
 }
 
@@ -241,9 +252,13 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     const CGFloat width = CGRectGetWidth(self.bounds);
 
     CGFloat _alpha = cos((180 * fabsf((scrollView.contentOffset.x-width)/width)) * M_PI / 180.0)/2 + 0.5;
+    CGFloat _darkCoverAlpha = sin(180*(fabsf((scrollView.contentOffset.x-width)/width)) * M_PI / 180.0) - 0.4;
+    NSLog(@"%f",_darkCoverAlpha);
     if (_alpha > 0.999) {
         _alpha = 1.f;
     }
+
+    self.darkCoverView.alpha = _darkCoverAlpha;
 
     if (ceilf((scrollView.contentOffset.x - width)) < 0) {
             //drag right
@@ -332,5 +347,62 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
         view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     }];
 }
+
+UIImage *
+gradationImage(CGSize size)
+{
+
+    UIGraphicsBeginImageContextWithOptions(size, NO, 2);
+
+        //// General Declarations
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef context = UIGraphicsGetCurrentContext();
+
+        //// Color Declarations
+    UIColor* color = [UIColor colorWithRed: 0 green: 0 blue: 0 alpha: 1];
+    UIColor* color2 = [UIColor colorWithRed: 0 green: 0 blue: 0 alpha: 0];
+
+        //// Gradient Declarations
+    NSArray* gradient2Colors = [NSArray arrayWithObjects:
+                                (id)color.CGColor,
+                                (id)color2.CGColor, nil];
+    CGFloat gradient2Locations[] = {0.05, 1};
+    CGGradientRef gradient2 = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)gradient2Colors, gradient2Locations);
+
+        //// Frames
+    CGRect frame = CGRectMake(0, 0,size.width,size.height);
+
+
+        //// GradientOverlay2 Drawing
+    UIBezierPath* gradientOverlay2Path = [UIBezierPath bezierPath];
+    [gradientOverlay2Path moveToPoint: CGPointMake(CGRectGetMinX(frame), CGRectGetMinY(frame) + 1)];
+    [gradientOverlay2Path addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 320, CGRectGetMinY(frame))];
+    [gradientOverlay2Path addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 320, CGRectGetMinY(frame) + 130)];
+    [gradientOverlay2Path addLineToPoint: CGPointMake(CGRectGetMinX(frame), CGRectGetMinY(frame) + 131)];
+    [gradientOverlay2Path addLineToPoint: CGPointMake(CGRectGetMinX(frame), CGRectGetMinY(frame) + 1)];
+    [gradientOverlay2Path closePath];
+    CGContextSaveGState(context);
+    [gradientOverlay2Path addClip];
+    CGRect gradientOverlay2Bounds = CGPathGetPathBoundingBox(gradientOverlay2Path.CGPath);
+    CGContextDrawLinearGradient(context, gradient2,
+                                CGPointMake(CGRectGetMidX(gradientOverlay2Bounds) + 0 * CGRectGetWidth(gradientOverlay2Bounds) / 320, CGRectGetMidY(gradientOverlay2Bounds) + 65.5 * CGRectGetHeight(gradientOverlay2Bounds) / 131),
+                                CGPointMake(CGRectGetMidX(gradientOverlay2Bounds) + 0 * CGRectGetWidth(gradientOverlay2Bounds) / 320, CGRectGetMidY(gradientOverlay2Bounds) + -65.5 * CGRectGetHeight(gradientOverlay2Bounds) / 131),
+                                kCGGradientDrawsBeforeStartLocation | kCGGradientDrawsAfterEndLocation);
+    CGContextRestoreGState(context);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+
+        //// Cleanup
+    CGGradientRelease(gradient2);
+    CGColorSpaceRelease(colorSpace);
+    
+
+
+    UIGraphicsEndImageContext();
+    
+    return image;
+    
+}
+
 
 @end
