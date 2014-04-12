@@ -3,7 +3,6 @@
 #import "CPKenBurnsInfiniteScrollView.h"
 #import "CPKenBurnsImage.h"
 #import "CPKenBurnsView.h"
-#import <QuartzCore/QuartzCore.h>
 
 typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     CPKenBurnsSlideshowViewOrderPrevious = 0,
