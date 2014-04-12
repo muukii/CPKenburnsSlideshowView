@@ -44,7 +44,6 @@
 		4B96FE3718F3005B004280EF /* CPExampleTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B96FE3618F3005B004280EF /* CPExampleTitleView.m */; };
 		4BDFF03818F27D4900306C73 /* CPKenBurnsSlideshowTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDFF03718F27D4900306C73 /* CPKenBurnsSlideshowTitleView.m */; };
 		4BDFF03B18F2801A00306C73 /* CPKenBurnsInfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDFF03A18F2801A00306C73 /* CPKenBurnsInfiniteScrollView.m */; };
-		4BDFF03D18F284F800306C73 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BDFF03C18F284F800306C73 /* Reveal.framework */; };
 		4BDFF03F18F2850300306C73 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BDFF03E18F2850300306C73 /* QuartzCore.framework */; };
 		4BDFF04118F2850900306C73 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BDFF04018F2850900306C73 /* CFNetwork.framework */; };
 /* End PBXBuildFile section */
@@ -108,7 +107,6 @@
 		4BDFF03718F27D4900306C73 /* CPKenBurnsSlideshowTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPKenBurnsSlideshowTitleView.m; sourceTree = "<group>"; };
 		4BDFF03918F2801A00306C73 /* CPKenBurnsInfiniteScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPKenBurnsInfiniteScrollView.h; sourceTree = "<group>"; };
 		4BDFF03A18F2801A00306C73 /* CPKenBurnsInfiniteScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPKenBurnsInfiniteScrollView.m; sourceTree = "<group>"; };
-		4BDFF03C18F284F800306C73 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		4BDFF03E18F2850300306C73 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4BDFF04018F2850900306C73 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -123,7 +121,6 @@
 				4B61799D18F244E60005CA97 /* CoreGraphics.framework in Frameworks */,
 				4B61799F18F244E60005CA97 /* UIKit.framework in Frameworks */,
 				4B61799B18F244E60005CA97 /* Foundation.framework in Frameworks */,
-				4BDFF03D18F284F800306C73 /* Reveal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,7 +140,6 @@
 		4B61798E18F244E60005CA97 = {
 			isa = PBXGroup;
 			children = (
-				4BDFF03C18F284F800306C73 /* Reveal.framework */,
 				4B617A8A18F253B30005CA97 /* CPKenBurnsSlideshowView */,
 				4B6179A018F244E60005CA97 /* CPKenBurnsSlideshowView-Demo */,
 				4B6179BF18F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests */,
