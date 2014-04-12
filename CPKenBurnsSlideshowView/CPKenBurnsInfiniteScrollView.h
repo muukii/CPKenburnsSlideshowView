@@ -11,6 +11,7 @@
 @interface CPKenBurnsInfiniteScrollView : UIScrollView <UIScrollViewDelegate>
 @property (nonatomic, assign) NSInteger currentItem;
 @property (nonatomic, assign) id <CPKenBurnsInfiniteScrollViewDelegate> callBack;
+@property (nonatomic, assign) CGFloat fadeDuration;
 @end
 @protocol CPKenBurnsInfiniteScrollViewDelegate <NSObject>
 @optional

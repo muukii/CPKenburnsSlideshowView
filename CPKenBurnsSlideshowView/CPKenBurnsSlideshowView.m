@@ -3,6 +3,7 @@
 #import "CPKenBurnsInfiniteScrollView.h"
 #import "CPKenBurnsImage.h"
 #import "CPKenBurnsView.h"
+#import <QuartzCore/QuartzCore.h>
 
 typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     CPKenBurnsSlideshowViewOrderPrevious = 0,
@@ -26,6 +27,7 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     if (self) {
         self.titleViewClass = [CPKenBurnsSlideshowTitleView class];
         [self configureView];
+        [self configureParameter];
     }
     return self;
 }
@@ -36,13 +38,14 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     if (self) {
         self.titleViewClass = [CPKenBurnsSlideshowTitleView class];
         [self configureView];
+        [self configureParameter];
     }
     return self;
 }
 
 - (void)configureParameter
 {
-    self.automaticFadeDuration = 2.f;
+    self.automaticFadeDuration = 1.5f;
     self.slideshowDuration = 13.f;
 }
 
@@ -94,6 +97,12 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     [self configureView];
 }
 
+- (void)setAutomaticFadeDuration:(CGFloat)automaticFadeDuration
+{
+    _automaticFadeDuration = automaticFadeDuration;
+    self.scrollView.fadeDuration = automaticFadeDuration;
+}
+
 - (void)setImages:(NSArray *)images
 {
     if (images.count == 0) {
@@ -134,7 +143,7 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     if (item < 0) {
         NSInteger _item = (self.images.count) - (int)fabs(item) % self.images.count;
         return _item == self.images.count ? 0 : _item;
-    } else  if (self.images.count <= item) {
+    } else if (self.images.count <= item) {
         NSInteger _item = (item % (self.images.count));
         return _item;
     } else {
@@ -210,21 +219,16 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 {
     CGPoint currentOffset = self.scrollView.contentOffset;
     currentOffset.x += CGRectGetWidth(self.scrollView.bounds);
-
-    [UIView animateWithDuration:self.automaticFadeDuration delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionOverrideInheritedOptions | UIViewAnimationOptionOverrideInheritedDuration animations:^{
-        self.scrollView.contentOffset = currentOffset;
-    } completion:^(BOOL finished) {
-    }];
+    self.scrollView.fadeDuration = self.automaticFadeDuration;
+    [self.scrollView setContentOffset:currentOffset animated:YES];
 }
 
 - (void)scrollToPreviousPhoto
 {
     CGPoint currentOffset = self.scrollView.contentOffset;
     currentOffset.x -= CGRectGetWidth(self.scrollView.bounds);
-    [UIView animateWithDuration:self.automaticFadeDuration delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionOverrideInheritedOptions | UIViewAnimationOptionOverrideInheritedDuration animations:^{
-        self.scrollView.contentOffset = currentOffset;
-    } completion:^(BOOL finished) {
-    }];
+    self.scrollView.fadeDuration = self.automaticFadeDuration;
+    [self.scrollView setContentOffset:currentOffset animated:YES];
 }
 
 #pragma mark - UIScrollViewDelegate

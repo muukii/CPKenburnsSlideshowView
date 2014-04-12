@@ -13,6 +13,9 @@
 @end
 
 @implementation CPKenBurnsInfiniteScrollView
+{
+    BOOL _animation;
+}
 #pragma mark - Layout
 // recenter content periodically to achieve impression of infinite scrolling
 - (id)initWithFrame:(CGRect)frame
@@ -29,7 +32,6 @@
     CGFloat contentWidth = [self contentSize].width;
     CGFloat centerOffsetX = (contentWidth - [self bounds].size.width) / 2.0;
     CGFloat distanceFromCenter = (currentOffset.x - centerOffsetX);
-
 //    NSLog(@"%f",distanceFromCenter);
     if (distanceFromCenter > 0) {
             //next page
@@ -58,6 +60,24 @@
 {
     [super layoutSubviews];
 
-    [self recenterIfNecessary];
+    if (!_animation) {
+        [self recenterIfNecessary];
+    }
+}
+
+- (void)setContentOffset:(CGPoint)contentOffset animated:(BOOL)animated
+{
+    if (animated) {
+        _animation = YES;
+        [UIView animateWithDuration:self.fadeDuration delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+            [super setContentOffset:contentOffset animated:NO];
+        } completion:^(BOOL finished) {
+            _animation = NO;
+            [self recenterIfNecessary];
+        }];
+    } else {
+        [super setContentOffset:contentOffset animated:NO];
+    }
+
 }
 @end
