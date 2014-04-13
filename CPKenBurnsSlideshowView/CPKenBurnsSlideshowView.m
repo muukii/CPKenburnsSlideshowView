@@ -255,7 +255,6 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 
     CGFloat _alpha = cos((180 * fabsf((scrollView.contentOffset.x-width)/width)) * M_PI / 180.0)/2 + 0.5;
     CGFloat _darkCoverAlpha = sin(180*(fabsf((scrollView.contentOffset.x-width)/width)) * M_PI / 180.0) - 0.4;
-    NSLog(@"%f",_darkCoverAlpha);
     if (_alpha > 0.999) {
         _alpha = 1.f;
     }
