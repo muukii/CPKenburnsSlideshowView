@@ -229,8 +229,8 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 
 - (void)scrollToNextPhoto
 {
-    [[self previousKenBurnsView] setAlpha:1];
-    [[self nextKenBurnsView] setAlpha:0];
+    [[self previousKenBurnsView] setAlpha:0];
+    [[self nextKenBurnsView] setAlpha:1];
 
     CGPoint currentOffset = self.scrollView.contentOffset;
     currentOffset.x += CGRectGetWidth(self.scrollView.bounds);
@@ -240,9 +240,9 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 
 - (void)scrollToPreviousPhoto
 {
-    [[self previousKenBurnsView] setAlpha:0];
-    [[self nextKenBurnsView] setAlpha:1];
-    
+    [[self previousKenBurnsView] setAlpha:1];
+    [[self nextKenBurnsView] setAlpha:0];
+
     CGPoint currentOffset = self.scrollView.contentOffset;
     currentOffset.x -= CGRectGetWidth(self.scrollView.bounds);
     self.scrollView.fadeDuration = self.automaticFadeDuration;
