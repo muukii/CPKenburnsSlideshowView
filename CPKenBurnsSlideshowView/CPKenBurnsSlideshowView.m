@@ -47,6 +47,7 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 {
     self.automaticFadeDuration = 1.5f;
     self.slideshowDuration = 13.f;
+    self.slideshow = YES;
 }
 
 - (void)configureView
@@ -99,8 +100,10 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 
 - (void)configureTimer
 {
-    [self.timer invalidate];
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:13 target:self selector:@selector(scrollToNextPhoto) userInfo:nil repeats:YES];
+    if (self.slideshow) {
+        [self.timer invalidate];
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:13 target:self selector:@selector(scrollToNextPhoto) userInfo:nil repeats:YES];
+    }
 }
 
 - (void)setTitleViewClass:(Class)titleViewClass
@@ -113,6 +116,16 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 {
     _automaticFadeDuration = automaticFadeDuration;
     self.scrollView.fadeDuration = automaticFadeDuration;
+}
+
+- (void)setSlideshow:(BOOL)slideshow
+{
+    _slideshow = slideshow;
+    if (slideshow) {
+        [self configureTimer];
+    } else {
+        [self.timer invalidate];
+    }
 }
 
 - (void)setImages:(NSArray *)images
