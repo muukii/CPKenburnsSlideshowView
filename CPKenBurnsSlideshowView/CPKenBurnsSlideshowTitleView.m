@@ -38,6 +38,12 @@
     [self addSubview:self.subTitleLabel];
 }
 
+- (void)setImageObject:(CPKenBurnsImage *)imageObject
+{
+    self.titleLabel.text = imageObject.title;
+    self.subTitleLabel.text = imageObject.subTitle;
+}
+
 - (void)setTitle:(NSString *)title
 {
     _title = title;

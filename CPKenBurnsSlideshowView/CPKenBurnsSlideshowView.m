@@ -85,7 +85,7 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 
     self.gradientView = [[UIImageView alloc] initWithFrame:self.bounds];
     self.gradientView.contentMode = UIViewContentModeBottom;
-    self.gradientView.image = kenBurnsGradationImage(CGSizeMake(CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)/3));
+    self.gradientView.image = kenBurnsGradationImage(CGSizeMake(CGRectGetWidth(self.bounds), 110));
     self.gradientView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 
     self.darkCoverView = [[UIView alloc] initWithFrame:self.bounds];
@@ -366,7 +366,7 @@ kenBurnsGradationImage(CGSize size)
     CGContextRef context = UIGraphicsGetCurrentContext();
 
         //// Color Declarations
-    UIColor* color = [UIColor colorWithRed: 0 green: 0 blue: 0 alpha: 1];
+    UIColor* color = [UIColor colorWithRed: 0 green: 0 blue: 0 alpha: 0.9];
     UIColor* color2 = [UIColor colorWithRed: 0 green: 0 blue: 0 alpha: 0];
 
         //// Gradient Declarations
