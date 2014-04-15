@@ -178,6 +178,9 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 
 - (CPKenBurnsImage *)imageObjectWithItem:(NSInteger)item
 {
+    if( self.images == nil || self.images.count <= 0 ){
+        return nil;
+    }
     CPKenBurnsImage *image = self.images[[self validateItem:item]];
     return image;
 }
