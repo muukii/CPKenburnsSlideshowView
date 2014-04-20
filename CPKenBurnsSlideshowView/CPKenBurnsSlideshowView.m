@@ -64,6 +64,7 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     self.scrollView.delegate = self;
     self.scrollView.callBack = self;
     self.scrollView.pagingEnabled = YES;
+    self.scrollView.scrollsToTop = NO;
     self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     self.scrollView.contentOffset = CGPointMake(CGRectGetWidth(self.bounds), 0);
     self.scrollView.showsHorizontalScrollIndicator = NO;
