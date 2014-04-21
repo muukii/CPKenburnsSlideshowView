@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface CPKenBurnsImage : NSObject
-@property (nonatomic,assign) UIImage *image;
-@property (nonatomic,strong) NSURL *imageUrl;
-@property (nonatomic,assign) CGFloat latitude;
-@property (nonatomic,assign) CGFloat longitude;
-@property (nonatomic,strong) NSString *title;
-@property (nonatomic,strong) NSString *subTitle;
-@property (nonatomic,strong) NSString *locationDescription;
-@property (nonatomic,strong) NSDate *date;
+@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) NSURL *imageUrl;
+@property (nonatomic, assign) CGFloat latitude;
+@property (nonatomic, assign) CGFloat longitude;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *subTitle;
+@property (nonatomic, strong) NSString *locationDescription;
+@property (nonatomic, strong) NSDate *date;
 @end
