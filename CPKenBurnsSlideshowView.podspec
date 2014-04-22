@@ -9,4 +9,5 @@ s.platform     = :ios
 s.platform     = :ios, '7.0'
 s.source       = { :git => "https://github.com/muukii0803/CPKenburnsSlideshowView.git", :tag => "0.3.0" }
 s.source_files  = 'CPKenburnsSlideshowView', 'CPKenBurnsSlideshowView/*.{h,m}'
+s.dependency 'CPKenburnsView'
 end

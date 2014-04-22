@@ -1,612 +1,1724 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		4B61799B18F244E60005CA97 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B61799A18F244E60005CA97 /* Foundation.framework */; };
-		4B61799D18F244E60005CA97 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B61799C18F244E60005CA97 /* CoreGraphics.framework */; };
-		4B61799F18F244E60005CA97 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B61799E18F244E60005CA97 /* UIKit.framework */; };
-		4B6179A518F244E60005CA97 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179A318F244E60005CA97 /* InfoPlist.strings */; };
-		4B6179A718F244E60005CA97 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6179A618F244E60005CA97 /* main.m */; };
-		4B6179AB18F244E60005CA97 /* CPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6179AA18F244E60005CA97 /* CPAppDelegate.m */; };
-		4B6179AE18F244E60005CA97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179AC18F244E60005CA97 /* Main.storyboard */; };
-		4B6179B118F244E60005CA97 /* CPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6179B018F244E60005CA97 /* CPViewController.m */; };
-		4B6179B318F244E60005CA97 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179B218F244E60005CA97 /* Images.xcassets */; };
-		4B6179BA18F244E60005CA97 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B6179B918F244E60005CA97 /* XCTest.framework */; };
-		4B6179BB18F244E60005CA97 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B61799A18F244E60005CA97 /* Foundation.framework */; };
-		4B6179BC18F244E60005CA97 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B61799E18F244E60005CA97 /* UIKit.framework */; };
-		4B6179C418F244E60005CA97 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179C218F244E60005CA97 /* InfoPlist.strings */; };
-		4B6179C618F244E60005CA97 /* CPKenBurnsSlideshowView_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6179C518F244E60005CA97 /* CPKenBurnsSlideshowView_DemoTests.m */; };
-		4B617A2D18F253730005CA97 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179D018F253730005CA97 /* 1.jpg */; };
-		4B617A2E18F253730005CA97 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179D118F253730005CA97 /* 2.jpg */; };
-		4B617A2F18F253730005CA97 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179D218F253730005CA97 /* 3.jpg */; };
-		4B617A3018F253730005CA97 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179D318F253730005CA97 /* 4.jpg */; };
-		4B617A3118F253730005CA97 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179D418F253730005CA97 /* 5.jpg */; };
-		4B617A3218F253730005CA97 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179D518F253730005CA97 /* 6.jpg */; };
-		4B617A8D18F253E00005CA97 /* CPKenBurnsSlideshowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B617A8C18F253E00005CA97 /* CPKenBurnsSlideshowView.m */; };
-		4B617A9018F254380005CA97 /* CPKenBurnsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B617A8E18F254380005CA97 /* CPKenBurnsView.m */; };
-		4B617A9318F2580D0005CA97 /* CPKenBurnsImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B617A9218F2580D0005CA97 /* CPKenBurnsImage.m */; };
-		4B96FE2A18F2D785004280EF /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B96FE1F18F2D785004280EF /* 7.jpg */; };
-		4B96FE2B18F2D785004280EF /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B96FE2018F2D785004280EF /* 8.jpg */; };
-		4B96FE2C18F2D785004280EF /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B96FE2118F2D785004280EF /* 9.jpg */; };
-		4B96FE2D18F2D785004280EF /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B96FE2218F2D785004280EF /* 10.jpg */; };
-		4B96FE2E18F2D785004280EF /* 11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B96FE2318F2D785004280EF /* 11.jpg */; };
-		4B96FE2F18F2D785004280EF /* 12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B96FE2418F2D785004280EF /* 12.jpg */; };
-		4B96FE3018F2D785004280EF /* 13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B96FE2518F2D785004280EF /* 13.jpg */; };
-		4B96FE3118F2D785004280EF /* 14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B96FE2618F2D785004280EF /* 14.jpg */; };
-		4B96FE3218F2D785004280EF /* 15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B96FE2718F2D785004280EF /* 15.jpg */; };
-		4B96FE3318F2D785004280EF /* 16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B96FE2818F2D785004280EF /* 16.jpg */; };
-		4B96FE3418F2D785004280EF /* 17.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B96FE2918F2D785004280EF /* 17.jpg */; };
-		4B96FE3718F3005B004280EF /* CPExampleTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B96FE3618F3005B004280EF /* CPExampleTitleView.m */; };
-		4BDFF03818F27D4900306C73 /* CPKenBurnsSlideshowTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDFF03718F27D4900306C73 /* CPKenBurnsSlideshowTitleView.m */; };
-		4BDFF03B18F2801A00306C73 /* CPKenBurnsInfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDFF03A18F2801A00306C73 /* CPKenBurnsInfiniteScrollView.m */; };
-		4BDFF03F18F2850300306C73 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BDFF03E18F2850300306C73 /* QuartzCore.framework */; };
-		4BDFF04118F2850900306C73 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BDFF04018F2850900306C73 /* CFNetwork.framework */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		4B6179BD18F244E60005CA97 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4B61798F18F244E60005CA97 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4B61799618F244E60005CA97;
-			remoteInfo = "CPKenBurnsSlideshowView-Demo";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		4B61799718F244E60005CA97 /* CPKenBurnsSlideshowView-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CPKenBurnsSlideshowView-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B61799A18F244E60005CA97 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		4B61799C18F244E60005CA97 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		4B61799E18F244E60005CA97 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		4B6179A218F244E60005CA97 /* CPKenBurnsSlideshowView-Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CPKenBurnsSlideshowView-Demo-Info.plist"; sourceTree = "<group>"; };
-		4B6179A418F244E60005CA97 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4B6179A618F244E60005CA97 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4B6179A818F244E60005CA97 /* CPKenBurnsSlideshowView-Demo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CPKenBurnsSlideshowView-Demo-Prefix.pch"; sourceTree = "<group>"; };
-		4B6179A918F244E60005CA97 /* CPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPAppDelegate.h; sourceTree = "<group>"; };
-		4B6179AA18F244E60005CA97 /* CPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPAppDelegate.m; sourceTree = "<group>"; };
-		4B6179AD18F244E60005CA97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4B6179AF18F244E60005CA97 /* CPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPViewController.h; sourceTree = "<group>"; };
-		4B6179B018F244E60005CA97 /* CPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPViewController.m; sourceTree = "<group>"; };
-		4B6179B218F244E60005CA97 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		4B6179B818F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CPKenBurnsSlideshowView-DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B6179B918F244E60005CA97 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		4B6179C118F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CPKenBurnsSlideshowView-DemoTests-Info.plist"; sourceTree = "<group>"; };
-		4B6179C318F244E60005CA97 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4B6179C518F244E60005CA97 /* CPKenBurnsSlideshowView_DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPKenBurnsSlideshowView_DemoTests.m; sourceTree = "<group>"; };
-		4B6179D018F253730005CA97 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
-		4B6179D118F253730005CA97 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
-		4B6179D218F253730005CA97 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
-		4B6179D318F253730005CA97 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
-		4B6179D418F253730005CA97 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
-		4B6179D518F253730005CA97 /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
-		4B617A8B18F253E00005CA97 /* CPKenBurnsSlideshowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPKenBurnsSlideshowView.h; sourceTree = "<group>"; };
-		4B617A8C18F253E00005CA97 /* CPKenBurnsSlideshowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPKenBurnsSlideshowView.m; sourceTree = "<group>"; };
-		4B617A8E18F254380005CA97 /* CPKenBurnsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPKenBurnsView.m; sourceTree = "<group>"; };
-		4B617A8F18F254380005CA97 /* CPKenBurnsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPKenBurnsView.h; sourceTree = "<group>"; };
-		4B617A9118F2580D0005CA97 /* CPKenBurnsImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPKenBurnsImage.h; sourceTree = "<group>"; };
-		4B617A9218F2580D0005CA97 /* CPKenBurnsImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPKenBurnsImage.m; sourceTree = "<group>"; };
-		4B96FE1F18F2D785004280EF /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
-		4B96FE2018F2D785004280EF /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
-		4B96FE2118F2D785004280EF /* 9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpg; sourceTree = "<group>"; };
-		4B96FE2218F2D785004280EF /* 10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.jpg; sourceTree = "<group>"; };
-		4B96FE2318F2D785004280EF /* 11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 11.jpg; sourceTree = "<group>"; };
-		4B96FE2418F2D785004280EF /* 12.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 12.jpg; sourceTree = "<group>"; };
-		4B96FE2518F2D785004280EF /* 13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 13.jpg; sourceTree = "<group>"; };
-		4B96FE2618F2D785004280EF /* 14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 14.jpg; sourceTree = "<group>"; };
-		4B96FE2718F2D785004280EF /* 15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 15.jpg; sourceTree = "<group>"; };
-		4B96FE2818F2D785004280EF /* 16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 16.jpg; sourceTree = "<group>"; };
-		4B96FE2918F2D785004280EF /* 17.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 17.jpg; sourceTree = "<group>"; };
-		4B96FE3518F3005B004280EF /* CPExampleTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPExampleTitleView.h; sourceTree = "<group>"; };
-		4B96FE3618F3005B004280EF /* CPExampleTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPExampleTitleView.m; sourceTree = "<group>"; };
-		4BDFF03618F27D4900306C73 /* CPKenBurnsSlideshowTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPKenBurnsSlideshowTitleView.h; sourceTree = "<group>"; };
-		4BDFF03718F27D4900306C73 /* CPKenBurnsSlideshowTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPKenBurnsSlideshowTitleView.m; sourceTree = "<group>"; };
-		4BDFF03918F2801A00306C73 /* CPKenBurnsInfiniteScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPKenBurnsInfiniteScrollView.h; sourceTree = "<group>"; };
-		4BDFF03A18F2801A00306C73 /* CPKenBurnsInfiniteScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPKenBurnsInfiniteScrollView.m; sourceTree = "<group>"; };
-		4BDFF03E18F2850300306C73 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		4BDFF04018F2850900306C73 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		4B61799418F244E60005CA97 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4BDFF04118F2850900306C73 /* CFNetwork.framework in Frameworks */,
-				4BDFF03F18F2850300306C73 /* QuartzCore.framework in Frameworks */,
-				4B61799D18F244E60005CA97 /* CoreGraphics.framework in Frameworks */,
-				4B61799F18F244E60005CA97 /* UIKit.framework in Frameworks */,
-				4B61799B18F244E60005CA97 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4B6179B518F244E60005CA97 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4B6179BA18F244E60005CA97 /* XCTest.framework in Frameworks */,
-				4B6179BC18F244E60005CA97 /* UIKit.framework in Frameworks */,
-				4B6179BB18F244E60005CA97 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		4B61798E18F244E60005CA97 = {
-			isa = PBXGroup;
-			children = (
-				4B617A8A18F253B30005CA97 /* CPKenBurnsSlideshowView */,
-				4B6179A018F244E60005CA97 /* CPKenBurnsSlideshowView-Demo */,
-				4B6179BF18F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests */,
-				4B61799918F244E60005CA97 /* Frameworks */,
-				4B61799818F244E60005CA97 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		4B61799818F244E60005CA97 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4B61799718F244E60005CA97 /* CPKenBurnsSlideshowView-Demo.app */,
-				4B6179B818F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		4B61799918F244E60005CA97 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4BDFF04018F2850900306C73 /* CFNetwork.framework */,
-				4BDFF03E18F2850300306C73 /* QuartzCore.framework */,
-				4B61799A18F244E60005CA97 /* Foundation.framework */,
-				4B61799C18F244E60005CA97 /* CoreGraphics.framework */,
-				4B61799E18F244E60005CA97 /* UIKit.framework */,
-				4B6179B918F244E60005CA97 /* XCTest.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4B6179A018F244E60005CA97 /* CPKenBurnsSlideshowView-Demo */ = {
-			isa = PBXGroup;
-			children = (
-				4B6179A918F244E60005CA97 /* CPAppDelegate.h */,
-				4B6179AA18F244E60005CA97 /* CPAppDelegate.m */,
-				4B6179AC18F244E60005CA97 /* Main.storyboard */,
-				4B6179AF18F244E60005CA97 /* CPViewController.h */,
-				4B6179B018F244E60005CA97 /* CPViewController.m */,
-				4B96FE3518F3005B004280EF /* CPExampleTitleView.h */,
-				4B96FE3618F3005B004280EF /* CPExampleTitleView.m */,
-				4B6179CF18F252F00005CA97 /* images */,
-				4B6179B218F244E60005CA97 /* Images.xcassets */,
-				4B6179A118F244E60005CA97 /* Supporting Files */,
-			);
-			path = "CPKenBurnsSlideshowView-Demo";
-			sourceTree = "<group>";
-		};
-		4B6179A118F244E60005CA97 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4B6179A218F244E60005CA97 /* CPKenBurnsSlideshowView-Demo-Info.plist */,
-				4B6179A318F244E60005CA97 /* InfoPlist.strings */,
-				4B6179A618F244E60005CA97 /* main.m */,
-				4B6179A818F244E60005CA97 /* CPKenBurnsSlideshowView-Demo-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		4B6179BF18F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				4B6179C518F244E60005CA97 /* CPKenBurnsSlideshowView_DemoTests.m */,
-				4B6179C018F244E60005CA97 /* Supporting Files */,
-			);
-			path = "CPKenBurnsSlideshowView-DemoTests";
-			sourceTree = "<group>";
-		};
-		4B6179C018F244E60005CA97 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4B6179C118F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests-Info.plist */,
-				4B6179C218F244E60005CA97 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		4B6179CF18F252F00005CA97 /* images */ = {
-			isa = PBXGroup;
-			children = (
-				4B6179D018F253730005CA97 /* 1.jpg */,
-				4B6179D118F253730005CA97 /* 2.jpg */,
-				4B6179D218F253730005CA97 /* 3.jpg */,
-				4B6179D318F253730005CA97 /* 4.jpg */,
-				4B6179D418F253730005CA97 /* 5.jpg */,
-				4B6179D518F253730005CA97 /* 6.jpg */,
-				4B96FE1F18F2D785004280EF /* 7.jpg */,
-				4B96FE2018F2D785004280EF /* 8.jpg */,
-				4B96FE2118F2D785004280EF /* 9.jpg */,
-				4B96FE2218F2D785004280EF /* 10.jpg */,
-				4B96FE2318F2D785004280EF /* 11.jpg */,
-				4B96FE2418F2D785004280EF /* 12.jpg */,
-				4B96FE2518F2D785004280EF /* 13.jpg */,
-				4B96FE2618F2D785004280EF /* 14.jpg */,
-				4B96FE2718F2D785004280EF /* 15.jpg */,
-				4B96FE2818F2D785004280EF /* 16.jpg */,
-				4B96FE2918F2D785004280EF /* 17.jpg */,
-			);
-			path = images;
-			sourceTree = "<group>";
-		};
-		4B617A8A18F253B30005CA97 /* CPKenBurnsSlideshowView */ = {
-			isa = PBXGroup;
-			children = (
-				4B617A8B18F253E00005CA97 /* CPKenBurnsSlideshowView.h */,
-				4B617A8C18F253E00005CA97 /* CPKenBurnsSlideshowView.m */,
-				4BDFF03618F27D4900306C73 /* CPKenBurnsSlideshowTitleView.h */,
-				4BDFF03718F27D4900306C73 /* CPKenBurnsSlideshowTitleView.m */,
-				4B617A8F18F254380005CA97 /* CPKenBurnsView.h */,
-				4B617A8E18F254380005CA97 /* CPKenBurnsView.m */,
-				4B617A9118F2580D0005CA97 /* CPKenBurnsImage.h */,
-				4B617A9218F2580D0005CA97 /* CPKenBurnsImage.m */,
-				4BDFF03918F2801A00306C73 /* CPKenBurnsInfiniteScrollView.h */,
-				4BDFF03A18F2801A00306C73 /* CPKenBurnsInfiniteScrollView.m */,
-			);
-			path = CPKenBurnsSlideshowView;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		4B61799618F244E60005CA97 /* CPKenBurnsSlideshowView-Demo */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4B6179C918F244E60005CA97 /* Build configuration list for PBXNativeTarget "CPKenBurnsSlideshowView-Demo" */;
-			buildPhases = (
-				4B61799318F244E60005CA97 /* Sources */,
-				4B61799418F244E60005CA97 /* Frameworks */,
-				4B61799518F244E60005CA97 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "CPKenBurnsSlideshowView-Demo";
-			productName = "CPKenBurnsSlideshowView-Demo";
-			productReference = 4B61799718F244E60005CA97 /* CPKenBurnsSlideshowView-Demo.app */;
-			productType = "com.apple.product-type.application";
-		};
-		4B6179B718F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4B6179CC18F244E60005CA97 /* Build configuration list for PBXNativeTarget "CPKenBurnsSlideshowView-DemoTests" */;
-			buildPhases = (
-				4B6179B418F244E60005CA97 /* Sources */,
-				4B6179B518F244E60005CA97 /* Frameworks */,
-				4B6179B618F244E60005CA97 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4B6179BE18F244E60005CA97 /* PBXTargetDependency */,
-			);
-			name = "CPKenBurnsSlideshowView-DemoTests";
-			productName = "CPKenBurnsSlideshowView-DemoTests";
-			productReference = 4B6179B818F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		4B61798F18F244E60005CA97 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				CLASSPREFIX = CP;
-				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = Muukii;
-				TargetAttributes = {
-					4B6179B718F244E60005CA97 = {
-						TestTargetID = 4B61799618F244E60005CA97;
-					};
-				};
-			};
-			buildConfigurationList = 4B61799218F244E60005CA97 /* Build configuration list for PBXProject "CPKenBurnsSlideshowView-Demo" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = 4B61798E18F244E60005CA97;
-			productRefGroup = 4B61799818F244E60005CA97 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				4B61799618F244E60005CA97 /* CPKenBurnsSlideshowView-Demo */,
-				4B6179B718F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		4B61799518F244E60005CA97 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4B96FE2D18F2D785004280EF /* 10.jpg in Resources */,
-				4B96FE2B18F2D785004280EF /* 8.jpg in Resources */,
-				4B6179B318F244E60005CA97 /* Images.xcassets in Resources */,
-				4B617A2F18F253730005CA97 /* 3.jpg in Resources */,
-				4B617A3118F253730005CA97 /* 5.jpg in Resources */,
-				4B96FE3418F2D785004280EF /* 17.jpg in Resources */,
-				4B96FE2F18F2D785004280EF /* 12.jpg in Resources */,
-				4B96FE2E18F2D785004280EF /* 11.jpg in Resources */,
-				4B617A2D18F253730005CA97 /* 1.jpg in Resources */,
-				4B96FE3118F2D785004280EF /* 14.jpg in Resources */,
-				4B617A3018F253730005CA97 /* 4.jpg in Resources */,
-				4B96FE3018F2D785004280EF /* 13.jpg in Resources */,
-				4B6179A518F244E60005CA97 /* InfoPlist.strings in Resources */,
-				4B617A2E18F253730005CA97 /* 2.jpg in Resources */,
-				4B96FE2A18F2D785004280EF /* 7.jpg in Resources */,
-				4B96FE2C18F2D785004280EF /* 9.jpg in Resources */,
-				4B6179AE18F244E60005CA97 /* Main.storyboard in Resources */,
-				4B96FE3318F2D785004280EF /* 16.jpg in Resources */,
-				4B617A3218F253730005CA97 /* 6.jpg in Resources */,
-				4B96FE3218F2D785004280EF /* 15.jpg in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4B6179B618F244E60005CA97 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4B6179C418F244E60005CA97 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		4B61799318F244E60005CA97 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4B96FE3718F3005B004280EF /* CPExampleTitleView.m in Sources */,
-				4B617A9318F2580D0005CA97 /* CPKenBurnsImage.m in Sources */,
-				4B617A8D18F253E00005CA97 /* CPKenBurnsSlideshowView.m in Sources */,
-				4B617A9018F254380005CA97 /* CPKenBurnsView.m in Sources */,
-				4B6179A718F244E60005CA97 /* main.m in Sources */,
-				4B6179AB18F244E60005CA97 /* CPAppDelegate.m in Sources */,
-				4B6179B118F244E60005CA97 /* CPViewController.m in Sources */,
-				4BDFF03818F27D4900306C73 /* CPKenBurnsSlideshowTitleView.m in Sources */,
-				4BDFF03B18F2801A00306C73 /* CPKenBurnsInfiniteScrollView.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4B6179B418F244E60005CA97 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4B6179C618F244E60005CA97 /* CPKenBurnsSlideshowView_DemoTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		4B6179BE18F244E60005CA97 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4B61799618F244E60005CA97 /* CPKenBurnsSlideshowView-Demo */;
-			targetProxy = 4B6179BD18F244E60005CA97 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		4B6179A318F244E60005CA97 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4B6179A418F244E60005CA97 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		4B6179AC18F244E60005CA97 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4B6179AD18F244E60005CA97 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		4B6179C218F244E60005CA97 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4B6179C318F244E60005CA97 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		4B6179C718F244E60005CA97 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-			};
-			name = Debug;
-		};
-		4B6179C818F244E60005CA97 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		4B6179CA18F244E60005CA97 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Prefix.pch";
-				INFOPLIST_FILE = "CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		4B6179CB18F244E60005CA97 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Prefix.pch";
-				INFOPLIST_FILE = "CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		4B6179CD18F244E60005CA97 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CPKenBurnsSlideshowView-Demo.app/CPKenBurnsSlideshowView-Demo";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "CPKenBurnsSlideshowView-DemoTests/CPKenBurnsSlideshowView-DemoTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		4B6179CE18F244E60005CA97 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CPKenBurnsSlideshowView-Demo.app/CPKenBurnsSlideshowView-Demo";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Prefix.pch";
-				INFOPLIST_FILE = "CPKenBurnsSlideshowView-DemoTests/CPKenBurnsSlideshowView-DemoTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		4B61799218F244E60005CA97 /* Build configuration list for PBXProject "CPKenBurnsSlideshowView-Demo" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4B6179C718F244E60005CA97 /* Debug */,
-				4B6179C818F244E60005CA97 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4B6179C918F244E60005CA97 /* Build configuration list for PBXNativeTarget "CPKenBurnsSlideshowView-Demo" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4B6179CA18F244E60005CA97 /* Debug */,
-				4B6179CB18F244E60005CA97 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4B6179CC18F244E60005CA97 /* Build configuration list for PBXNativeTarget "CPKenBurnsSlideshowView-DemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4B6179CD18F244E60005CA97 /* Debug */,
-				4B6179CE18F244E60005CA97 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 4B61798F18F244E60005CA97 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>4B61798E18F244E60005CA97</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>4B617A8A18F253B30005CA97</string>
+				<string>4B6179A018F244E60005CA97</string>
+				<string>4B6179BF18F244E60005CA97</string>
+				<string>4B61799918F244E60005CA97</string>
+				<string>4B61799818F244E60005CA97</string>
+				<string>88E93781888B4D5B8CB898EC</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B61798F18F244E60005CA97</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>CLASSPREFIX</key>
+				<string>CP</string>
+				<key>LastUpgradeCheck</key>
+				<string>0510</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>Muukii</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>4B6179B718F244E60005CA97</key>
+					<dict>
+						<key>TestTargetID</key>
+						<string>4B61799618F244E60005CA97</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>4B61799218F244E60005CA97</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+				<string>Base</string>
+			</array>
+			<key>mainGroup</key>
+			<string>4B61798E18F244E60005CA97</string>
+			<key>productRefGroup</key>
+			<string>4B61799818F244E60005CA97</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>4B61799618F244E60005CA97</string>
+				<string>4B6179B718F244E60005CA97</string>
+			</array>
+		</dict>
+		<key>4B61799218F244E60005CA97</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>4B6179C718F244E60005CA97</string>
+				<string>4B6179C818F244E60005CA97</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>4B61799318F244E60005CA97</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>4B96FE3718F3005B004280EF</string>
+				<string>4B617A9318F2580D0005CA97</string>
+				<string>4B617A8D18F253E00005CA97</string>
+				<string>4B617A9018F254380005CA97</string>
+				<string>4B6179A718F244E60005CA97</string>
+				<string>4B6179AB18F244E60005CA97</string>
+				<string>4B6179B118F244E60005CA97</string>
+				<string>4BDFF03818F27D4900306C73</string>
+				<string>4BDFF03B18F2801A00306C73</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>4B61799418F244E60005CA97</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>4BDFF04118F2850900306C73</string>
+				<string>4BDFF03F18F2850300306C73</string>
+				<string>4B61799D18F244E60005CA97</string>
+				<string>4B61799F18F244E60005CA97</string>
+				<string>4B61799B18F244E60005CA97</string>
+				<string>FC51CC89B3E345429AB8DD62</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>4B61799518F244E60005CA97</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>4B96FE2D18F2D785004280EF</string>
+				<string>4B96FE2B18F2D785004280EF</string>
+				<string>4B6179B318F244E60005CA97</string>
+				<string>4B617A2F18F253730005CA97</string>
+				<string>4B617A3118F253730005CA97</string>
+				<string>4B96FE3418F2D785004280EF</string>
+				<string>4B96FE2F18F2D785004280EF</string>
+				<string>4B96FE2E18F2D785004280EF</string>
+				<string>4B617A2D18F253730005CA97</string>
+				<string>4B96FE3118F2D785004280EF</string>
+				<string>4B617A3018F253730005CA97</string>
+				<string>4B96FE3018F2D785004280EF</string>
+				<string>4B6179A518F244E60005CA97</string>
+				<string>4B617A2E18F253730005CA97</string>
+				<string>4B96FE2A18F2D785004280EF</string>
+				<string>4B96FE2C18F2D785004280EF</string>
+				<string>4B6179AE18F244E60005CA97</string>
+				<string>4B96FE3318F2D785004280EF</string>
+				<string>4B617A3218F253730005CA97</string>
+				<string>4B96FE3218F2D785004280EF</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>4B61799618F244E60005CA97</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>4B6179C918F244E60005CA97</string>
+			<key>buildPhases</key>
+			<array>
+				<string>92D3A2D6E9214AE7B4B3441A</string>
+				<string>4B61799318F244E60005CA97</string>
+				<string>4B61799418F244E60005CA97</string>
+				<string>4B61799518F244E60005CA97</string>
+				<string>D3B3A716F23E486D89DE7B96</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>CPKenBurnsSlideshowView-Demo</string>
+			<key>productName</key>
+			<string>CPKenBurnsSlideshowView-Demo</string>
+			<key>productReference</key>
+			<string>4B61799718F244E60005CA97</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>4B61799718F244E60005CA97</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>CPKenBurnsSlideshowView-Demo.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>4B61799818F244E60005CA97</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>4B61799718F244E60005CA97</string>
+				<string>4B6179B818F244E60005CA97</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B61799918F244E60005CA97</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>4BDFF04018F2850900306C73</string>
+				<string>4BDFF03E18F2850300306C73</string>
+				<string>4B61799A18F244E60005CA97</string>
+				<string>4B61799C18F244E60005CA97</string>
+				<string>4B61799E18F244E60005CA97</string>
+				<string>4B6179B918F244E60005CA97</string>
+				<string>A32354C200954C8382E9745F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B61799A18F244E60005CA97</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Foundation.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/Foundation.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>4B61799B18F244E60005CA97</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B61799A18F244E60005CA97</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B61799C18F244E60005CA97</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>CoreGraphics.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/CoreGraphics.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>4B61799D18F244E60005CA97</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B61799C18F244E60005CA97</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B61799E18F244E60005CA97</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>UIKit.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/UIKit.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>4B61799F18F244E60005CA97</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B61799E18F244E60005CA97</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B6179A018F244E60005CA97</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>4B6179A918F244E60005CA97</string>
+				<string>4B6179AA18F244E60005CA97</string>
+				<string>4B6179AC18F244E60005CA97</string>
+				<string>4B6179AF18F244E60005CA97</string>
+				<string>4B6179B018F244E60005CA97</string>
+				<string>4B96FE3518F3005B004280EF</string>
+				<string>4B96FE3618F3005B004280EF</string>
+				<string>4B6179CF18F252F00005CA97</string>
+				<string>4B6179B218F244E60005CA97</string>
+				<string>4B6179A118F244E60005CA97</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>CPKenBurnsSlideshowView-Demo</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179A118F244E60005CA97</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>4B6179A218F244E60005CA97</string>
+				<string>4B6179A318F244E60005CA97</string>
+				<string>4B6179A618F244E60005CA97</string>
+				<string>4B6179A818F244E60005CA97</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179A218F244E60005CA97</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>CPKenBurnsSlideshowView-Demo-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179A318F244E60005CA97</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>4B6179A418F244E60005CA97</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179A418F244E60005CA97</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.strings</string>
+			<key>name</key>
+			<string>en</string>
+			<key>path</key>
+			<string>en.lproj/InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179A518F244E60005CA97</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B6179A318F244E60005CA97</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B6179A618F244E60005CA97</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>main.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179A718F244E60005CA97</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B6179A618F244E60005CA97</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B6179A818F244E60005CA97</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>CPKenBurnsSlideshowView-Demo-Prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179A918F244E60005CA97</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>CPAppDelegate.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179AA18F244E60005CA97</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>CPAppDelegate.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179AB18F244E60005CA97</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B6179AA18F244E60005CA97</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B6179AC18F244E60005CA97</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>4B6179AD18F244E60005CA97</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179AD18F244E60005CA97</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179AE18F244E60005CA97</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B6179AC18F244E60005CA97</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B6179AF18F244E60005CA97</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>CPViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179B018F244E60005CA97</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>CPViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179B118F244E60005CA97</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B6179B018F244E60005CA97</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B6179B218F244E60005CA97</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Images.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179B318F244E60005CA97</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B6179B218F244E60005CA97</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B6179B418F244E60005CA97</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>4B6179C618F244E60005CA97</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>4B6179B518F244E60005CA97</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>4B6179BA18F244E60005CA97</string>
+				<string>4B6179BC18F244E60005CA97</string>
+				<string>4B6179BB18F244E60005CA97</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>4B6179B618F244E60005CA97</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>4B6179C418F244E60005CA97</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>4B6179B718F244E60005CA97</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>4B6179CC18F244E60005CA97</string>
+			<key>buildPhases</key>
+			<array>
+				<string>4B6179B418F244E60005CA97</string>
+				<string>4B6179B518F244E60005CA97</string>
+				<string>4B6179B618F244E60005CA97</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>4B6179BE18F244E60005CA97</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>CPKenBurnsSlideshowView-DemoTests</string>
+			<key>productName</key>
+			<string>CPKenBurnsSlideshowView-DemoTests</string>
+			<key>productReference</key>
+			<string>4B6179B818F244E60005CA97</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.unit-test</string>
+		</dict>
+		<key>4B6179B818F244E60005CA97</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>CPKenBurnsSlideshowView-DemoTests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>4B6179B918F244E60005CA97</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>XCTest.framework</string>
+			<key>path</key>
+			<string>Library/Frameworks/XCTest.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>4B6179BA18F244E60005CA97</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B6179B918F244E60005CA97</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B6179BB18F244E60005CA97</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B61799A18F244E60005CA97</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B6179BC18F244E60005CA97</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B61799E18F244E60005CA97</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B6179BD18F244E60005CA97</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>4B61798F18F244E60005CA97</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>4B61799618F244E60005CA97</string>
+			<key>remoteInfo</key>
+			<string>CPKenBurnsSlideshowView-Demo</string>
+		</dict>
+		<key>4B6179BE18F244E60005CA97</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>4B61799618F244E60005CA97</string>
+			<key>targetProxy</key>
+			<string>4B6179BD18F244E60005CA97</string>
+		</dict>
+		<key>4B6179BF18F244E60005CA97</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>4B6179C518F244E60005CA97</string>
+				<string>4B6179C018F244E60005CA97</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>CPKenBurnsSlideshowView-DemoTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179C018F244E60005CA97</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>4B6179C118F244E60005CA97</string>
+				<string>4B6179C218F244E60005CA97</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179C118F244E60005CA97</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>CPKenBurnsSlideshowView-DemoTests-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179C218F244E60005CA97</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>4B6179C318F244E60005CA97</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179C318F244E60005CA97</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.strings</string>
+			<key>name</key>
+			<string>en</string>
+			<key>path</key>
+			<string>en.lproj/InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179C418F244E60005CA97</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B6179C218F244E60005CA97</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B6179C518F244E60005CA97</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>CPKenBurnsSlideshowView_DemoTests.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179C618F244E60005CA97</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B6179C518F244E60005CA97</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B6179C718F244E60005CA97</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.1</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>4B6179C818F244E60005CA97</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.1</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>4B6179C918F244E60005CA97</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>4B6179CA18F244E60005CA97</string>
+				<string>4B6179CB18F244E60005CA97</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>4B6179CA18F244E60005CA97</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>88E93781888B4D5B8CB898EC</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
+				<string>LaunchImage</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>$(PROJECT_DIR)</string>
+				</array>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Info.plist</string>
+				<key>OTHER_LDFLAGS</key>
+				<string>-ObjC</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>app</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>4B6179CB18F244E60005CA97</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>88E93781888B4D5B8CB898EC</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
+				<string>LaunchImage</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>$(PROJECT_DIR)</string>
+				</array>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Info.plist</string>
+				<key>OTHER_LDFLAGS</key>
+				<string>-ObjC</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>app</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>4B6179CC18F244E60005CA97</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>4B6179CD18F244E60005CA97</string>
+				<string>4B6179CE18F244E60005CA97</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>4B6179CD18F244E60005CA97</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(BUILT_PRODUCTS_DIR)/CPKenBurnsSlideshowView-Demo.app/CPKenBurnsSlideshowView-Demo</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(inherited)</string>
+					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
+				</array>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Prefix.pch</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>CPKenBurnsSlideshowView-DemoTests/CPKenBurnsSlideshowView-DemoTests-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_HOST</key>
+				<string>$(BUNDLE_LOADER)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>xctest</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>4B6179CE18F244E60005CA97</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(BUILT_PRODUCTS_DIR)/CPKenBurnsSlideshowView-Demo.app/CPKenBurnsSlideshowView-Demo</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(inherited)</string>
+					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
+				</array>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>CPKenBurnsSlideshowView-DemoTests/CPKenBurnsSlideshowView-DemoTests-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_HOST</key>
+				<string>$(BUNDLE_LOADER)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>xctest</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>4B6179CF18F252F00005CA97</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>4B6179D018F253730005CA97</string>
+				<string>4B6179D118F253730005CA97</string>
+				<string>4B6179D218F253730005CA97</string>
+				<string>4B6179D318F253730005CA97</string>
+				<string>4B6179D418F253730005CA97</string>
+				<string>4B6179D518F253730005CA97</string>
+				<string>4B96FE1F18F2D785004280EF</string>
+				<string>4B96FE2018F2D785004280EF</string>
+				<string>4B96FE2118F2D785004280EF</string>
+				<string>4B96FE2218F2D785004280EF</string>
+				<string>4B96FE2318F2D785004280EF</string>
+				<string>4B96FE2418F2D785004280EF</string>
+				<string>4B96FE2518F2D785004280EF</string>
+				<string>4B96FE2618F2D785004280EF</string>
+				<string>4B96FE2718F2D785004280EF</string>
+				<string>4B96FE2818F2D785004280EF</string>
+				<string>4B96FE2918F2D785004280EF</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>images</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179D018F253730005CA97</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.jpeg</string>
+			<key>path</key>
+			<string>1.jpg</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179D118F253730005CA97</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.jpeg</string>
+			<key>path</key>
+			<string>2.jpg</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179D218F253730005CA97</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.jpeg</string>
+			<key>path</key>
+			<string>3.jpg</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179D318F253730005CA97</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.jpeg</string>
+			<key>path</key>
+			<string>4.jpg</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179D418F253730005CA97</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.jpeg</string>
+			<key>path</key>
+			<string>5.jpg</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B6179D518F253730005CA97</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.jpeg</string>
+			<key>path</key>
+			<string>6.jpg</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B617A2D18F253730005CA97</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B6179D018F253730005CA97</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B617A2E18F253730005CA97</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B6179D118F253730005CA97</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B617A2F18F253730005CA97</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B6179D218F253730005CA97</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B617A3018F253730005CA97</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B6179D318F253730005CA97</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B617A3118F253730005CA97</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B6179D418F253730005CA97</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B617A3218F253730005CA97</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B6179D518F253730005CA97</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B617A8A18F253B30005CA97</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>4B617A8B18F253E00005CA97</string>
+				<string>4B617A8C18F253E00005CA97</string>
+				<string>4BDFF03618F27D4900306C73</string>
+				<string>4BDFF03718F27D4900306C73</string>
+				<string>4B617A8F18F254380005CA97</string>
+				<string>4B617A8E18F254380005CA97</string>
+				<string>4B617A9118F2580D0005CA97</string>
+				<string>4B617A9218F2580D0005CA97</string>
+				<string>4BDFF03918F2801A00306C73</string>
+				<string>4BDFF03A18F2801A00306C73</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>CPKenBurnsSlideshowView</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B617A8B18F253E00005CA97</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>CPKenBurnsSlideshowView.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B617A8C18F253E00005CA97</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>CPKenBurnsSlideshowView.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B617A8D18F253E00005CA97</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B617A8C18F253E00005CA97</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B617A8E18F254380005CA97</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>CPKenBurnsView.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B617A8F18F254380005CA97</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>CPKenBurnsView.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B617A9018F254380005CA97</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B617A8E18F254380005CA97</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B617A9118F2580D0005CA97</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>CPKenBurnsImage.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B617A9218F2580D0005CA97</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>CPKenBurnsImage.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B617A9318F2580D0005CA97</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B617A9218F2580D0005CA97</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B96FE1F18F2D785004280EF</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.jpeg</string>
+			<key>path</key>
+			<string>7.jpg</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B96FE2018F2D785004280EF</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.jpeg</string>
+			<key>path</key>
+			<string>8.jpg</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B96FE2118F2D785004280EF</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.jpeg</string>
+			<key>path</key>
+			<string>9.jpg</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B96FE2218F2D785004280EF</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.jpeg</string>
+			<key>path</key>
+			<string>10.jpg</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B96FE2318F2D785004280EF</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.jpeg</string>
+			<key>path</key>
+			<string>11.jpg</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B96FE2418F2D785004280EF</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.jpeg</string>
+			<key>path</key>
+			<string>12.jpg</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B96FE2518F2D785004280EF</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.jpeg</string>
+			<key>path</key>
+			<string>13.jpg</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B96FE2618F2D785004280EF</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.jpeg</string>
+			<key>path</key>
+			<string>14.jpg</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B96FE2718F2D785004280EF</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.jpeg</string>
+			<key>path</key>
+			<string>15.jpg</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B96FE2818F2D785004280EF</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.jpeg</string>
+			<key>path</key>
+			<string>16.jpg</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B96FE2918F2D785004280EF</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.jpeg</string>
+			<key>path</key>
+			<string>17.jpg</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B96FE2A18F2D785004280EF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B96FE1F18F2D785004280EF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B96FE2B18F2D785004280EF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B96FE2018F2D785004280EF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B96FE2C18F2D785004280EF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B96FE2118F2D785004280EF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B96FE2D18F2D785004280EF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B96FE2218F2D785004280EF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B96FE2E18F2D785004280EF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B96FE2318F2D785004280EF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B96FE2F18F2D785004280EF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B96FE2418F2D785004280EF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B96FE3018F2D785004280EF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B96FE2518F2D785004280EF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B96FE3118F2D785004280EF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B96FE2618F2D785004280EF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B96FE3218F2D785004280EF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B96FE2718F2D785004280EF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B96FE3318F2D785004280EF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B96FE2818F2D785004280EF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B96FE3418F2D785004280EF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B96FE2918F2D785004280EF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B96FE3518F3005B004280EF</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>CPExampleTitleView.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B96FE3618F3005B004280EF</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>CPExampleTitleView.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4B96FE3718F3005B004280EF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B96FE3618F3005B004280EF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4BDFF03618F27D4900306C73</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>CPKenBurnsSlideshowTitleView.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4BDFF03718F27D4900306C73</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>CPKenBurnsSlideshowTitleView.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4BDFF03818F27D4900306C73</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4BDFF03718F27D4900306C73</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4BDFF03918F2801A00306C73</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>CPKenBurnsInfiniteScrollView.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4BDFF03A18F2801A00306C73</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>CPKenBurnsInfiniteScrollView.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4BDFF03B18F2801A00306C73</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4BDFF03A18F2801A00306C73</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4BDFF03E18F2850300306C73</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>QuartzCore.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/QuartzCore.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>4BDFF03F18F2850300306C73</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4BDFF03E18F2850300306C73</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4BDFF04018F2850900306C73</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>CFNetwork.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/CFNetwork.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>4BDFF04118F2850900306C73</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4BDFF04018F2850900306C73</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>88E93781888B4D5B8CB898EC</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-CPKenBurnsSlideshowView-Demo.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Pods-CPKenBurnsSlideshowView-Demo.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>92D3A2D6E9214AE7B4B3441A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>A32354C200954C8382E9745F</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-CPKenBurnsSlideshowView-Demo.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>D3B3A716F23E486D89DE7B96</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Pods-CPKenBurnsSlideshowView-Demo-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>FC51CC89B3E345429AB8DD62</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A32354C200954C8382E9745F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>4B61798F18F244E60005CA97</string>
+</dict>
+</plist>
