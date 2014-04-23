@@ -17,9 +17,9 @@ typedef void(^DownloadCompletionBlock)(UIImage *image);
 - (id)initWithFrame:(CGRect)frame;
 @property (nonatomic, assign) id <CPKenburnsSlideshowViewDeleagte> delegate;
 @property (nonatomic, strong) NSArray *images;
-@property (nonatomic, assign) BOOL slideshow;
-@property (nonatomic, assign) CGFloat slideshowDuration;
-@property (nonatomic, assign) CGFloat automaticFadeDuration;
+@property (nonatomic, assign) BOOL slideshow; //Auto paging
+@property (nonatomic, assign) CGFloat slideshowDuration; // default 10.f
+@property (nonatomic, assign) CGFloat automaticFadeDuration; // default 1.5f
 @property (nonatomic, assign) Class titleViewClass;
 
 @end

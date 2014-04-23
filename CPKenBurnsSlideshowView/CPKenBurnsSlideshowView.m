@@ -46,7 +46,7 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 - (void)configureParameter
 {
     self.automaticFadeDuration = 1.5f;
-    self.slideshowDuration = 13.f;
+    self.slideshowDuration = 10.f;
     self.slideshow = YES;
 }
 
