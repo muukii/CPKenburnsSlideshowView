@@ -1,13 +1,13 @@
 //
-//  CPKenBurnsImage.m
-//  CPKenBurnsSlideshowView-Demo
+//  CPKenburnsImage.m
+//  CPKenburnsSlideshowView-Demo
 //
 //  Created by Muukii on 4/7/14.
 //  Copyright (c) 2014 Muukii. All rights reserved.
 //
 
-#import "CPKenBurnsImage.h"
+#import "CPKenburnsImage.h"
 
-@implementation CPKenBurnsImage
+@implementation CPKenburnsImage
 
 @end

@@ -1,6 +1,6 @@
 //
-//  CPKenBurnsImage.h
-//  CPKenBurnsSlideshowView-Demo
+//  CPKenburnsImage.h
+//  CPKenburnsSlideshowView-Demo
 //
 //  Created by Muukii on 4/7/14.
 //  Copyright (c) 2014 Muukii. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CPKenBurnsImage : NSObject
+@interface CPKenburnsImage : NSObject
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, strong) NSURL *imageUrl;
 @property (nonatomic, assign) CGFloat latitude;
