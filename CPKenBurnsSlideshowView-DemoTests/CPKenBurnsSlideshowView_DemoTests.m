@@ -1,6 +1,6 @@
 //
-//  CPKenburnsSlideshowView_DemoTests.m
-//  CPKenburnsSlideshowView-DemoTests
+//  CPKenBurnsSlideshowView_DemoTests.m
+//  CPKenBurnsSlideshowView-DemoTests
 //
 //  Created by Muukii on 4/7/14.
 //  Copyright (c) 2014 Muukii. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface CPKenburnsSlideshowView_DemoTests : XCTestCase
+@interface CPKenBurnsSlideshowView_DemoTests : XCTestCase
 
 @end
 
-@implementation CPKenburnsSlideshowView_DemoTests
+@implementation CPKenBurnsSlideshowView_DemoTests
 
 - (void)setUp
 {

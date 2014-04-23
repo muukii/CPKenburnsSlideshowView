@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:CPKenburnsSlideshowView-Demo.xcodeproj">
+      location = "self:CPKenBurnsSlideshowView-Demo.xcodeproj">
    </FileRef>
 </Workspace>

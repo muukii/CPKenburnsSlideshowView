@@ -1,18 +1,18 @@
 //
 //  CPInfiniteScrollView
-//  CPKenburnsSlideshowView-Demo
+//  CPKenBurnsSlideshowView-Demo
 //
 //  Created by Muukii on 4/7/14.
 //  Copyright (c) 2014 Muukii. All rights reserved.
 //
 
-#import "CPKenburnsInfiniteScrollView.h"
+#import "CPKenBurnsInfiniteScrollView.h"
 
-@interface CPKenburnsInfiniteScrollView ()
+@interface CPKenBurnsInfiniteScrollView ()
 
 @end
 
-@implementation CPKenburnsInfiniteScrollView
+@implementation CPKenBurnsInfiniteScrollView
 {
     BOOL _animation;
 }

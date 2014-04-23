@@ -1,21 +1,21 @@
 //
-//  CPKenburnsSlideshowView.h
-//  CPKenburnsSlideshowView-Demo
+//  CPKenBurnsSlideshowView.h
+//  CPKenBurnsSlideshowView-Demo
 //
 //  Created by Muukii on 4/7/14.
 //  Copyright (c) 2014 Muukii. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "CPKenburnsView.h"
-@class CPKenburnsImage;
+#import "CPKenBurnsView.h"
+@class CPKenBurnsImage;
 
 typedef void(^DownloadCompletionBlock)(UIImage *image);
 
-@protocol CPKenburnsSlideshowViewDeleagte;
-@interface CPKenburnsSlideshowView : UIView
+@protocol CPKenBurnsSlideshowViewDeleagte;
+@interface CPKenBurnsSlideshowView : UIView
 - (id)initWithFrame:(CGRect)frame;
-@property (nonatomic, assign) id <CPKenburnsSlideshowViewDeleagte> delegate;
+@property (nonatomic, assign) id <CPKenBurnsSlideshowViewDeleagte> delegate;
 @property (nonatomic, strong) NSArray *images;
 @property (nonatomic, assign) BOOL slideshow; //Auto paging
 @property (nonatomic, assign) CGFloat slideshowDuration; // default 10.f
@@ -24,8 +24,8 @@ typedef void(^DownloadCompletionBlock)(UIImage *image);
 
 @end
 
-@protocol CPKenburnsSlideshowViewDeleagte <NSObject>
+@protocol CPKenBurnsSlideshowViewDeleagte <NSObject>
 @optional
-- (void)slideshowView:(CPKenburnsSlideshowView *)slideshowView downloadImageUrl:(NSURL *)imageUrl completionBlock:(DownloadCompletionBlock)completionBlock;
-- (void)slideshowView:(CPKenburnsSlideshowView *)slideshowView willShowKenBurnsView:(CPKenburnsView *)kenBurnsView;
+- (void)slideshowView:(CPKenBurnsSlideshowView *)slideshowView downloadImageUrl:(NSURL *)imageUrl completionBlock:(DownloadCompletionBlock)completionBlock;
+- (void)slideshowView:(CPKenBurnsSlideshowView *)slideshowView willShowKenBurnsView:(CPKenburnsView *)kenBurnsView;
 @end

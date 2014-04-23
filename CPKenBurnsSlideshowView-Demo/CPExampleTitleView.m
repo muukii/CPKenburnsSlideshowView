@@ -1,6 +1,6 @@
 //
 //  CPExampleTitleView.m
-//  CPKenburnsSlideshowView-Demo
+//  CPKenBurnsSlideshowView-Demo
 //
 //  Created by Muukii on 4/8/14.
 //  Copyright (c) 2014 Muukii. All rights reserved.
@@ -24,7 +24,7 @@
 //    self.titleLabel.backgroundColor = [UIColor grayColor];
 }
 
-- (void)setImageObject:(CPKenburnsImage *)imageObject
+- (void)setImageObject:(CPKenBurnsImage *)imageObject
 {
     [super setImageObject:imageObject];
     self.titleLabel.text = imageObject.title;

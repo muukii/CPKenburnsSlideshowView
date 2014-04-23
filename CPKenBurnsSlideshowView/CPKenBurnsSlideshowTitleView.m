@@ -1,17 +1,17 @@
 //
 //  CPKneBurnsSlideshowTitleView.m
-//  CPKenburnsSlideshowView-Demo
+//  CPKenBurnsSlideshowView-Demo
 //
 //  Created by Muukii on 4/7/14.
 //  Copyright (c) 2014 Muukii. All rights reserved.
 //
 
-#import "CPKenburnsSlideshowTitleView.h"
-@interface CPKenburnsSlideshowTitleView ()
+#import "CPKenBurnsSlideshowTitleView.h"
+@interface CPKenBurnsSlideshowTitleView ()
 
 @end
 
-@implementation CPKenburnsSlideshowTitleView
+@implementation CPKenBurnsSlideshowTitleView
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -38,7 +38,7 @@
     [self addSubview:self.subTitleLabel];
 }
 
-- (void)setImageObject:(CPKenburnsImage *)imageObject
+- (void)setImageObject:(CPKenBurnsImage *)imageObject
 {
     self.titleLabel.text = imageObject.title;
     self.subTitleLabel.text = imageObject.subTitle;

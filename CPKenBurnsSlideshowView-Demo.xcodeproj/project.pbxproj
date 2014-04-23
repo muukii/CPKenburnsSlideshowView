@@ -20,15 +20,15 @@
 		4B6179BB18F244E60005CA97 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B61799A18F244E60005CA97 /* Foundation.framework */; };
 		4B6179BC18F244E60005CA97 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B61799E18F244E60005CA97 /* UIKit.framework */; };
 		4B6179C418F244E60005CA97 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179C218F244E60005CA97 /* InfoPlist.strings */; };
-		4B6179C618F244E60005CA97 /* CPKenburnsSlideshowView_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6179C518F244E60005CA97 /* CPKenburnsSlideshowView_DemoTests.m */; };
+		4B6179C618F244E60005CA97 /* CPKenBurnsSlideshowView_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6179C518F244E60005CA97 /* CPKenBurnsSlideshowView_DemoTests.m */; };
 		4B617A2D18F253730005CA97 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179D018F253730005CA97 /* 1.jpg */; };
 		4B617A2E18F253730005CA97 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179D118F253730005CA97 /* 2.jpg */; };
 		4B617A2F18F253730005CA97 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179D218F253730005CA97 /* 3.jpg */; };
 		4B617A3018F253730005CA97 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179D318F253730005CA97 /* 4.jpg */; };
 		4B617A3118F253730005CA97 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179D418F253730005CA97 /* 5.jpg */; };
 		4B617A3218F253730005CA97 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B6179D518F253730005CA97 /* 6.jpg */; };
-		4B617A8D18F253E00005CA97 /* CPKenburnsSlideshowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B617A8C18F253E00005CA97 /* CPKenburnsSlideshowView.m */; };
-		4B617A9318F2580D0005CA97 /* CPKenburnsImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B617A9218F2580D0005CA97 /* CPKenburnsImage.m */; };
+		4B617A8D18F253E00005CA97 /* CPKenBurnsSlideshowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B617A8C18F253E00005CA97 /* CPKenBurnsSlideshowView.m */; };
+		4B617A9318F2580D0005CA97 /* CPKenBurnsImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B617A9218F2580D0005CA97 /* CPKenBurnsImage.m */; };
 		4B96FE2A18F2D785004280EF /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B96FE1F18F2D785004280EF /* 7.jpg */; };
 		4B96FE2B18F2D785004280EF /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B96FE2018F2D785004280EF /* 8.jpg */; };
 		4B96FE2C18F2D785004280EF /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B96FE2118F2D785004280EF /* 9.jpg */; };
@@ -41,11 +41,11 @@
 		4B96FE3318F2D785004280EF /* 16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B96FE2818F2D785004280EF /* 16.jpg */; };
 		4B96FE3418F2D785004280EF /* 17.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B96FE2918F2D785004280EF /* 17.jpg */; };
 		4B96FE3718F3005B004280EF /* CPExampleTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B96FE3618F3005B004280EF /* CPExampleTitleView.m */; };
-		4BDFF03818F27D4900306C73 /* CPKenburnsSlideshowTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDFF03718F27D4900306C73 /* CPKenburnsSlideshowTitleView.m */; };
-		4BDFF03B18F2801A00306C73 /* CPKenburnsInfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDFF03A18F2801A00306C73 /* CPKenburnsInfiniteScrollView.m */; };
+		4BDFF03818F27D4900306C73 /* CPKenBurnsSlideshowTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDFF03718F27D4900306C73 /* CPKenBurnsSlideshowTitleView.m */; };
+		4BDFF03B18F2801A00306C73 /* CPKenBurnsInfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDFF03A18F2801A00306C73 /* CPKenBurnsInfiniteScrollView.m */; };
 		4BDFF03F18F2850300306C73 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BDFF03E18F2850300306C73 /* QuartzCore.framework */; };
 		4BDFF04118F2850900306C73 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BDFF04018F2850900306C73 /* CFNetwork.framework */; };
-		FC51CC89B3E345429AB8DD62 /* libPods-CPKenburnsSlideshowView-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A32354C200954C8382E9745F /* libPods-CPKenburnsSlideshowView-Demo.a */; };
+		FC51CC89B3E345429AB8DD62 /* libPods-CPKenBurnsSlideshowView-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A32354C200954C8382E9745F /* libPods-CPKenBurnsSlideshowView-Demo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,40 +54,40 @@
 			containerPortal = 4B61798F18F244E60005CA97 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 4B61799618F244E60005CA97;
-			remoteInfo = "CPKenburnsSlideshowView-Demo";
+			remoteInfo = "CPKenBurnsSlideshowView-Demo";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4B61799718F244E60005CA97 /* CPKenburnsSlideshowView-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CPKenburnsSlideshowView-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B61799718F244E60005CA97 /* CPKenBurnsSlideshowView-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CPKenBurnsSlideshowView-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B61799A18F244E60005CA97 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4B61799C18F244E60005CA97 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4B61799E18F244E60005CA97 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		4B6179A218F244E60005CA97 /* CPKenburnsSlideshowView-Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CPKenburnsSlideshowView-Demo-Info.plist"; sourceTree = "<group>"; };
+		4B6179A218F244E60005CA97 /* CPKenBurnsSlideshowView-Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CPKenBurnsSlideshowView-Demo-Info.plist"; sourceTree = "<group>"; };
 		4B6179A418F244E60005CA97 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4B6179A618F244E60005CA97 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4B6179A818F244E60005CA97 /* CPKenburnsSlideshowView-Demo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CPKenburnsSlideshowView-Demo-Prefix.pch"; sourceTree = "<group>"; };
+		4B6179A818F244E60005CA97 /* CPKenBurnsSlideshowView-Demo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CPKenBurnsSlideshowView-Demo-Prefix.pch"; sourceTree = "<group>"; };
 		4B6179A918F244E60005CA97 /* CPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPAppDelegate.h; sourceTree = "<group>"; };
 		4B6179AA18F244E60005CA97 /* CPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPAppDelegate.m; sourceTree = "<group>"; };
 		4B6179AD18F244E60005CA97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B6179AF18F244E60005CA97 /* CPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPViewController.h; sourceTree = "<group>"; };
 		4B6179B018F244E60005CA97 /* CPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPViewController.m; sourceTree = "<group>"; };
 		4B6179B218F244E60005CA97 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		4B6179B818F244E60005CA97 /* CPKenburnsSlideshowView-DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CPKenburnsSlideshowView-DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B6179B818F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CPKenBurnsSlideshowView-DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B6179B918F244E60005CA97 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		4B6179C118F244E60005CA97 /* CPKenburnsSlideshowView-DemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CPKenburnsSlideshowView-DemoTests-Info.plist"; sourceTree = "<group>"; };
+		4B6179C118F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CPKenBurnsSlideshowView-DemoTests-Info.plist"; sourceTree = "<group>"; };
 		4B6179C318F244E60005CA97 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4B6179C518F244E60005CA97 /* CPKenburnsSlideshowView_DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPKenburnsSlideshowView_DemoTests.m; sourceTree = "<group>"; };
+		4B6179C518F244E60005CA97 /* CPKenBurnsSlideshowView_DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPKenBurnsSlideshowView_DemoTests.m; sourceTree = "<group>"; };
 		4B6179D018F253730005CA97 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		4B6179D118F253730005CA97 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		4B6179D218F253730005CA97 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
 		4B6179D318F253730005CA97 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
 		4B6179D418F253730005CA97 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
 		4B6179D518F253730005CA97 /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
-		4B617A8B18F253E00005CA97 /* CPKenburnsSlideshowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPKenburnsSlideshowView.h; sourceTree = "<group>"; };
-		4B617A8C18F253E00005CA97 /* CPKenburnsSlideshowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPKenburnsSlideshowView.m; sourceTree = "<group>"; };
-		4B617A9118F2580D0005CA97 /* CPKenburnsImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPKenburnsImage.h; sourceTree = "<group>"; };
-		4B617A9218F2580D0005CA97 /* CPKenburnsImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPKenburnsImage.m; sourceTree = "<group>"; };
+		4B617A8B18F253E00005CA97 /* CPKenBurnsSlideshowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPKenBurnsSlideshowView.h; sourceTree = "<group>"; };
+		4B617A8C18F253E00005CA97 /* CPKenBurnsSlideshowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPKenBurnsSlideshowView.m; sourceTree = "<group>"; };
+		4B617A9118F2580D0005CA97 /* CPKenBurnsImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPKenBurnsImage.h; sourceTree = "<group>"; };
+		4B617A9218F2580D0005CA97 /* CPKenBurnsImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPKenBurnsImage.m; sourceTree = "<group>"; };
 		4B96FE1F18F2D785004280EF /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
 		4B96FE2018F2D785004280EF /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
 		4B96FE2118F2D785004280EF /* 9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpg; sourceTree = "<group>"; };
@@ -101,14 +101,14 @@
 		4B96FE2918F2D785004280EF /* 17.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 17.jpg; sourceTree = "<group>"; };
 		4B96FE3518F3005B004280EF /* CPExampleTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPExampleTitleView.h; sourceTree = "<group>"; };
 		4B96FE3618F3005B004280EF /* CPExampleTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPExampleTitleView.m; sourceTree = "<group>"; };
-		4BDFF03618F27D4900306C73 /* CPKenburnsSlideshowTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPKenburnsSlideshowTitleView.h; sourceTree = "<group>"; };
-		4BDFF03718F27D4900306C73 /* CPKenburnsSlideshowTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPKenburnsSlideshowTitleView.m; sourceTree = "<group>"; };
-		4BDFF03918F2801A00306C73 /* CPKenburnsInfiniteScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPKenburnsInfiniteScrollView.h; sourceTree = "<group>"; };
-		4BDFF03A18F2801A00306C73 /* CPKenburnsInfiniteScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPKenburnsInfiniteScrollView.m; sourceTree = "<group>"; };
+		4BDFF03618F27D4900306C73 /* CPKenBurnsSlideshowTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPKenBurnsSlideshowTitleView.h; sourceTree = "<group>"; };
+		4BDFF03718F27D4900306C73 /* CPKenBurnsSlideshowTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPKenBurnsSlideshowTitleView.m; sourceTree = "<group>"; };
+		4BDFF03918F2801A00306C73 /* CPKenBurnsInfiniteScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPKenBurnsInfiniteScrollView.h; sourceTree = "<group>"; };
+		4BDFF03A18F2801A00306C73 /* CPKenBurnsInfiniteScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPKenBurnsInfiniteScrollView.m; sourceTree = "<group>"; };
 		4BDFF03E18F2850300306C73 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4BDFF04018F2850900306C73 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		88E93781888B4D5B8CB898EC /* Pods-CPKenburnsSlideshowView-Demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CPKenburnsSlideshowView-Demo.xcconfig"; path = "Pods/Pods-CPKenburnsSlideshowView-Demo.xcconfig"; sourceTree = "<group>"; };
-		A32354C200954C8382E9745F /* libPods-CPKenburnsSlideshowView-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CPKenburnsSlideshowView-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		88E93781888B4D5B8CB898EC /* Pods-CPKenBurnsSlideshowView-Demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CPKenBurnsSlideshowView-Demo.xcconfig"; path = "Pods/Pods-CPKenBurnsSlideshowView-Demo.xcconfig"; sourceTree = "<group>"; };
+		A32354C200954C8382E9745F /* libPods-CPKenBurnsSlideshowView-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CPKenBurnsSlideshowView-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +121,7 @@
 				4B61799D18F244E60005CA97 /* CoreGraphics.framework in Frameworks */,
 				4B61799F18F244E60005CA97 /* UIKit.framework in Frameworks */,
 				4B61799B18F244E60005CA97 /* Foundation.framework in Frameworks */,
-				FC51CC89B3E345429AB8DD62 /* libPods-CPKenburnsSlideshowView-Demo.a in Frameworks */,
+				FC51CC89B3E345429AB8DD62 /* libPods-CPKenBurnsSlideshowView-Demo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,20 +141,20 @@
 		4B61798E18F244E60005CA97 = {
 			isa = PBXGroup;
 			children = (
-				4B617A8A18F253B30005CA97 /* CPKenburnsSlideshowView */,
-				4B6179A018F244E60005CA97 /* CPKenburnsSlideshowView-Demo */,
-				4B6179BF18F244E60005CA97 /* CPKenburnsSlideshowView-DemoTests */,
+				4B617A8A18F253B30005CA97 /* CPKenBurnsSlideshowView */,
+				4B6179A018F244E60005CA97 /* CPKenBurnsSlideshowView-Demo */,
+				4B6179BF18F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests */,
 				4B61799918F244E60005CA97 /* Frameworks */,
 				4B61799818F244E60005CA97 /* Products */,
-				88E93781888B4D5B8CB898EC /* Pods-CPKenburnsSlideshowView-Demo.xcconfig */,
+				88E93781888B4D5B8CB898EC /* Pods-CPKenBurnsSlideshowView-Demo.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
 		4B61799818F244E60005CA97 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4B61799718F244E60005CA97 /* CPKenburnsSlideshowView-Demo.app */,
-				4B6179B818F244E60005CA97 /* CPKenburnsSlideshowView-DemoTests.xctest */,
+				4B61799718F244E60005CA97 /* CPKenBurnsSlideshowView-Demo.app */,
+				4B6179B818F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,12 +168,12 @@
 				4B61799C18F244E60005CA97 /* CoreGraphics.framework */,
 				4B61799E18F244E60005CA97 /* UIKit.framework */,
 				4B6179B918F244E60005CA97 /* XCTest.framework */,
-				A32354C200954C8382E9745F /* libPods-CPKenburnsSlideshowView-Demo.a */,
+				A32354C200954C8382E9745F /* libPods-CPKenBurnsSlideshowView-Demo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4B6179A018F244E60005CA97 /* CPKenburnsSlideshowView-Demo */ = {
+		4B6179A018F244E60005CA97 /* CPKenBurnsSlideshowView-Demo */ = {
 			isa = PBXGroup;
 			children = (
 				4B6179A918F244E60005CA97 /* CPAppDelegate.h */,
@@ -187,33 +187,33 @@
 				4B6179B218F244E60005CA97 /* Images.xcassets */,
 				4B6179A118F244E60005CA97 /* Supporting Files */,
 			);
-			path = "CPKenburnsSlideshowView-Demo";
+			path = "CPKenBurnsSlideshowView-Demo";
 			sourceTree = "<group>";
 		};
 		4B6179A118F244E60005CA97 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4B6179A218F244E60005CA97 /* CPKenburnsSlideshowView-Demo-Info.plist */,
+				4B6179A218F244E60005CA97 /* CPKenBurnsSlideshowView-Demo-Info.plist */,
 				4B6179A318F244E60005CA97 /* InfoPlist.strings */,
 				4B6179A618F244E60005CA97 /* main.m */,
-				4B6179A818F244E60005CA97 /* CPKenburnsSlideshowView-Demo-Prefix.pch */,
+				4B6179A818F244E60005CA97 /* CPKenBurnsSlideshowView-Demo-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4B6179BF18F244E60005CA97 /* CPKenburnsSlideshowView-DemoTests */ = {
+		4B6179BF18F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				4B6179C518F244E60005CA97 /* CPKenburnsSlideshowView_DemoTests.m */,
+				4B6179C518F244E60005CA97 /* CPKenBurnsSlideshowView_DemoTests.m */,
 				4B6179C018F244E60005CA97 /* Supporting Files */,
 			);
-			path = "CPKenburnsSlideshowView-DemoTests";
+			path = "CPKenBurnsSlideshowView-DemoTests";
 			sourceTree = "<group>";
 		};
 		4B6179C018F244E60005CA97 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4B6179C118F244E60005CA97 /* CPKenburnsSlideshowView-DemoTests-Info.plist */,
+				4B6179C118F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests-Info.plist */,
 				4B6179C218F244E60005CA97 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -243,27 +243,27 @@
 			path = images;
 			sourceTree = "<group>";
 		};
-		4B617A8A18F253B30005CA97 /* CPKenburnsSlideshowView */ = {
+		4B617A8A18F253B30005CA97 /* CPKenBurnsSlideshowView */ = {
 			isa = PBXGroup;
 			children = (
-				4B617A8B18F253E00005CA97 /* CPKenburnsSlideshowView.h */,
-				4B617A8C18F253E00005CA97 /* CPKenburnsSlideshowView.m */,
-				4BDFF03618F27D4900306C73 /* CPKenburnsSlideshowTitleView.h */,
-				4BDFF03718F27D4900306C73 /* CPKenburnsSlideshowTitleView.m */,
-				4B617A9118F2580D0005CA97 /* CPKenburnsImage.h */,
-				4B617A9218F2580D0005CA97 /* CPKenburnsImage.m */,
-				4BDFF03918F2801A00306C73 /* CPKenburnsInfiniteScrollView.h */,
-				4BDFF03A18F2801A00306C73 /* CPKenburnsInfiniteScrollView.m */,
+				4B617A8B18F253E00005CA97 /* CPKenBurnsSlideshowView.h */,
+				4B617A8C18F253E00005CA97 /* CPKenBurnsSlideshowView.m */,
+				4BDFF03618F27D4900306C73 /* CPKenBurnsSlideshowTitleView.h */,
+				4BDFF03718F27D4900306C73 /* CPKenBurnsSlideshowTitleView.m */,
+				4B617A9118F2580D0005CA97 /* CPKenBurnsImage.h */,
+				4B617A9218F2580D0005CA97 /* CPKenBurnsImage.m */,
+				4BDFF03918F2801A00306C73 /* CPKenBurnsInfiniteScrollView.h */,
+				4BDFF03A18F2801A00306C73 /* CPKenBurnsInfiniteScrollView.m */,
 			);
-			path = CPKenburnsSlideshowView;
+			path = CPKenBurnsSlideshowView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4B61799618F244E60005CA97 /* CPKenburnsSlideshowView-Demo */ = {
+		4B61799618F244E60005CA97 /* CPKenBurnsSlideshowView-Demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4B6179C918F244E60005CA97 /* Build configuration list for PBXNativeTarget "CPKenburnsSlideshowView-Demo" */;
+			buildConfigurationList = 4B6179C918F244E60005CA97 /* Build configuration list for PBXNativeTarget "CPKenBurnsSlideshowView-Demo" */;
 			buildPhases = (
 				92D3A2D6E9214AE7B4B3441A /* Check Pods Manifest.lock */,
 				4B61799318F244E60005CA97 /* Sources */,
@@ -275,14 +275,14 @@
 			);
 			dependencies = (
 			);
-			name = "CPKenburnsSlideshowView-Demo";
-			productName = "CPKenburnsSlideshowView-Demo";
-			productReference = 4B61799718F244E60005CA97 /* CPKenburnsSlideshowView-Demo.app */;
+			name = "CPKenBurnsSlideshowView-Demo";
+			productName = "CPKenBurnsSlideshowView-Demo";
+			productReference = 4B61799718F244E60005CA97 /* CPKenBurnsSlideshowView-Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4B6179B718F244E60005CA97 /* CPKenburnsSlideshowView-DemoTests */ = {
+		4B6179B718F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4B6179CC18F244E60005CA97 /* Build configuration list for PBXNativeTarget "CPKenburnsSlideshowView-DemoTests" */;
+			buildConfigurationList = 4B6179CC18F244E60005CA97 /* Build configuration list for PBXNativeTarget "CPKenBurnsSlideshowView-DemoTests" */;
 			buildPhases = (
 				4B6179B418F244E60005CA97 /* Sources */,
 				4B6179B518F244E60005CA97 /* Frameworks */,
@@ -293,9 +293,9 @@
 			dependencies = (
 				4B6179BE18F244E60005CA97 /* PBXTargetDependency */,
 			);
-			name = "CPKenburnsSlideshowView-DemoTests";
-			productName = "CPKenburnsSlideshowView-DemoTests";
-			productReference = 4B6179B818F244E60005CA97 /* CPKenburnsSlideshowView-DemoTests.xctest */;
+			name = "CPKenBurnsSlideshowView-DemoTests";
+			productName = "CPKenBurnsSlideshowView-DemoTests";
+			productReference = 4B6179B818F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -313,7 +313,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4B61799218F244E60005CA97 /* Build configuration list for PBXProject "CPKenburnsSlideshowView-Demo" */;
+			buildConfigurationList = 4B61799218F244E60005CA97 /* Build configuration list for PBXProject "CPKenBurnsSlideshowView-Demo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -326,8 +326,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4B61799618F244E60005CA97 /* CPKenburnsSlideshowView-Demo */,
-				4B6179B718F244E60005CA97 /* CPKenburnsSlideshowView-DemoTests */,
+				4B61799618F244E60005CA97 /* CPKenBurnsSlideshowView-Demo */,
+				4B6179B718F244E60005CA97 /* CPKenBurnsSlideshowView-DemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -398,7 +398,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-CPKenburnsSlideshowView-Demo-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Pods-CPKenBurnsSlideshowView-Demo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -409,13 +409,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B96FE3718F3005B004280EF /* CPExampleTitleView.m in Sources */,
-				4B617A9318F2580D0005CA97 /* CPKenburnsImage.m in Sources */,
-				4B617A8D18F253E00005CA97 /* CPKenburnsSlideshowView.m in Sources */,
+				4B617A9318F2580D0005CA97 /* CPKenBurnsImage.m in Sources */,
+				4B617A8D18F253E00005CA97 /* CPKenBurnsSlideshowView.m in Sources */,
 				4B6179A718F244E60005CA97 /* main.m in Sources */,
 				4B6179AB18F244E60005CA97 /* CPAppDelegate.m in Sources */,
 				4B6179B118F244E60005CA97 /* CPViewController.m in Sources */,
-				4BDFF03818F27D4900306C73 /* CPKenburnsSlideshowTitleView.m in Sources */,
-				4BDFF03B18F2801A00306C73 /* CPKenburnsInfiniteScrollView.m in Sources */,
+				4BDFF03818F27D4900306C73 /* CPKenBurnsSlideshowTitleView.m in Sources */,
+				4BDFF03B18F2801A00306C73 /* CPKenBurnsInfiniteScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,7 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B6179C618F244E60005CA97 /* CPKenburnsSlideshowView_DemoTests.m in Sources */,
+				4B6179C618F244E60005CA97 /* CPKenBurnsSlideshowView_DemoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,7 +432,7 @@
 /* Begin PBXTargetDependency section */
 		4B6179BE18F244E60005CA97 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4B61799618F244E60005CA97 /* CPKenburnsSlideshowView-Demo */;
+			target = 4B61799618F244E60005CA97 /* CPKenBurnsSlideshowView-Demo */;
 			targetProxy = 4B6179BD18F244E60005CA97 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -537,7 +537,7 @@
 		};
 		4B6179CA18F244E60005CA97 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 88E93781888B4D5B8CB898EC /* Pods-CPKenburnsSlideshowView-Demo.xcconfig */;
+			baseConfigurationReference = 88E93781888B4D5B8CB898EC /* Pods-CPKenBurnsSlideshowView-Demo.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -546,8 +546,8 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CPKenburnsSlideshowView-Demo/CPKenburnsSlideshowView-Demo-Prefix.pch";
-				INFOPLIST_FILE = "CPKenburnsSlideshowView-Demo/CPKenburnsSlideshowView-Demo-Info.plist";
+				GCC_PREFIX_HEADER = "CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Prefix.pch";
+				INFOPLIST_FILE = "CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -556,7 +556,7 @@
 		};
 		4B6179CB18F244E60005CA97 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 88E93781888B4D5B8CB898EC /* Pods-CPKenburnsSlideshowView-Demo.xcconfig */;
+			baseConfigurationReference = 88E93781888B4D5B8CB898EC /* Pods-CPKenBurnsSlideshowView-Demo.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -565,8 +565,8 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CPKenburnsSlideshowView-Demo/CPKenburnsSlideshowView-Demo-Prefix.pch";
-				INFOPLIST_FILE = "CPKenburnsSlideshowView-Demo/CPKenburnsSlideshowView-Demo-Info.plist";
+				GCC_PREFIX_HEADER = "CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Prefix.pch";
+				INFOPLIST_FILE = "CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -576,19 +576,19 @@
 		4B6179CD18F244E60005CA97 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CPKenburnsSlideshowView-Demo.app/CPKenburnsSlideshowView-Demo";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CPKenBurnsSlideshowView-Demo.app/CPKenBurnsSlideshowView-Demo";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CPKenburnsSlideshowView-Demo/CPKenburnsSlideshowView-Demo-Prefix.pch";
+				GCC_PREFIX_HEADER = "CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "CPKenburnsSlideshowView-DemoTests/CPKenburnsSlideshowView-DemoTests-Info.plist";
+				INFOPLIST_FILE = "CPKenBurnsSlideshowView-DemoTests/CPKenBurnsSlideshowView-DemoTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -598,15 +598,15 @@
 		4B6179CE18F244E60005CA97 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CPKenburnsSlideshowView-Demo.app/CPKenburnsSlideshowView-Demo";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CPKenBurnsSlideshowView-Demo.app/CPKenBurnsSlideshowView-Demo";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CPKenburnsSlideshowView-Demo/CPKenburnsSlideshowView-Demo-Prefix.pch";
-				INFOPLIST_FILE = "CPKenburnsSlideshowView-DemoTests/CPKenburnsSlideshowView-DemoTests-Info.plist";
+				GCC_PREFIX_HEADER = "CPKenBurnsSlideshowView-Demo/CPKenBurnsSlideshowView-Demo-Prefix.pch";
+				INFOPLIST_FILE = "CPKenBurnsSlideshowView-DemoTests/CPKenBurnsSlideshowView-DemoTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -616,7 +616,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4B61799218F244E60005CA97 /* Build configuration list for PBXProject "CPKenburnsSlideshowView-Demo" */ = {
+		4B61799218F244E60005CA97 /* Build configuration list for PBXProject "CPKenBurnsSlideshowView-Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4B6179C718F244E60005CA97 /* Debug */,
@@ -625,7 +625,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4B6179C918F244E60005CA97 /* Build configuration list for PBXNativeTarget "CPKenburnsSlideshowView-Demo" */ = {
+		4B6179C918F244E60005CA97 /* Build configuration list for PBXNativeTarget "CPKenBurnsSlideshowView-Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4B6179CA18F244E60005CA97 /* Debug */,
@@ -634,7 +634,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4B6179CC18F244E60005CA97 /* Build configuration list for PBXNativeTarget "CPKenburnsSlideshowView-DemoTests" */ = {
+		4B6179CC18F244E60005CA97 /* Build configuration list for PBXNativeTarget "CPKenBurnsSlideshowView-DemoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4B6179CD18F244E60005CA97 /* Debug */,

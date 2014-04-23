@@ -1,17 +1,17 @@
 //
 //  CPViewController.m
-//  CPKenburnsSlideshowView-Demo
+//  CPKenBurnsSlideshowView-Demo
 //
 //  Created by Muukii on 4/7/14.
 //  Copyright (c) 2014 Muukii. All rights reserved.
 //
 
 #import "CPViewController.h"
-#import "CPKenburnsImage.h"
-#import "CPKenburnsSlideshowView.h"
+#import "CPKenBurnsImage.h"
+#import "CPKenBurnsSlideshowView.h"
 #import "CPExampleTitleView.h"
-@interface CPViewController () <CPKenburnsSlideshowViewDeleagte>
-@property (weak, nonatomic) IBOutlet CPKenburnsSlideshowView *kenburnsSlideshowView;
+@interface CPViewController () <CPKenBurnsSlideshowViewDeleagte>
+@property (weak, nonatomic) IBOutlet CPKenBurnsSlideshowView *kenburnsSlideshowView;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 
 @end
@@ -24,7 +24,7 @@
 
     NSMutableArray *images = [NSMutableArray array];
     for (int i = 1; i < 13; i++) {
-        CPKenburnsImage *image = [CPKenburnsImage new];
+        CPKenBurnsImage *image = [CPKenBurnsImage new];
         image.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d.jpg",i]];
         image.title = [NSString stringWithFormat:@"%d",i];
         [images addObject:image];
@@ -51,7 +51,7 @@
     self.kenburnsSlideshowView.frame = rect;
 }
 
-- (void)slideshowView:(CPKenburnsSlideshowView *)slideshowView downloadImageUrl:(NSURL *)imageUrl completionBlock:(DownloadCompletionBlock)completionBlock
+- (void)slideshowView:(CPKenBurnsSlideshowView *)slideshowView downloadImageUrl:(NSURL *)imageUrl completionBlock:(DownloadCompletionBlock)completionBlock
 {
     NSLog(@"%@",imageUrl.absoluteString);
 }
