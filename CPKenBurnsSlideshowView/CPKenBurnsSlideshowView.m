@@ -2,7 +2,7 @@
 #import "CPKenBurnsSlideshowTitleView.h"
 #import "CPKenBurnsInfiniteScrollView.h"
 #import "CPKenBurnsImage.h"
-#import "CPKenBurnsView.h"
+#import "CPKenburnsView.h"
 
 typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     CPKenBurnsSlideshowViewOrderPrevious = 0,
@@ -72,7 +72,7 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     self.kenburnsViews = [NSMutableArray array];
     self.kenburnsTitleViews = [NSMutableArray array];
     for (NSInteger i = 0; i < 3; ++i) {
-        CPKenBurnsView *kenburnsView = [[CPKenBurnsView alloc] initWithFrame:self.bounds];
+        CPKenburnsView *kenburnsView = [[CPKenburnsView alloc] initWithFrame:self.bounds];
         kenburnsView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         [self.kenburnsViews insertObject:kenburnsView atIndex:0];
         [self addSubview:kenburnsView];
@@ -186,7 +186,7 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     return image;
 }
 
-- (void)asynchronousSetImageView:(CPKenBurnsView *)imageView imageObject:(CPKenBurnsImage *)imageObject
+- (void)asynchronousSetImageView:(CPKenburnsView *)imageView imageObject:(CPKenBurnsImage *)imageObject
 {
     if (imageObject.image) {
         imageView.image = imageObject.image;
@@ -199,32 +199,32 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     }
 }
 
-- (CPKenBurnsView *)currentKenBurnsView
+- (CPKenburnsView *)currentKenBurnsView
 {
     return self.kenburnsViews[CPKenBurnsSlideshowViewOrderCurrent];
 }
 
-- (void)setCurrentKenBurnsView:(CPKenBurnsView *)kenBurnsView
+- (void)setCurrentKenBurnsView:(CPKenburnsView *)kenBurnsView
 {
     [self.kenburnsViews replaceObjectAtIndex:CPKenBurnsSlideshowViewOrderCurrent withObject:kenBurnsView];
 }
 
-- (CPKenBurnsView *)nextKenBurnsView
+- (CPKenburnsView *)nextKenBurnsView
 {
     return self.kenburnsViews[CPKenBurnsSlideshowViewOrderNext];
 }
 
-- (void)setNextKenBurnsView:(CPKenBurnsView *)kenBurnsView
+- (void)setNextKenBurnsView:(CPKenburnsView *)kenBurnsView
 {
     [self.kenburnsViews replaceObjectAtIndex:CPKenBurnsSlideshowViewOrderNext withObject:kenBurnsView];
 }
 
-- (CPKenBurnsView *)previousKenBurnsView
+- (CPKenburnsView *)previousKenBurnsView
 {
     return self.kenburnsViews[CPKenBurnsSlideshowViewOrderPrevious];
 }
 
-- (void)setPreviousKenBurnsView:(CPKenBurnsView *)kenBurnsView
+- (void)setPreviousKenBurnsView:(CPKenburnsView *)kenBurnsView
 {
     [self.kenburnsViews replaceObjectAtIndex:CPKenBurnsSlideshowViewOrderPrevious withObject:kenBurnsView];
 }
@@ -305,9 +305,9 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 //    NSLog(@"next %ld current %ld",item,currentItem);
     self.currentItem = currentItem;
 
-    CPKenBurnsView *currentView = [self currentKenBurnsView];
-    CPKenBurnsView *nextView = [self nextKenBurnsView];
-    CPKenBurnsView *previousView = [self previousKenBurnsView];
+    CPKenburnsView *currentView = [self currentKenBurnsView];
+    CPKenburnsView *nextView = [self nextKenBurnsView];
+    CPKenburnsView *previousView = [self previousKenBurnsView];
 
     [self setPreviousKenBurnsView:currentView];
     [self setCurrentKenBurnsView:nextView];
@@ -330,7 +330,7 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     [self insertSubview:[self currentKenBurnsView] atIndex:2];
     [self insertSubview:[self previousKenBurnsView] atIndex:1];
 
-    [self.kenburnsViews enumerateObjectsUsingBlock:^(CPKenBurnsView *view, NSUInteger idx, BOOL *stop) {
+    [self.kenburnsViews enumerateObjectsUsingBlock:^(CPKenburnsView *view, NSUInteger idx, BOOL *stop) {
         view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     }];
 
@@ -341,9 +341,9 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 //    NSLog(@"previous %ld current %ld",item,currentItem);
     self.currentItem = currentItem;
 
-    CPKenBurnsView *currentView = [self currentKenBurnsView];
-    CPKenBurnsView *nextView = [self nextKenBurnsView];
-    CPKenBurnsView *previousView = [self previousKenBurnsView];
+    CPKenburnsView *currentView = [self currentKenBurnsView];
+    CPKenburnsView *nextView = [self nextKenBurnsView];
+    CPKenburnsView *previousView = [self previousKenBurnsView];
 
     [self setPreviousKenBurnsView:nextView];
     [self setNextKenBurnsView:currentView];
@@ -367,7 +367,7 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     [self insertSubview:[self currentKenBurnsView] atIndex:2];
     [self insertSubview:[self previousKenBurnsView] atIndex:1];
     
-    [self.kenburnsViews enumerateObjectsUsingBlock:^(CPKenBurnsView *view, NSUInteger idx, BOOL *stop) {
+    [self.kenburnsViews enumerateObjectsUsingBlock:^(CPKenburnsView *view, NSUInteger idx, BOOL *stop) {
         view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     }];
 }

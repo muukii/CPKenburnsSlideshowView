@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CPKenBurnsView.h"
+#import "CPKenburnsView.h"
 @class CPKenBurnsImage;
 
 typedef void(^DownloadCompletionBlock)(UIImage *image);

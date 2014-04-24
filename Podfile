@@ -2,7 +2,7 @@
 # platform :ios, "6.0"
 
 target "CPKenBurnsSlideshowView-Demo" do
-pod 'CPKenBurnsView'
+pod 'CPKenburnsView'
 end
 
 target "CPKenBurnsSlideshowView-DemoTests" do
