@@ -9,9 +9,20 @@ pod 'CPKenburnsSlideshowView', '~> 1.0'
 
 Inspired by Hey Day (photo app)
 
+## Feature!
+
 - Infinite scroll -> OK!
-- Change frame size when animating -> OK!
+- Change frame size when animating -> OK!- 
 - Show whole image when long tap -> NO... sorry...
+
+## Future!
+
+- Face detector.
+- Auto photo filtering.
+- 
+
+### Pull request please!
+
 
 
 @@@@@@@@@@@@@
