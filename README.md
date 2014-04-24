@@ -1,7 +1,7 @@
 CPKenburnsSlideshowView
 =======================
 
-Use CPKenburnsView
+Use [CPKenburnsView](https://github.com/muukii0803/CPKenburnsView)
 
 Inspired by Hey Day (photo app)
 
