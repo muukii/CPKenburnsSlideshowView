@@ -19,7 +19,6 @@ Inspired by Hey Day (photo app)
 
 - Face detector.
 - Auto photo filtering.
-- 
 
 ### Pull request please!
 
