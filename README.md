@@ -5,7 +5,7 @@ Use CPKenburnsView
 
 Inspired by Hey Day (photo app)
 
-[Play Movie](http://cl.ly/1P3k0y451L0F)
+[Play Movie](http://f.cl.ly/items/3M2G391d3K1U3g391E2C/preview.mp4)
 
 ![sho1](shot1.png)
 
