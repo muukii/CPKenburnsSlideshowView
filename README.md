@@ -3,6 +3,10 @@ CPKenburnsSlideshowView
 
 Use [CPKenburnsView](https://github.com/muukii0803/CPKenburnsView)
 
+```
+pod 'CPKenburnsSlideshowView', '~> 1.0'
+```
+
 Inspired by Hey Day (photo app)
 
 [Play Movie](http://f.cl.ly/items/3M2G391d3K1U3g391E2C/preview.mp4)
