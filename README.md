@@ -9,6 +9,10 @@ pod 'CPKenburnsSlideshowView', '~> 1.0'
 
 Inspired by Hey Day (photo app)
 
+- Infinite scroll -> OK!
+- Change frame size when animating -> OK!
+- Show whole image when long tap -> NO... sorry...
+
 [Play Movie](http://f.cl.ly/items/3M2G391d3K1U3g391E2C/preview.mp4)
 
 ![sho1](shot1.png)
