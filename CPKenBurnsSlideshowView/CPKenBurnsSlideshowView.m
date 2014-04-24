@@ -1,31 +1,31 @@
-#import "CPKenBurnsSlideshowView.h"
-#import "CPKenBurnsSlideshowTitleView.h"
-#import "CPKenBurnsInfiniteScrollView.h"
-#import "CPKenBurnsImage.h"
+#import "CPKenburnsSlideshowView.h"
+#import "CPKenburnsSlideshowTitleView.h"
+#import "CPKenburnsInfiniteScrollView.h"
+#import "CPKenburnsImage.h"
 #import "CPKenburnsView.h"
 
-typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
-    CPKenBurnsSlideshowViewOrderPrevious = 0,
-    CPKenBurnsSlideshowViewOrderCurrent = 1,
-    CPKenBurnsSlideshowViewOrderNext = 2
+typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
+    CPKenburnsSlideshowViewOrderPrevious = 0,
+    CPKenburnsSlideshowViewOrderCurrent = 1,
+    CPKenburnsSlideshowViewOrderNext = 2
 };
 
-@interface CPKenBurnsSlideshowView () <UIScrollViewDelegate,CPKenBurnsInfiniteScrollViewDelegate>
+@interface CPKenburnsSlideshowView () <UIScrollViewDelegate,CPKenburnsInfiniteScrollViewDelegate>
 @property (nonatomic, strong) NSMutableArray *kenburnsViews;
 @property (nonatomic, strong) NSMutableArray *kenburnsTitleViews;
-@property (nonatomic, strong) CPKenBurnsInfiniteScrollView *scrollView;
+@property (nonatomic, strong) CPKenburnsInfiniteScrollView *scrollView;
 @property (nonatomic, assign) NSInteger currentItem;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) UIImageView *gradientView;
 @property (nonatomic, strong) UIView *darkCoverView;
 @end
 
-@implementation CPKenBurnsSlideshowView
+@implementation CPKenburnsSlideshowView
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.titleViewClass = [CPKenBurnsSlideshowTitleView class];
+        self.titleViewClass = [CPKenburnsSlideshowTitleView class];
         [self configureView];
         [self configureParameter];
     }
@@ -36,7 +36,7 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.titleViewClass = [CPKenBurnsSlideshowTitleView class];
+        self.titleViewClass = [CPKenburnsSlideshowTitleView class];
         [self configureView];
         [self configureParameter];
     }
@@ -59,7 +59,7 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
         [obj removeFromSuperview];
     }];
 
-    self.scrollView = [[CPKenBurnsInfiniteScrollView alloc] initWithFrame:self.bounds];
+    self.scrollView = [[CPKenburnsInfiniteScrollView alloc] initWithFrame:self.bounds];
     self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bounds)*3, CGRectGetHeight(self.bounds));
     self.scrollView.delegate = self;
     self.scrollView.callBack = self;
@@ -79,7 +79,7 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 
         CGRect rect = self.bounds;
         rect.origin.x = CGRectGetWidth(self.bounds) * i;
-        CPKenBurnsSlideshowTitleView *titleView = [[self.titleViewClass alloc] initWithFrame:rect];
+        CPKenburnsSlideshowTitleView *titleView = [[self.titleViewClass alloc] initWithFrame:rect];
         titleView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         [self.kenburnsTitleViews addObject:titleView];
         [self.scrollView addSubview:titleView];
@@ -177,16 +177,16 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
     }
 }
 
-- (CPKenBurnsImage *)imageObjectWithItem:(NSInteger)item
+- (CPKenburnsImage *)imageObjectWithItem:(NSInteger)item
 {
     if( self.images == nil || self.images.count <= 0 ){
         return nil;
     }
-    CPKenBurnsImage *image = self.images[[self validateItem:item]];
+    CPKenburnsImage *image = self.images[[self validateItem:item]];
     return image;
 }
 
-- (void)asynchronousSetImageView:(CPKenburnsView *)imageView imageObject:(CPKenBurnsImage *)imageObject
+- (void)asynchronousSetImageView:(CPKenburnsView *)imageView imageObject:(CPKenburnsImage *)imageObject
 {
     if (imageObject.image) {
         imageView.image = imageObject.image;
@@ -201,47 +201,47 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 
 - (CPKenburnsView *)currentKenBurnsView
 {
-    return self.kenburnsViews[CPKenBurnsSlideshowViewOrderCurrent];
+    return self.kenburnsViews[CPKenburnsSlideshowViewOrderCurrent];
 }
 
 - (void)setCurrentKenBurnsView:(CPKenburnsView *)kenBurnsView
 {
-    [self.kenburnsViews replaceObjectAtIndex:CPKenBurnsSlideshowViewOrderCurrent withObject:kenBurnsView];
+    [self.kenburnsViews replaceObjectAtIndex:CPKenburnsSlideshowViewOrderCurrent withObject:kenBurnsView];
 }
 
 - (CPKenburnsView *)nextKenBurnsView
 {
-    return self.kenburnsViews[CPKenBurnsSlideshowViewOrderNext];
+    return self.kenburnsViews[CPKenburnsSlideshowViewOrderNext];
 }
 
 - (void)setNextKenBurnsView:(CPKenburnsView *)kenBurnsView
 {
-    [self.kenburnsViews replaceObjectAtIndex:CPKenBurnsSlideshowViewOrderNext withObject:kenBurnsView];
+    [self.kenburnsViews replaceObjectAtIndex:CPKenburnsSlideshowViewOrderNext withObject:kenBurnsView];
 }
 
 - (CPKenburnsView *)previousKenBurnsView
 {
-    return self.kenburnsViews[CPKenBurnsSlideshowViewOrderPrevious];
+    return self.kenburnsViews[CPKenburnsSlideshowViewOrderPrevious];
 }
 
 - (void)setPreviousKenBurnsView:(CPKenburnsView *)kenBurnsView
 {
-    [self.kenburnsViews replaceObjectAtIndex:CPKenBurnsSlideshowViewOrderPrevious withObject:kenBurnsView];
+    [self.kenburnsViews replaceObjectAtIndex:CPKenburnsSlideshowViewOrderPrevious withObject:kenBurnsView];
 }
 
-- (CPKenBurnsSlideshowTitleView *)currentTitleView
+- (CPKenburnsSlideshowTitleView *)currentTitleView
 {
-    return self.kenburnsTitleViews[CPKenBurnsSlideshowViewOrderCurrent];
+    return self.kenburnsTitleViews[CPKenburnsSlideshowViewOrderCurrent];
 }
 
-- (CPKenBurnsSlideshowTitleView *)previousTitleView
+- (CPKenburnsSlideshowTitleView *)previousTitleView
 {
-    return self.kenburnsTitleViews[CPKenBurnsSlideshowViewOrderPrevious];
+    return self.kenburnsTitleViews[CPKenburnsSlideshowViewOrderPrevious];
 }
 
-- (CPKenBurnsSlideshowTitleView *)nextTitleView
+- (CPKenburnsSlideshowTitleView *)nextTitleView
 {
-    return self.kenburnsTitleViews[CPKenBurnsSlideshowViewOrderNext];
+    return self.kenburnsTitleViews[CPKenburnsSlideshowViewOrderNext];
 }
 
 - (void)scrollToNextPhoto
@@ -298,9 +298,9 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 //    NSLog(@"%f %f %f",[[self previousKenBurnsView] alpha],[[self currentKenBurnsView] alpha],[[self nextKenBurnsView] alpha]);
 }
 
-#pragma mark - CPKenBurnsInfiniteScrollViewDelegate
+#pragma mark - CPKenburnsInfiniteScrollViewDelegate
 
-- (void)infiniteScrollView:(CPKenBurnsInfiniteScrollView *)infiniteScrollView didShowNextItem:(NSInteger)item currentItem:(NSInteger)currentItem
+- (void)infiniteScrollView:(CPKenburnsInfiniteScrollView *)infiniteScrollView didShowNextItem:(NSInteger)item currentItem:(NSInteger)currentItem
 {
 //    NSLog(@"next %ld current %ld",item,currentItem);
     self.currentItem = currentItem;
@@ -336,7 +336,7 @@ typedef NS_ENUM(NSInteger, CPKenBurnsSlideshowViewOrder) {
 
 }
 
-- (void)infiniteScrollView:(CPKenBurnsInfiniteScrollView *)infiniteScrollView didShowPreviousItem:(NSInteger)item currentItem:(NSInteger)currentItem
+- (void)infiniteScrollView:(CPKenburnsInfiniteScrollView *)infiniteScrollView didShowPreviousItem:(NSInteger)item currentItem:(NSInteger)currentItem
 {
 //    NSLog(@"previous %ld current %ld",item,currentItem);
     self.currentItem = currentItem;
