@@ -23,9 +23,3 @@ typedef void(^DownloadCompletionBlock)(UIImage *image);
 @property (nonatomic, assign) Class titleViewClass;
 
 @end
-
-@protocol CPKenburnsSlideshowViewDeleagte <NSObject>
-@optional
-- (void)slideshowView:(CPKenburnsSlideshowView *)slideshowView downloadImageUrl:(NSURL *)imageUrl completionBlock:(DownloadCompletionBlock)completionBlock;
-- (void)slideshowView:(CPKenburnsSlideshowView *)slideshowView willShowKenBurnsView:(CPKenburnsView *)kenBurnsView;
-@end
