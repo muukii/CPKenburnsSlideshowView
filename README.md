@@ -1,7 +1,7 @@
 CPKenburnsSlideshowView
 =======================
 
-Use [CPKenburnsView](https://github.com/muukii0803/CPKenburnsView)
+Using [CPKenburnsView](https://github.com/muukii0803/CPKenburnsView)
 
 ```
 pod 'CPKenburnsSlideshowView', '~> 1.0'
@@ -20,7 +20,7 @@ Inspired by Hey Day (photo app)
 - Face detector.
 - Auto photo filtering.
 
-### Pull request please!
+### I'm waiting pull request please!
 
 
 
