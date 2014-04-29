@@ -103,8 +103,14 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 {
     if (self.slideshow) {
         [self.timer invalidate];
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:13 target:self selector:@selector(scrollToNextPhoto) userInfo:nil repeats:YES];
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:self.slideshowDuration target:self selector:@selector(scrollToNextPhoto) userInfo:nil repeats:YES];
     }
+}
+
+- (void)setSlideshowDuration:(CGFloat)slideshowDuration
+{
+    _slideshowDuration = slideshowDuration;
+    [self configureTimer];
 }
 
 - (void)setTitleViewClass:(Class)titleViewClass
