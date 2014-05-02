@@ -194,6 +194,7 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 
 - (void)asynchronousSetImageView:(CPKenburnsView *)imageView imageObject:(CPKenburnsImage *)imageObject
 {
+    imageView.image = nil;
     if (imageObject.image) {
         imageView.image = imageObject.image;
     } else {
