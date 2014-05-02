@@ -51,6 +51,12 @@
     self.kenburnsSlideshowView.frame = rect;
 }
 
+- (void)slideshowView:(CPKenburnsSlideshowView *)slideshowView willShowKenBurnsView:(CPKenburnsView *)kenBurnsView
+{
+    kenBurnsView.animationDuration = 1.f;
+    kenBurnsView.startZoomRate = 1;
+    kenBurnsView.endZoomRate = 1;
+}
 - (void)slideshowView:(CPKenburnsSlideshowView *)slideshowView downloadImageUrl:(NSURL *)imageUrl completionBlock:(DownloadCompletionBlock)completionBlock
 {
     NSLog(@"%@",imageUrl.absoluteString);

@@ -202,6 +202,9 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
                 imageView.image = image;
             }];
         }
+        if ([self.delegate respondsToSelector:@selector(slideshowView:downloadImageUrl:kenburnsView:)]) {
+            [self.delegate slideshowView:self downloadImageUrl:imageObject.imageUrl kenburnsView:imageView];
+        }
     }
 }
 
@@ -328,9 +331,9 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     [[self previousTitleView] setImageObject:[self imageObjectWithItem:(currentItem - 1)]];
     [[self nextTitleView] setImageObject:[self imageObjectWithItem:(item)]];
 
-    [[self previousKenBurnsView] setAlpha:1];
+    [[self previousKenBurnsView] setAlpha:0];
     [[self currentKenBurnsView] setAlpha:1];
-    [[self nextKenBurnsView] setAlpha:1];
+    [[self nextKenBurnsView] setAlpha:0];
 
     [self insertSubview:[self nextKenBurnsView] atIndex:0];
     [self insertSubview:[self currentKenBurnsView] atIndex:2];
@@ -358,16 +361,16 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     if ([self.delegate respondsToSelector:@selector(slideshowView:willShowKenBurnsView:)]) {
         [self.delegate slideshowView:self willShowKenBurnsView:[self previousKenBurnsView]];
     }
-    
+
     [self asynchronousSetImageView:[self previousKenBurnsView] imageObject:[self imageObjectWithItem:item]];
 
     [[self currentTitleView] setImageObject:[self imageObjectWithItem:currentItem]];
     [[self previousTitleView] setImageObject:[self imageObjectWithItem:item]];
     [[self nextTitleView] setImageObject:[self imageObjectWithItem:(currentItem + 1)]];
 
-    [[self previousKenBurnsView] setAlpha:1];
+    [[self previousKenBurnsView] setAlpha:0];
     [[self currentKenBurnsView] setAlpha:1];
-    [[self nextKenBurnsView] setAlpha:1];
+    [[self nextKenBurnsView] setAlpha:0];
 
     [self insertSubview:[self nextKenBurnsView] atIndex:0];
     [self insertSubview:[self currentKenBurnsView] atIndex:2];

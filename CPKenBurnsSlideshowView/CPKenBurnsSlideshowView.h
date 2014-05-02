@@ -21,11 +21,11 @@ typedef void(^DownloadCompletionBlock)(UIImage *image);
 @property (nonatomic, assign) CGFloat slideshowDuration; // default 10.f
 @property (nonatomic, assign) CGFloat automaticFadeDuration; // default 1.5f
 @property (nonatomic, assign) Class titleViewClass;
-
 @end
 
 @protocol CPKenburnsSlideshowViewDeleagte <NSObject>
 @optional
 - (void)slideshowView:(CPKenburnsSlideshowView *)slideshowView downloadImageUrl:(NSURL *)imageUrl completionBlock:(DownloadCompletionBlock)completionBlock;
+- (void)slideshowView:(CPKenburnsSlideshowView *)slideshowView downloadImageUrl:(NSURL *)imageUrl kenburnsView:(CPKenburnsView *)kenburnsView;
 - (void)slideshowView:(CPKenburnsSlideshowView *)slideshowView willShowKenBurnsView:(CPKenburnsView *)kenBurnsView;
 @end
