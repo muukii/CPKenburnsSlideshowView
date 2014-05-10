@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CPKenburnsView.h"
 @class CPKenburnsImage;
+@class CPKenburnsView;
 
 typedef void(^DownloadCompletionBlock)(UIImage *image);
 
@@ -21,11 +22,18 @@ typedef void(^DownloadCompletionBlock)(UIImage *image);
 @property (nonatomic, assign) CGFloat slideshowDuration; // default 10.f
 @property (nonatomic, assign) CGFloat automaticFadeDuration; // default 1.5f
 @property (nonatomic, assign) Class titleViewClass;
+
+- (void)stopAnimation;
+- (void)restartAnimation;
+
+- (CPKenburnsView *)currentKenburnsView;
+- (CPKenburnsView *)nextKenburnsView;
+- (CPKenburnsView *)previousKenburnsView;
 @end
 
 @protocol CPKenburnsSlideshowViewDeleagte <NSObject>
 @optional
 - (void)slideshowView:(CPKenburnsSlideshowView *)slideshowView downloadImageUrl:(NSURL *)imageUrl completionBlock:(DownloadCompletionBlock)completionBlock;
 - (void)slideshowView:(CPKenburnsSlideshowView *)slideshowView downloadImageUrl:(NSURL *)imageUrl kenburnsView:(CPKenburnsView *)kenburnsView;
-- (void)slideshowView:(CPKenburnsSlideshowView *)slideshowView willShowKenBurnsView:(CPKenburnsView *)kenBurnsView;
+- (void)slideshowView:(CPKenburnsSlideshowView *)slideshowView willShowKenburnsView:(CPKenburnsView *)kenBurnsView;
 @end
