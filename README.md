@@ -12,8 +12,8 @@ Inspired by Hey Day (photo app)
 ## Feature!
 
 - Infinite scroll -> OK!
-- Change frame size when animating -> OK!- 
-- Show whole image when long tap -> NO... sorry...
+- Change frame size when animating -> OK!
+- Show whole image when long tap -> OK! :cactus:
 
 ## Future!
 
