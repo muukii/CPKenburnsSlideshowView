@@ -4,7 +4,7 @@ CPKenburnsSlideshowView
 Using [CPKenburnsView](https://github.com/muukii0803/CPKenburnsView)
 
 ```
-pod 'CPKenburnsSlideshowView', '~> 1.0'
+pod 'CPKenburnsSlideshowView'
 ```
 
 Inspired by Hey Day (photo app)
