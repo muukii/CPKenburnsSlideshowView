@@ -34,36 +34,20 @@
     self.kenburnsSlideshowView.titleViewClass = [CPExampleTitleView class];
     self.kenburnsSlideshowView.images = images;
     self.kenburnsSlideshowView.delegate = self;
-
-    UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGesture:)];
-    [self.kenburnsSlideshowView addGestureRecognizer:longPressGesture];
-	// Do any additional setup after loading the view, typically from a nib.
+    self.kenburnsSlideshowView.longTapGestureEnable = YES;
 }
 
-- (void)longPressGesture:(id)sender
-{
-    UILongPressGestureRecognizer *gesture = sender;
-    switch (gesture.state) {
-        case UIGestureRecognizerStateBegan:
-            [[self.kenburnsSlideshowView currentKenburnsView] showWholeImage];
-            break;
-        case UIGestureRecognizerStateEnded:
-        case UIGestureRecognizerStateCancelled:
-            [[self.kenburnsSlideshowView currentKenburnsView] zoomAndRestartAnimation];
-            break;
-        default:
-            break;
-    }
-}
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
+
 - (IBAction)valueChanged:(id)sender {
     CGRect rect = self.kenburnsSlideshowView.frame;
     rect.size.height = 320 + 170 * [(UISlider *)sender value];

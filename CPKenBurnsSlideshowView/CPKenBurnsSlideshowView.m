@@ -97,8 +97,32 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     [self addSubview:self.darkCoverView];
     [self addSubview:self.gradientView];
     [self addSubview:self.scrollView];
+
+    UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGesture:)];
+    [self addGestureRecognizer:longPressGesture];
 }
 
+- (void)handleLongPressGesture:(id)sender
+{
+    if (self.longTapGestureEnable) {
+        UILongPressGestureRecognizer *gesture = sender;
+        switch (gesture.state) {
+            case UIGestureRecognizerStateBegan:
+                [self stopTimer];
+                [[self currentKenburnsView] showWholeImage];
+                break;
+            case UIGestureRecognizerStateEnded:
+            case UIGestureRecognizerStateCancelled:
+                [self restartTimer];
+                [[self currentKenburnsView] zoomAndRestartAnimation];
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+#pragma mark - Timer
 - (void)configureTimer
 {
     if (self.slideshow) {
@@ -106,6 +130,17 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
         self.timer = [NSTimer scheduledTimerWithTimeInterval:self.slideshowDuration target:self selector:@selector(scrollToNextPhoto) userInfo:nil repeats:YES];
     }
 }
+- (void)stopTimer
+{
+    [self.timer invalidate];
+}
+
+- (void)restartTimer
+{
+    [self configureTimer];
+}
+
+#pragma mark
 
 - (void)setSlideshowDuration:(CGFloat)slideshowDuration
 {
