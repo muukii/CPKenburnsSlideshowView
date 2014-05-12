@@ -14,7 +14,7 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 @property (nonatomic, strong) NSMutableArray *kenburnsViews;
 @property (nonatomic, strong) NSMutableArray *kenburnsTitleViews;
 @property (nonatomic, strong) CPKenburnsInfiniteScrollView *scrollView;
-@property (nonatomic, assign) NSInteger currentItem;
+@property (nonatomic, assign) NSInteger currentIndex;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) UIImageView *gradientView;
 @property (nonatomic, strong) UIView *darkCoverView;
@@ -170,23 +170,23 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     }
 }
 
-- (void)setImages:(NSArray *)images
+- (void)setImages:(NSMutableArray *)images
 {
     if (images.count == 0) {
         self.scrollView.scrollEnabled = NO;
         return;
     }
     _images = images;
-    self.currentItem = 0;
-    [self updateImages:self.currentItem];
+    self.currentIndex = 0;
+    [self updateImages:self.currentIndex];
     [self configureTimer];
 }
 
-- (void)updateImages:(NSInteger)item
+- (void)updateImages:(NSInteger)index
 {
-    [self asynchronousSetImageView:[self currentKenburnsView] imageObject:[self imageObjectWithItem:item]];
-    [self asynchronousSetImageView:[self previousKenburnsView] imageObject:[self imageObjectWithItem:(item - 1)]];
-    [self asynchronousSetImageView:[self nextKenburnsView] imageObject:[self imageObjectWithItem:(item + 1)]];
+    [self asynchronousSetImageView:[self currentKenburnsView] imageObject:[self imageObjectWithItem:index]];
+    [self asynchronousSetImageView:[self previousKenburnsView] imageObject:[self imageObjectWithItem:(index - 1)]];
+    [self asynchronousSetImageView:[self nextKenburnsView] imageObject:[self imageObjectWithItem:(index + 1)]];
 
     if ([self.delegate respondsToSelector:@selector(slideshowView:willShowKenburnsView:)]) {
         [self.delegate slideshowView:self willShowKenburnsView:[self currentKenburnsView]];
@@ -194,9 +194,9 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
         [self.delegate slideshowView:self willShowKenburnsView:[self nextKenburnsView]];
     }
 
-    [[self currentTitleView] setImageObject:[self imageObjectWithItem:item]];
-    [[self previousTitleView] setImageObject:[self imageObjectWithItem:(item - 1)]];
-    [[self nextTitleView] setImageObject:[self imageObjectWithItem:(item + 1)]];
+    [[self currentTitleView] setImageObject:[self imageObjectWithItem:index]];
+    [[self previousTitleView] setImageObject:[self imageObjectWithItem:(index - 1)]];
+    [[self nextTitleView] setImageObject:[self imageObjectWithItem:(index + 1)]];
 
 
 
@@ -218,6 +218,7 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     }
 }
 
+
 - (void)stopAnimation
 {
     [[self currentKenburnsView] stopImageViewAnimation:YES];
@@ -230,6 +231,27 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     [[self currentKenburnsView] stopImageViewAnimation:NO];
     [[self nextKenburnsView] stopImageViewAnimation:NO];
     [[self previousKenburnsView] stopImageViewAnimation:NO];
+}
+
+- (NSInteger)currentIndex
+{
+    return self.currentIndex;
+}
+
+- (void)addImage:(CPKenburnsImage *)image
+{
+    [self.images addObject:image];
+}
+
+- (void)jumpToIndex:(NSInteger)index
+{
+    [self updateImages:index];
+}
+
+- (void)jumpToIndex:(NSInteger)index animated:(BOOL)animated
+{
+#warning TODO
+    [self updateImages:index];
 }
 
 - (CPKenburnsImage *)imageObjectWithItem:(NSInteger)item
@@ -362,7 +384,7 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 - (void)infiniteScrollView:(CPKenburnsInfiniteScrollView *)infiniteScrollView didShowNextItem:(NSInteger)item currentItem:(NSInteger)currentItem
 {
 //    NSLog(@"next %ld current %ld",item,currentItem);
-    self.currentItem = currentItem;
+    self.currentIndex = currentItem;
 
     CPKenburnsView *currentView = [self currentKenburnsView];
     CPKenburnsView *nextView = [self nextKenburnsView];
@@ -398,7 +420,7 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 - (void)infiniteScrollView:(CPKenburnsInfiniteScrollView *)infiniteScrollView didShowPreviousItem:(NSInteger)item currentItem:(NSInteger)currentItem
 {
 //    NSLog(@"previous %ld current %ld",item,currentItem);
-    self.currentItem = currentItem;
+    self.currentIndex = currentItem;
 
     CPKenburnsView *currentView = [self currentKenburnsView];
     CPKenburnsView *nextView = [self nextKenburnsView];

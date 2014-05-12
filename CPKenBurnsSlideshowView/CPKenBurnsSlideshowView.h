@@ -17,7 +17,7 @@ typedef void(^DownloadCompletionBlock)(UIImage *image);
 @interface CPKenburnsSlideshowView : UIView
 - (id)initWithFrame:(CGRect)frame;
 @property (nonatomic, assign) id <CPKenburnsSlideshowViewDeleagte> delegate;
-@property (nonatomic, strong) NSArray *images;
+@property (nonatomic, strong) NSMutableArray *images;
 @property (nonatomic, assign) BOOL slideshow; //Auto paging
 @property (nonatomic, assign) CGFloat slideshowDuration; // default 10.f
 @property (nonatomic, assign) CGFloat automaticFadeDuration; // default 1.5f
@@ -25,6 +25,14 @@ typedef void(^DownloadCompletionBlock)(UIImage *image);
 @property (nonatomic, assign) BOOL longTapGestureEnable;
 - (void)stopAnimation;
 - (void)restartAnimation;
+
+- (NSInteger)currentIndex;
+
+- (void)addImage:(CPKenburnsImage *)image;
+- (void)jumpToIndex:(NSInteger)index;
+
+#warning TODO
+- (void)jumpToIndex:(NSInteger)index animated:(BOOL)animated;
 
 - (CPKenburnsView *)currentKenburnsView;
 - (CPKenburnsView *)nextKenburnsView;
