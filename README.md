@@ -4,7 +4,7 @@ CPKenburnsSlideshowView
 Using [CPKenburnsView](https://github.com/muukii0803/CPKenburnsView)
 
 ```
-pod 'CPKenburnsSlideshowView', '~> 1.0'
+pod 'CPKenburnsSlideshowView'
 ```
 
 Inspired by Hey Day (photo app)
@@ -12,8 +12,8 @@ Inspired by Hey Day (photo app)
 ## Feature!
 
 - Infinite scroll -> OK!
-- Change frame size when animating -> OK!- 
-- Show whole image when long tap -> NO... sorry...
+- Change frame size when animating -> OK!
+- Show whole image when long tap -> OK! :cactus:
 
 ## Future!
 
