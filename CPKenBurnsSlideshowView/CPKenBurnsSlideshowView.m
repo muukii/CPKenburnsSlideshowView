@@ -235,7 +235,7 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 
 - (NSInteger)currentIndex
 {
-    return self.currentIndex;
+    return _currentIndex;
 }
 
 - (void)addImage:(CPKenburnsImage *)image
