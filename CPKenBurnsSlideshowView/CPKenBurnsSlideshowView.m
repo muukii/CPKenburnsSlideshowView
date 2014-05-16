@@ -10,7 +10,7 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     CPKenburnsSlideshowViewOrderNext = 2
 };
 
-@interface CPKenburnsSlideshowView () <UIScrollViewDelegate,CPKenburnsInfiniteScrollViewDelegate>
+@interface CPKenburnsSlideshowView () <UIScrollViewDelegate,CPKenburnsInfiniteScrollViewDelegate,UIGestureRecognizerDelegate>
 @property (nonatomic, strong) NSMutableArray *kenburnsViews;
 @property (nonatomic, strong) NSMutableArray *kenburnsTitleViews;
 @property (nonatomic, strong) CPKenburnsInfiniteScrollView *scrollView;
@@ -99,6 +99,8 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     [self addSubview:self.scrollView];
 
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGesture:)];
+    longPressGesture.minimumPressDuration = .225f;
+    longPressGesture.delegate = self;
     [self addGestureRecognizer:longPressGesture];
 }
 
@@ -109,6 +111,7 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
         switch (gesture.state) {
             case UIGestureRecognizerStateBegan:
                 [self stopTimer];
+                [self.scrollView setContentOffset:CGPointMake(CGRectGetWidth(self.bounds), 0) animated:YES];
                 [[self currentKenburnsView] showWholeImage];
                 break;
             case UIGestureRecognizerStateEnded:
@@ -198,7 +201,8 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     [[self previousTitleView] setImageObject:[self imageObjectWithItem:(index - 1)]];
     [[self nextTitleView] setImageObject:[self imageObjectWithItem:(index + 1)]];
 
-
+    [[self previousKenburnsView] stopImageViewAnimation:NO];
+    [[self nextKenburnsView] stopImageViewAnimation:NO];
 
     [self insertSubview:[self nextKenburnsView] atIndex:0];
     [self insertSubview:[self currentKenburnsView] atIndex:2];
@@ -217,7 +221,6 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
         return item;
     }
 }
-
 
 - (void)stopAnimation
 {
@@ -329,17 +332,22 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 {
     [[self previousKenburnsView] setAlpha:0];
     [[self nextKenburnsView] setAlpha:1];
+    [[self previousKenburnsView] stopImageViewAnimation:NO];
+    [[self nextKenburnsView] stopImageViewAnimation:NO];
 
     CGPoint currentOffset = self.scrollView.contentOffset;
     currentOffset.x += CGRectGetWidth(self.scrollView.bounds);
     self.scrollView.fadeDuration = self.automaticFadeDuration;
-    [self.scrollView setContentOffset:currentOffset animated:YES];
+    [self.scrollView setContentOffset:currentOffset slowAnimated:YES];
+
 }
 
 - (void)scrollToPreviousPhoto
 {
     [[self previousKenburnsView] setAlpha:1];
     [[self nextKenburnsView] setAlpha:0];
+    [[self previousKenburnsView] stopImageViewAnimation:NO];
+    [[self nextKenburnsView] stopImageViewAnimation:NO];
 
     CGPoint currentOffset = self.scrollView.contentOffset;
     currentOffset.x -= CGRectGetWidth(self.scrollView.bounds);
@@ -351,6 +359,13 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     [self configureTimer];
+    
+    [[self previousKenburnsView] stopImageViewAnimation:NO];
+    [[self nextKenburnsView] stopImageViewAnimation:NO];
+    
+    if ([self.delegate respondsToSelector:@selector(scrollViewWillBeginDragging:)]) {
+        [self.delegate scrollViewWillBeginDragging:scrollView];
+    }
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -362,22 +377,71 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     if (_alpha > 0.999) {
         _alpha = 1.f;
     }
-
+    
     self.darkCoverView.alpha = _darkCoverAlpha;
-
+NSLog(@"%f",scrollView.contentOffset.x);
     if (ceilf((scrollView.contentOffset.x - width)) < 0) {
             //drag right
         [[self currentKenburnsView] setAlpha:_alpha];
         [[self previousKenburnsView] setAlpha:1];
         [[self nextKenburnsView] setAlpha:0];
+        
     } else {
             //drag left
         [[self currentKenburnsView] setAlpha:_alpha];
         [[self previousKenburnsView] setAlpha:0];
         [[self nextKenburnsView] setAlpha:1];
     }
-//    NSLog(@"%f %f %f",[[self previousKenburnsView] alpha],[[self currentKenburnsView] alpha],[[self nextKenburnsView] alpha]);
+    
+    if ([self.delegate respondsToSelector:@selector(scrollViewDidScroll:)]) {
+        [self.delegate scrollViewDidScroll:scrollView];
+    }
 }
+
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    if ([self.delegate respondsToSelector:@selector(scrollViewWillBeginDragging:)]) {
+        [self.delegate scrollViewWillBeginDragging:scrollView];
+    }
+}
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (ceilf(scrollView.contentOffset.x) == CGRectGetWidth(self.bounds)) {
+        [[self previousKenburnsView] stopImageViewAnimation:YES];
+        [[self nextKenburnsView] stopImageViewAnimation:YES];
+    }
+    if ([self.delegate respondsToSelector:@selector(scrollViewDidEndDragging:willDecelerate:)]) {
+        [self.delegate scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
+    }
+}
+
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
+{
+    if ([self.delegate respondsToSelector:@selector(scrollViewWillBeginDecelerating:)]) {
+        [self.delegate scrollViewWillBeginDecelerating:scrollView];
+    }
+}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    if (scrollView.contentOffset.x >= CGRectGetWidth(self.bounds)) {
+        [[self previousKenburnsView] stopImageViewAnimation:YES];
+        [[self nextKenburnsView] stopImageViewAnimation:YES];
+    }
+    if ([self.delegate respondsToSelector:@selector(scrollViewDidEndDecelerating:)]) {
+        [self.delegate scrollViewDidEndDecelerating:scrollView];
+    }
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    if ([self.delegate respondsToSelector:@selector(scrollViewDidEndScrollingAnimation:)]) {
+        [self.delegate scrollViewDidEndScrollingAnimation:scrollView];
+    }
+}
+
+
+
 
 #pragma mark - CPKenburnsInfiniteScrollViewDelegate
 
@@ -406,6 +470,9 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     [[self previousKenburnsView] setAlpha:0];
     [[self currentKenburnsView] setAlpha:1];
     [[self nextKenburnsView] setAlpha:0];
+    
+    [[self previousKenburnsView] stopImageViewAnimation:YES];
+    [[self nextKenburnsView] stopImageViewAnimation:YES];
 
     [self insertSubview:[self nextKenburnsView] atIndex:0];
     [self insertSubview:[self currentKenburnsView] atIndex:2];
@@ -443,6 +510,9 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     [[self previousKenburnsView] setAlpha:0];
     [[self currentKenburnsView] setAlpha:1];
     [[self nextKenburnsView] setAlpha:0];
+
+    [[self previousKenburnsView] stopImageViewAnimation:YES];
+    [[self nextKenburnsView] stopImageViewAnimation:YES];
 
     [self insertSubview:[self nextKenburnsView] atIndex:0];
     [self insertSubview:[self currentKenburnsView] atIndex:2];
@@ -509,5 +579,11 @@ kenBurnsGradationImage(CGSize size)
     
 }
 
+#pragma mark - UIGestureRecognizerDelegate
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return [self currentKenburnsView].imageView.hidden;
+}
 
 @end

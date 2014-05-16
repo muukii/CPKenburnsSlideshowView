@@ -65,7 +65,7 @@
     }
 }
 
-- (void)setContentOffset:(CGPoint)contentOffset animated:(BOOL)animated
+- (void)setContentOffset:(CGPoint)contentOffset slowAnimated:(BOOL)animated
 {
     if (animated) {
         _animation = YES;
