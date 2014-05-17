@@ -205,10 +205,6 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     [self insertSubview:[self nextKenburnsView] atIndex:0];
     [self insertSubview:[self currentKenburnsView] atIndex:2];
     [self insertSubview:[self previousKenburnsView] atIndex:1];
-    
-    //pause animation
-    [self previousKenburnsView].state = CPKenburnsImageViewStatePausing;
-    [self nextKenburnsView].state = CPKenburnsImageViewStatePausing;
 }
 
 - (NSInteger)validateItem:(NSInteger)item
@@ -273,10 +269,16 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     imageView.image = nil;
     if (imageObject.image) {
         imageView.image = imageObject.image;
+        //pause animation
+        [self previousKenburnsView].state = CPKenburnsImageViewStatePausing;
+        [self nextKenburnsView].state = CPKenburnsImageViewStatePausing;
     } else {
         if ([self.delegate respondsToSelector:@selector(slideshowView:downloadImageUrl:completionBlock:)]) {
             [self.delegate slideshowView:self downloadImageUrl:imageObject.imageUrl completionBlock:^(UIImage *image) {
                 imageView.image = image;
+                //pause animation
+                [self previousKenburnsView].state = CPKenburnsImageViewStatePausing;
+                [self nextKenburnsView].state = CPKenburnsImageViewStatePausing;
             }];
         }
         if ([self.delegate respondsToSelector:@selector(slideshowView:downloadImageUrl:kenburnsView:)]) {
