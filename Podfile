@@ -2,7 +2,7 @@
 # platform :ios, "6.0"
 
 target "CPKenburnsSlideshowView-Demo" do
-pod 'CPKenburnsView'
+pod 'CPKenburnsView', :git => 'https://github.com/muukii0803/CPKenburnsView.git'
 end
 
 target "CPKenburnsSlideshowView-DemoTests" do
