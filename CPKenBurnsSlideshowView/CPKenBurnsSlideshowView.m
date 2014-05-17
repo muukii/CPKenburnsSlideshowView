@@ -202,9 +202,6 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     [[self previousTitleView] setImageObject:[self imageObjectWithItem:(index - 1)]];
     [[self nextTitleView] setImageObject:[self imageObjectWithItem:(index + 1)]];
 
-    [[self previousKenburnsView] stopImageViewAnimation:NO];
-    [[self nextKenburnsView] stopImageViewAnimation:NO];
-
     [self insertSubview:[self nextKenburnsView] atIndex:0];
     [self insertSubview:[self currentKenburnsView] atIndex:2];
     [self insertSubview:[self previousKenburnsView] atIndex:1];
@@ -225,16 +222,16 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 
 - (void)stopAnimation
 {
-    [[self currentKenburnsView] stopImageViewAnimation:YES];
-    [[self nextKenburnsView] stopImageViewAnimation:YES];
-    [[self previousKenburnsView] stopImageViewAnimation:YES];
+    [self currentKenburnsView].state = CPKenburnsImageViewStatePausing;
+    [self nextKenburnsView].state = CPKenburnsImageViewStatePausing;
+    [self previousKenburnsView].state = CPKenburnsImageViewStatePausing;
 }
 
 - (void)restartAnimation
 {
-    [[self currentKenburnsView] stopImageViewAnimation:NO];
-    [[self nextKenburnsView] stopImageViewAnimation:NO];
-    [[self previousKenburnsView] stopImageViewAnimation:NO];
+    [self currentKenburnsView].state = CPKenburnsImageViewStateAnimating;
+    [self nextKenburnsView].state = CPKenburnsImageViewStateAnimating;
+    [self previousKenburnsView].state = CPKenburnsImageViewStateAnimating;
 }
 
 - (NSInteger)currentIndex
@@ -333,22 +330,17 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 {
     [[self previousKenburnsView] setAlpha:0];
     [[self nextKenburnsView] setAlpha:1];
-    [[self previousKenburnsView] stopImageViewAnimation:NO];
-    [[self nextKenburnsView] stopImageViewAnimation:NO];
 
     CGPoint currentOffset = self.scrollView.contentOffset;
     currentOffset.x += CGRectGetWidth(self.scrollView.bounds);
     self.scrollView.fadeDuration = self.automaticFadeDuration;
     [self.scrollView setContentOffset:currentOffset slowAnimated:YES];
-
 }
 
 - (void)scrollToPreviousPhoto
 {
     [[self previousKenburnsView] setAlpha:1];
     [[self nextKenburnsView] setAlpha:0];
-    [[self previousKenburnsView] stopImageViewAnimation:NO];
-    [[self nextKenburnsView] stopImageViewAnimation:NO];
 
     CGPoint currentOffset = self.scrollView.contentOffset;
     currentOffset.x -= CGRectGetWidth(self.scrollView.bounds);
@@ -360,9 +352,6 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     [self configureTimer];
-    
-    [[self previousKenburnsView] stopImageViewAnimation:NO];
-    [[self nextKenburnsView] stopImageViewAnimation:NO];
     
     if ([self.delegate respondsToSelector:@selector(scrollViewWillBeginDragging:)]) {
         [self.delegate scrollViewWillBeginDragging:scrollView];
@@ -380,18 +369,22 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     }
     
     self.darkCoverView.alpha = _darkCoverAlpha;
-NSLog(@"%f",scrollView.contentOffset.x);
     if (ceilf((scrollView.contentOffset.x - width)) < 0) {
             //drag right
         [[self currentKenburnsView] setAlpha:_alpha];
         [[self previousKenburnsView] setAlpha:1];
         [[self nextKenburnsView] setAlpha:0];
         
+        //restart animation
+        [self previousKenburnsView].state = CPKenburnsImageViewStateAnimating;
     } else {
-            //drag left
+        //drag left
         [[self currentKenburnsView] setAlpha:_alpha];
         [[self previousKenburnsView] setAlpha:0];
         [[self nextKenburnsView] setAlpha:1];
+        
+        //restart animation
+        [self nextKenburnsView].state = CPKenburnsImageViewStateAnimating;
     }
     
     if ([self.delegate respondsToSelector:@selector(scrollViewDidScroll:)]) {
@@ -408,10 +401,6 @@ NSLog(@"%f",scrollView.contentOffset.x);
 }
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    if (ceilf(scrollView.contentOffset.x) == CGRectGetWidth(self.bounds)) {
-        [[self previousKenburnsView] stopImageViewAnimation:YES];
-        [[self nextKenburnsView] stopImageViewAnimation:YES];
-    }
     if ([self.delegate respondsToSelector:@selector(scrollViewDidEndDragging:willDecelerate:)]) {
         [self.delegate scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
     }
@@ -425,10 +414,11 @@ NSLog(@"%f",scrollView.contentOffset.x);
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    if (scrollView.contentOffset.x >= CGRectGetWidth(self.bounds)) {
-        [[self previousKenburnsView] stopImageViewAnimation:YES];
-        [[self nextKenburnsView] stopImageViewAnimation:YES];
-    }
+    //next and previous kenburnsview animation stop
+    [self previousKenburnsView].state = CPKenburnsImageViewStatePausing;
+    [self nextKenburnsView].state = CPKenburnsImageViewStatePausing;
+    
+    
     if ([self.delegate respondsToSelector:@selector(scrollViewDidEndDecelerating:)]) {
         [self.delegate scrollViewDidEndDecelerating:scrollView];
     }
@@ -471,9 +461,6 @@ NSLog(@"%f",scrollView.contentOffset.x);
     [[self previousKenburnsView] setAlpha:0];
     [[self currentKenburnsView] setAlpha:1];
     [[self nextKenburnsView] setAlpha:0];
-    
-    [[self previousKenburnsView] stopImageViewAnimation:YES];
-    [[self nextKenburnsView] stopImageViewAnimation:YES];
 
     [self insertSubview:[self nextKenburnsView] atIndex:0];
     [self insertSubview:[self currentKenburnsView] atIndex:2];
@@ -511,9 +498,6 @@ NSLog(@"%f",scrollView.contentOffset.x);
     [[self previousKenburnsView] setAlpha:0];
     [[self currentKenburnsView] setAlpha:1];
     [[self nextKenburnsView] setAlpha:0];
-
-    [[self previousKenburnsView] stopImageViewAnimation:YES];
-    [[self nextKenburnsView] stopImageViewAnimation:YES];
 
     [self insertSubview:[self nextKenburnsView] atIndex:0];
     [self insertSubview:[self currentKenburnsView] atIndex:2];
