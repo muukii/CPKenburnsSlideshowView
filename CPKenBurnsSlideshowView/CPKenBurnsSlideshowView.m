@@ -69,6 +69,7 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     self.scrollView.contentOffset = CGPointMake(CGRectGetWidth(self.bounds), 0);
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
+    self.scrollView.directionalLockEnabled = YES;
     self.kenburnsViews = [NSMutableArray array];
     self.kenburnsTitleViews = [NSMutableArray array];
     for (NSInteger i = 0; i < 3; ++i) {
