@@ -204,6 +204,10 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     [self insertSubview:[self nextKenburnsView] atIndex:0];
     [self insertSubview:[self currentKenburnsView] atIndex:2];
     [self insertSubview:[self previousKenburnsView] atIndex:1];
+    
+    //pause animation
+    [self previousKenburnsView].state = CPKenburnsImageViewStatePausing;
+    [self nextKenburnsView].state = CPKenburnsImageViewStatePausing;
 }
 
 - (NSInteger)validateItem:(NSInteger)item
@@ -468,7 +472,10 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     [self.kenburnsViews enumerateObjectsUsingBlock:^(CPKenburnsView *view, NSUInteger idx, BOOL *stop) {
         view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     }];
-
+    
+    //pause animation
+    [self previousKenburnsView].state = CPKenburnsImageViewStatePausing;
+    [self nextKenburnsView].state = CPKenburnsImageViewStatePausing;
 }
 
 - (void)infiniteScrollView:(CPKenburnsInfiniteScrollView *)infiniteScrollView didShowPreviousItem:(NSInteger)item currentItem:(NSInteger)currentItem
