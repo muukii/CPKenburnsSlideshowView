@@ -99,10 +99,10 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     [self addSubview:self.gradientView];
     [self addSubview:self.scrollView];
 
-    UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGesture:)];
-    longPressGesture.minimumPressDuration = .225f;
-    longPressGesture.delegate = self;
-    [self addGestureRecognizer:longPressGesture];
+    self.longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGesture:)];
+    self.longPressGesture.minimumPressDuration = .225f;
+    self.longPressGesture.delegate = self;
+    [self addGestureRecognizer:self.longPressGesture];
 }
 
 - (void)handleLongPressGesture:(id)sender

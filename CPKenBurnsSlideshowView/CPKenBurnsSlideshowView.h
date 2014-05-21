@@ -22,6 +22,7 @@ typedef void(^DownloadCompletionBlock)(UIImage *image);
 @property (nonatomic, assign) CGFloat slideshowDuration; // default 10.f
 @property (nonatomic, assign) CGFloat automaticFadeDuration; // default 1.5f
 @property (nonatomic, assign) Class titleViewClass;
+@property (nonatomic, strong) UILongPressGestureRecognizer *longPressGesture;
 @property (nonatomic, assign) BOOL longTapGestureEnable;
 - (void)stopAnimation;
 - (void)restartAnimation;
