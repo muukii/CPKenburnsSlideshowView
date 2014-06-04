@@ -527,7 +527,7 @@ kenBurnsGradationImage(CGSize size)
     CGContextRef context = UIGraphicsGetCurrentContext();
 
         //// Color Declarations
-    UIColor* color = [UIColor colorWithRed: 0 green: 0 blue: 0 alpha: 0.9];
+    UIColor* color = [UIColor colorWithRed: 0 green: 0 blue: 0 alpha: 0.5];
     UIColor* color2 = [UIColor colorWithRed: 0 green: 0 blue: 0 alpha: 0];
 
         //// Gradient Declarations
