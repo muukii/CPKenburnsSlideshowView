@@ -1,6 +1,8 @@
 CPKenburnsSlideshowView
 =======================
 
+## [Android version](https://github.com/gotokatsuya/KenBurnsView)
+
 Using [CPKenburnsView](https://github.com/muukii0803/CPKenburnsView)
 
 ```
