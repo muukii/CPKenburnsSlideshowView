@@ -22,6 +22,14 @@
     return self;
 }
 
+- (void)prepareForReuse
+{
+    self.titleLabel.text = nil;
+    self.subTitleLabel.text = nil;
+    [self.customView removeFromSuperview];
+    self.customView = nil;
+}
+
 - (void)configureView
 {
     self.backgroundColor = [UIColor clearColor];
@@ -42,6 +50,7 @@
 {
     self.titleLabel.text = imageObject.title;
     self.subTitleLabel.text = imageObject.subTitle;
+    self.customView = imageObject.customView;
 }
 
 - (void)setTitle:(NSString *)title
@@ -54,6 +63,14 @@
 {
     _subTitle = subTitle;
     self.subTitleLabel.text = subTitle;
+}
+
+- (void)setCustomView:(UIView *)customView
+{
+    [_customView removeFromSuperview];
+    _customView = nil;
+    _customView = customView;
+    [self insertSubview:_customView belowSubview:self.titleLabel];
 }
 
 @end

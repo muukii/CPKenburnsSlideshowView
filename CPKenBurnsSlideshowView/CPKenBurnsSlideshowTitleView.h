@@ -15,5 +15,7 @@
 @property (nonatomic, strong) UILabel *subTitleLabel;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *subTitle;
+@property (nonatomic, strong) UIView *customView;
 - (void)configureView;
+- (void)prepareForReuse;
 @end

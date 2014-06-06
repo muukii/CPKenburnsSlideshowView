@@ -455,6 +455,10 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     }
     [self asynchronousSetImageView:[self nextKenburnsView] imageObject:[self imageObjectWithItem:item]];
 
+    [[self currentTitleView] prepareForReuse];
+    [[self previousTitleView] prepareForReuse];
+    [[self nextTitleView] prepareForReuse];
+
     [[self currentTitleView] setImageObject:[self imageObjectWithItem:currentItem]];
     [[self previousTitleView] setImageObject:[self imageObjectWithItem:(currentItem - 1)]];
     [[self nextTitleView] setImageObject:[self imageObjectWithItem:(item)]];
@@ -494,6 +498,10 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     }
 
     [self asynchronousSetImageView:[self previousKenburnsView] imageObject:[self imageObjectWithItem:item]];
+
+    [[self currentTitleView] prepareForReuse];
+    [[self previousTitleView] prepareForReuse];
+    [[self nextTitleView] prepareForReuse];
 
     [[self currentTitleView] setImageObject:[self imageObjectWithItem:currentItem]];
     [[self previousTitleView] setImageObject:[self imageObjectWithItem:item]];
