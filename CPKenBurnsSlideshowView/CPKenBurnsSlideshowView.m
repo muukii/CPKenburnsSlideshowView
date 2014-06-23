@@ -591,6 +591,7 @@ kenBurnsGradationImage(CGSize size)
 {
     self.scrollView = nil;
     self.delegate = nil;
+    [self.timer invalidate];
 }
 
 @end
