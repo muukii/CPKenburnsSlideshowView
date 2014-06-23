@@ -587,4 +587,10 @@ kenBurnsGradationImage(CGSize size)
     return [self currentKenburnsView].imageView.hidden;
 }
 
+- (void)dealloc
+{
+    self.scrollView = nil;
+    self.delegate = nil;
+}
+
 @end
