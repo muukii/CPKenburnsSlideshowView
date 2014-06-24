@@ -171,6 +171,7 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
         [self configureTimer];
     } else {
         [self.timer invalidate];
+        self.timer = nil;
     }
 }
 
@@ -592,6 +593,7 @@ kenBurnsGradationImage(CGSize size)
     self.scrollView = nil;
     self.delegate = nil;
     [self.timer invalidate];
+
 }
 
 @end
