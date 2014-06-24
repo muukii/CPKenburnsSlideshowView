@@ -393,7 +393,7 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
         [self nextKenburnsView].state = CPKenburnsImageViewStateAnimating;
     }
     
-    if ([self.delegate respondsToSelector:@selector(scrollViewDidScroll:)]) {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(scrollViewDidScroll:)]) {
         [self.delegate scrollViewDidScroll:scrollView];
     }
 }
