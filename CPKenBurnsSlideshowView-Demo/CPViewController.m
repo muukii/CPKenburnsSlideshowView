@@ -31,9 +31,9 @@
     }
 
     NSLog(@"%@",images);
+    self.kenburnsSlideshowView.delegate = self;
     self.kenburnsSlideshowView.titleViewClass = [CPExampleTitleView class];
     self.kenburnsSlideshowView.images = images;
-    self.kenburnsSlideshowView.delegate = self;
     self.kenburnsSlideshowView.longTapGestureEnable = YES;
 }
 
