@@ -56,9 +56,10 @@
 
 - (void)slideshowView:(CPKenburnsSlideshowView *)slideshowView willShowKenburnsView:(CPKenburnsView *)kenBurnsView
 {
-    kenBurnsView.animationDuration = 1.f;
+    kenBurnsView.animationDuration = 40.f;
     kenBurnsView.startZoomRate = 1;
     kenBurnsView.endZoomRate = 1;
+    kenBurnsView.enableMotion = YES;
 }
 - (void)slideshowView:(CPKenburnsSlideshowView *)slideshowView downloadImageUrl:(NSURL *)imageUrl completionBlock:(DownloadCompletionBlock)completionBlock
 {
