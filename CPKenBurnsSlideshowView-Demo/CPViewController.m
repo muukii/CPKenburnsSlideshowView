@@ -54,7 +54,7 @@
     self.kenburnsSlideshowView.frame = rect;
 }
 
-- (void)slideshowView:(CPKenburnsSlideshowView *)slideshowView willShowKenBurnsView:(CPKenburnsView *)kenBurnsView
+- (void)slideshowView:(CPKenburnsSlideshowView *)slideshowView willShowKenburnsView:(CPKenburnsView *)kenBurnsView
 {
     kenBurnsView.animationDuration = 1.f;
     kenBurnsView.startZoomRate = 1;
