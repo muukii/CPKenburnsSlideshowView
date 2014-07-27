@@ -393,9 +393,18 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
         [self nextKenburnsView].state = CPKenburnsImageViewStateAnimating;
     }
     
-    if ([self.delegate respondsToSelector:@selector(scrollViewDidScroll:)]) {
-        [self.delegate scrollViewDidScroll:scrollView];
+    @try {
+        if ([self.delegate respondsToSelector:@selector(scrollViewDidScroll:)]) {
+            [self.delegate scrollViewDidScroll:scrollView];
+        }
     }
+    @catch (NSException *exception) {
+        
+    }
+    @finally {
+        
+    }
+   
 }
 
 
@@ -585,6 +594,11 @@ kenBurnsGradationImage(CGSize size)
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
     return [self currentKenburnsView].imageView.hidden;
+}
+
+- (void)dealloc
+{
+    self.delegate = nil;
 }
 
 @end
