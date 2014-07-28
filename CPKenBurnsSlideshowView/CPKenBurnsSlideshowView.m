@@ -18,6 +18,7 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) UIImageView *gradientView;
 @property (nonatomic, strong) UIView *darkCoverView;
+@property (nonatomic, strong) UIImageView *coverImageView;
 @end
 
 @implementation CPKenburnsSlideshowView
@@ -74,6 +75,7 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     self.kenburnsTitleViews = [NSMutableArray array];
     for (NSInteger i = 0; i < 3; ++i) {
         CPKenburnsView *kenburnsView = [[CPKenburnsView alloc] initWithFrame:self.bounds];
+        kenburnsView.backgroundColor = self.backgroundColor;
         kenburnsView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         [self.kenburnsViews insertObject:kenburnsView atIndex:0];
         [self addSubview:kenburnsView];
@@ -98,6 +100,20 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     [self addSubview:self.darkCoverView];
     [self addSubview:self.gradientView];
     [self addSubview:self.scrollView];
+    
+    self.coverImageView = [[UIImageView alloc] initWithFrame:self.bounds];
+    self.coverImageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.coverImageView.userInteractionEnabled = YES;
+    self.coverImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.coverImageView.backgroundColor = [CPStyleKit couplesColor000];
+    self.coverImageView.hidden = YES;
+    [self addSubview:self.coverImageView];
+    if (self.coverImageEnabled) {
+        self.coverImageView.hidden = NO;
+        [self.kenburnsViews enumerateObjectsUsingBlock:^(CPKenburnsView *view, NSUInteger idx, BOOL *stop) {
+            view.enableMotion = NO;
+        }];
+    }
 
     self.longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGesture:)];
     self.longPressGesture.minimumPressDuration = .225f;
@@ -146,6 +162,14 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 
 #pragma mark
 
+- (void)setBackgroundColor:(UIColor *)backgroundColor
+{
+    [super setBackgroundColor:backgroundColor];
+    [self.kenburnsViews enumerateObjectsUsingBlock:^(CPKenburnsView *view, NSUInteger idx, BOOL *stop) {
+        view.backgroundColor = backgroundColor;
+    }];
+}
+
 - (void)setSlideshowDuration:(CGFloat)slideshowDuration
 {
     _slideshowDuration = slideshowDuration;
@@ -162,6 +186,23 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 {
     _automaticFadeDuration = automaticFadeDuration;
     self.scrollView.fadeDuration = automaticFadeDuration;
+}
+
+- (void)setCoverImageEnabled:(BOOL)coverImageEnabled
+{
+    if (_coverImageEnabled == coverImageEnabled) {
+        return;
+    }
+    _coverImageEnabled = coverImageEnabled;
+    if (!coverImageEnabled) {
+        self.coverImageView.hidden = YES;
+        [self restartAnimation];
+    }else {
+        self.coverImageView.hidden = NO;
+        [self.kenburnsViews enumerateObjectsUsingBlock:^(CPKenburnsView *view, NSUInteger idx, BOOL *stop) {
+            view.enableMotion = NO;
+        }];
+    }
 }
 
 - (void)setSlideshow:(BOOL)slideshow
@@ -233,6 +274,24 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     [self currentKenburnsView].state = CPKenburnsImageViewStateAnimating;
     [self nextKenburnsView].state = CPKenburnsImageViewStateAnimating;
     [self previousKenburnsView].state = CPKenburnsImageViewStateAnimating;
+}
+
+- (void)showCoverImage:(BOOL)show
+{
+    if (show) {
+        self.coverImageEnabled = YES;
+        [self stopAnimation];
+    }else {
+        [UIView animateWithDuration:.2f delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            self.coverImageView.transform = self.currentKenburnsView.transform;
+        } completion:^(BOOL finished) {
+            if (finished) {
+                self.coverImageView.hidden = YES;
+                self.coverImageView.frame = self.bounds;
+                [self restartAnimation];
+            }
+        }];
+    }
 }
 
 - (NSInteger)currentIndex
