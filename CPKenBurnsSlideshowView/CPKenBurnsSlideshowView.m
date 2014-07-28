@@ -22,6 +22,7 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 @end
 
 @implementation CPKenburnsSlideshowView
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -110,9 +111,8 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     [self addSubview:self.coverImageView];
     if (self.coverImageEnabled) {
         self.coverImageView.hidden = NO;
-        [self.kenburnsViews enumerateObjectsUsingBlock:^(CPKenburnsView *view, NSUInteger idx, BOOL *stop) {
-            view.enableMotion = NO;
-        }];
+        [self stopAnimation];
+        [self setSlideshow:NO];
     }
 
     self.longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGesture:)];
@@ -194,14 +194,14 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
         return;
     }
     _coverImageEnabled = coverImageEnabled;
-    if (!coverImageEnabled) {
-        self.coverImageView.hidden = YES;
-        [self restartAnimation];
-    }else {
+    if (coverImageEnabled) {
         self.coverImageView.hidden = NO;
-        [self.kenburnsViews enumerateObjectsUsingBlock:^(CPKenburnsView *view, NSUInteger idx, BOOL *stop) {
-            view.enableMotion = NO;
-        }];
+        [self setSlideshow:NO];
+        [self stopAnimation];
+    }else {
+        self.coverImageView.hidden = YES;
+        [self setSlideshow:YES];
+        [self restartAnimation];
     }
 }
 
@@ -222,6 +222,9 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
         self.scrollView.scrollEnabled = NO;
         return;
     }
+    
+    [(CPKenburnsImage *)images[0] setIsHeadObject:YES];
+    
     _images = images;
     self.currentIndex = 0;
     [self updateImages:self.currentIndex];
@@ -281,13 +284,15 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     if (show) {
         self.coverImageEnabled = YES;
         [self stopAnimation];
+        [self setSlideshow:NO];
     }else {
-        [UIView animateWithDuration:.2f delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-            self.coverImageView.transform = self.currentKenburnsView.transform;
+        [UIView animateWithDuration:1.f delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            CALayer *layer = [self.currentKenburnsView.layer presentationLayer];
+            self.coverImageView.frame = layer.frame;
         } completion:^(BOOL finished) {
             if (finished) {
                 self.coverImageView.hidden = YES;
-                self.coverImageView.frame = self.bounds;
+                [self setSlideshow:YES];
                 [self restartAnimation];
             }
         }];
@@ -336,6 +341,9 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
         if ([self.delegate respondsToSelector:@selector(slideshowView:downloadImageUrl:completionBlock:)]) {
             [self.delegate slideshowView:self downloadImageUrl:imageObject.imageUrl completionBlock:^(UIImage *image) {
                 imageView.image = image;
+                if (imageObject.isHeadObject) {
+                    self.coverImageView.image = image;
+                }
                 //pause animation
                 [self previousKenburnsView].state = CPKenburnsImageViewStatePausing;
                 [self nextKenburnsView].state = CPKenburnsImageViewStatePausing;
@@ -343,6 +351,9 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
         }
         if ([self.delegate respondsToSelector:@selector(slideshowView:downloadImageUrl:kenburnsView:)]) {
             [self.delegate slideshowView:self downloadImageUrl:imageObject.imageUrl kenburnsView:imageView];
+            if (imageObject.isHeadObject) {
+                self.coverImageView.image = imageView.image;
+            }
         }
     }
 }
