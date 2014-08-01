@@ -65,7 +65,7 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     [self.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [obj removeFromSuperview];
     }];
-
+    
     self.scrollView = [[CPKenburnsInfiniteScrollView alloc] initWithFrame:self.bounds];
     self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bounds)*3, CGRectGetHeight(self.bounds));
     self.scrollView.delegate = self;
