@@ -20,12 +20,10 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 @property (nonatomic, strong) UIView *darkCoverView;
 @property (nonatomic, strong) UIImageView *coverImageView;
 @property (nonatomic, readwrite) BOOL isShowingCoverImage;
+@property (nonatomic, assign) BOOL isCoverImageAnimating;
 @end
 
 @implementation CPKenburnsSlideshowView
-{
-    BOOL showCoverImage;
-}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -267,9 +265,16 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     [self previousKenburnsView].state = CPKenburnsImageViewStateAnimating;
 }
 
+- (void)restartAllKenburnsMotion
+{
+    [self.kenburnsViews enumerateObjectsUsingBlock:^(CPKenburnsView *view, NSUInteger idx, BOOL *stop) {
+        [view restartMotion];
+    }];
+}
+
 - (void)showCoverImage:(BOOL)show
 {
-    if (show == showCoverImage) {
+    if (self.isCoverImageAnimating) {
         return;
     }
     
@@ -278,8 +283,7 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     }
     
     if (show) {
-        showCoverImage = YES;
-        
+        self.isCoverImageAnimating = YES;
         self.coverImageView.hidden = NO;
         [UIView animateWithDuration:self.automaticFadeDuration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
             self.coverImageView.alpha = 1.f;
@@ -288,17 +292,18 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
                 self.isShowingCoverImage = YES;
                 [self stopAnimation];
                 [self setSlideshow:NO];
+                self.isCoverImageAnimating = NO;
             }
         }];
     }else {
-        showCoverImage = NO;
-        
+        self.isCoverImageAnimating = YES;
         [self restartAnimation];
         [self setSlideshow:YES];
         [UIView animateWithDuration:self.automaticFadeDuration delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
             self.coverImageView.alpha = 0;
         } completion:^(BOOL finished) {
             if (finished) {
+                self.isCoverImageAnimating = NO;
                 self.isShowingCoverImage = NO;
                 self.coverImageView.hidden = YES;
             }

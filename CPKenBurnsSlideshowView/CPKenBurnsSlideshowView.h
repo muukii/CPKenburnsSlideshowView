@@ -29,6 +29,8 @@ typedef void(^DownloadCompletionBlock)(UIImage *image);
 - (void)stopAnimation;
 - (void)restartAnimation;
 
+- (void)restartAllKenburnsMotion;
+
 - (void)showCoverImage:(BOOL)show;
 
 - (NSInteger)currentIndex;
