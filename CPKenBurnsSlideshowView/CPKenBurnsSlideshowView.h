@@ -21,10 +21,11 @@ typedef void(^DownloadCompletionBlock)(UIImage *image);
 @property (nonatomic, assign) BOOL slideshow; //Auto paging
 @property (nonatomic, assign) CGFloat slideshowDuration; // default 10.f
 @property (nonatomic, assign) CGFloat automaticFadeDuration; // default 1.5f
+@property (nonatomic, assign) CGFloat showCoverImageDuration; // default 0.5f
 @property (nonatomic, assign) Class titleViewClass;
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGesture;
 @property (nonatomic, assign) BOOL longTapGestureEnable;
-@property (nonatomic, assign) BOOL coverImageEnabled;
+@property (nonatomic, readonly) BOOL isShowingCoverImage;
 - (void)stopAnimation;
 - (void)restartAnimation;
 

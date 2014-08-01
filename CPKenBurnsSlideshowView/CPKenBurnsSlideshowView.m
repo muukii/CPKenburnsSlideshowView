@@ -19,6 +19,7 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 @property (nonatomic, strong) UIImageView *gradientView;
 @property (nonatomic, strong) UIView *darkCoverView;
 @property (nonatomic, strong) UIImageView *coverImageView;
+@property (nonatomic, readwrite) BOOL isShowingCoverImage;
 @end
 
 @implementation CPKenburnsSlideshowView
@@ -49,6 +50,7 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 {
     self.automaticFadeDuration = 1.5f;
     self.slideshowDuration = 10.f;
+    self.showCoverImageDuration = .5f;
     self.slideshow = YES;
 }
 
@@ -106,14 +108,9 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     self.coverImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.coverImageView.userInteractionEnabled = YES;
     self.coverImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.coverImageView.backgroundColor = [CPStyleKit couplesColor000];
+    self.coverImageView.backgroundColor = [UIColor blackColor];
     self.coverImageView.hidden = YES;
     [self addSubview:self.coverImageView];
-    if (self.coverImageEnabled) {
-        self.coverImageView.hidden = NO;
-        [self stopAnimation];
-        [self setSlideshow:NO];
-    }
 
     self.longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGesture:)];
     self.longPressGesture.minimumPressDuration = .225f;
@@ -186,23 +183,6 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 {
     _automaticFadeDuration = automaticFadeDuration;
     self.scrollView.fadeDuration = automaticFadeDuration;
-}
-
-- (void)setCoverImageEnabled:(BOOL)coverImageEnabled
-{
-    if (_coverImageEnabled == coverImageEnabled) {
-        return;
-    }
-    _coverImageEnabled = coverImageEnabled;
-    if (coverImageEnabled) {
-        self.coverImageView.hidden = NO;
-        [self setSlideshow:NO];
-        [self stopAnimation];
-    }else {
-        self.coverImageView.hidden = YES;
-        [self setSlideshow:YES];
-        [self restartAnimation];
-    }
 }
 
 - (void)setSlideshow:(BOOL)slideshow
@@ -282,18 +262,22 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 - (void)showCoverImage:(BOOL)show
 {
     if (show) {
-        self.coverImageEnabled = YES;
+        self.isShowingCoverImage = YES;
+        self.coverImageView.hidden = NO;
         [self stopAnimation];
         [self setSlideshow:NO];
+        
     }else {
-        [UIView animateWithDuration:1.f delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-            CALayer *layer = [self.currentKenburnsView.layer presentationLayer];
+        [self stopAnimation];
+        CALayer *layer = [self.currentKenburnsView.imageView.layer presentationLayer];
+        [UIView animateWithDuration:self.showCoverImageDuration delay:0 options:UIViewAnimationOptionCurveEaseIn | UIViewAnimationOptionBeginFromCurrentState animations:^{
             self.coverImageView.frame = layer.frame;
         } completion:^(BOOL finished) {
             if (finished) {
+                self.isShowingCoverImage = NO;
                 self.coverImageView.hidden = YES;
-                [self setSlideshow:YES];
                 [self restartAnimation];
+                [self setSlideshow:YES];
             }
         }];
     }
