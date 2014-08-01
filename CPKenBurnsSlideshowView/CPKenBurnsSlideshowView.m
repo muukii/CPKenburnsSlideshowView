@@ -23,6 +23,9 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 @end
 
 @implementation CPKenburnsSlideshowView
+{
+    BOOL showCoverImage;
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -261,16 +264,31 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 
 - (void)showCoverImage:(BOOL)show
 {
+    if (show == showCoverImage) {
+        return;
+    }
+    
     if (show) {
-        self.isShowingCoverImage = YES;
-        self.coverImageView.hidden = NO;
+        showCoverImage = YES;
+        
         [self stopAnimation];
         [self setSlideshow:NO];
-        
+        CALayer *layer = [self.currentKenburnsView.imageView.layer presentationLayer];
+        self.coverImageView.frame = layer.frame;
+        self.coverImageView.hidden = NO;
+        [UIView animateWithDuration:self.showCoverImageDuration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            self.coverImageView.frame = self.bounds;
+        } completion:^(BOOL finished) {
+            if (finished) {
+                self.isShowingCoverImage = YES;
+            }
+        }];
     }else {
+        showCoverImage = NO;
+        
         [self stopAnimation];
         CALayer *layer = [self.currentKenburnsView.imageView.layer presentationLayer];
-        [UIView animateWithDuration:self.showCoverImageDuration delay:0 options:UIViewAnimationOptionCurveEaseIn | UIViewAnimationOptionBeginFromCurrentState animations:^{
+        [UIView animateWithDuration:self.showCoverImageDuration delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
             self.coverImageView.frame = layer.frame;
         } completion:^(BOOL finished) {
             if (finished) {
@@ -278,6 +296,7 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
                 self.coverImageView.hidden = YES;
                 [self restartAnimation];
                 [self setSlideshow:YES];
+                self.coverImageView.frame = self.bounds;
             }
         }];
     }
