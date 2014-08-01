@@ -18,5 +18,4 @@
 @property (nonatomic, strong) NSString *locationDescription;
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, strong) UIView *customView;
-@property (nonatomic, assign) BOOL isHeadObject;
 @end
