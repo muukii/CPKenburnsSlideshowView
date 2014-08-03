@@ -278,13 +278,12 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
         return;
     }
     
-    if (!self.coverImage) {
-        self.coverImageView.image = self.currentKenburnsView.imageView.image;
-    }
-    
     if (show) {
         self.isCoverImageAnimating = YES;
         self.coverImageView.hidden = NO;
+        if (!self.coverImage) {
+            self.coverImageView.image = self.currentKenburnsView.imageView.image;
+        }
         [UIView animateWithDuration:self.automaticFadeDuration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
             self.coverImageView.alpha = 1.f;
         } completion:^(BOOL finished) {
