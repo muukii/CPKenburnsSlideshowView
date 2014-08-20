@@ -24,6 +24,7 @@ typedef void(^DownloadCompletionBlock)(UIImage *image);
 @property (nonatomic, assign) Class titleViewClass;
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGesture;
 @property (nonatomic, assign) BOOL longTapGestureEnable;
+@property (nonatomic, assign) BOOL coverImageAppearing;
 @property (nonatomic, retain) UIImage *coverImage;
 @property (nonatomic, readonly) BOOL isShowingCoverImage;
 - (void)stopAnimation;

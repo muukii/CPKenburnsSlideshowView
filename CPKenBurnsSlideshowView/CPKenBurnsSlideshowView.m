@@ -109,8 +109,8 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     self.coverImageView.userInteractionEnabled = YES;
     self.coverImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.coverImageView.backgroundColor = [UIColor blackColor];
-    self.coverImageView.hidden = YES;
-    self.coverImageView.alpha = 0;
+    self.coverImageView.hidden = !self.coverImageAppearing;
+    self.coverImageView.alpha = self.coverImageAppearing ? 1.f : 0;
     self.coverImageView.image = self.coverImage;
     [self addSubview:self.coverImageView];
 
@@ -173,6 +173,14 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 {
     _coverImage = coverImage;
     self.coverImageView.image = coverImage;
+}
+
+- (void)setCoverImageAppearing:(BOOL)coverImageAppearing
+{
+    _coverImageAppearing = coverImageAppearing;
+    self.coverImageView.alpha = coverImageAppearing ? 1.f : 0;
+    self.coverImageView.hidden = !coverImageAppearing;
+    self.isShowingCoverImage = coverImageAppearing;
 }
 
 - (void)setSlideshowDuration:(CGFloat)slideshowDuration
@@ -278,12 +286,14 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
         return;
     }
     
+    if (!self.coverImage) {
+        return;
+    }
+    
     if (show) {
         self.isCoverImageAnimating = YES;
         self.coverImageView.hidden = NO;
-        if (!self.coverImage) {
-            self.coverImageView.image = self.currentKenburnsView.imageView.image;
-        }
+        
         [UIView animateWithDuration:self.automaticFadeDuration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
             self.coverImageView.alpha = 1.f;
         } completion:^(BOOL finished) {
