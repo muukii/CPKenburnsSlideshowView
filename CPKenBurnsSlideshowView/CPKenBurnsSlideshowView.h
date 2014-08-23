@@ -16,7 +16,7 @@ typedef void(^DownloadCompletionBlock)(UIImage *image);
 @protocol CPKenburnsSlideshowViewDeleagte;
 @interface CPKenburnsSlideshowView : UIView
 - (id)initWithFrame:(CGRect)frame;
-@property (nonatomic, assign) id <CPKenburnsSlideshowViewDeleagte> delegate;
+@property (nonatomic, weak) id <CPKenburnsSlideshowViewDeleagte> delegate;
 @property (nonatomic, strong) NSMutableArray *images;
 @property (nonatomic, assign) BOOL slideshow; //Auto paging
 @property (nonatomic, assign) CGFloat slideshowDuration; // default 10.f
