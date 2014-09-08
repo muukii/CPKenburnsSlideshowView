@@ -297,12 +297,10 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
         [UIView animateWithDuration:self.automaticFadeDuration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
             self.coverImageView.alpha = 1.f;
         } completion:^(BOOL finished) {
-            if (finished) {
-                self.isShowingCoverImage = YES;
-                [self stopAnimation];
-                [self setSlideshow:NO];
-                self.isCoverImageAnimating = NO;
-            }
+            self.isShowingCoverImage = YES;
+            [self stopAnimation];
+            [self setSlideshow:NO];
+            self.isCoverImageAnimating = NO;
         }];
     }else {
         self.isCoverImageAnimating = YES;
@@ -311,11 +309,9 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
         [UIView animateWithDuration:self.automaticFadeDuration delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
             self.coverImageView.alpha = 0;
         } completion:^(BOOL finished) {
-            if (finished) {
-                self.isCoverImageAnimating = NO;
-                self.isShowingCoverImage = NO;
-                self.coverImageView.hidden = YES;
-            }
+            self.isCoverImageAnimating = NO;
+            self.isShowingCoverImage = NO;
+            self.coverImageView.hidden = YES;
         }];
     }
 }
