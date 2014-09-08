@@ -300,6 +300,7 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
             self.isShowingCoverImage = YES;
             [self stopAnimation];
             [self setSlideshow:NO];
+            
             self.isCoverImageAnimating = NO;
         }];
     }else {
