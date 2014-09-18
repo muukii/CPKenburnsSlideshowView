@@ -50,6 +50,7 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 - (void)configureParameter
 {
     self.automaticFadeDuration = 1.5f;
+    self.coverImageFadeDuration = 1.0f;
     self.slideshowDuration = 10.f;
     self.slideshow = YES;
 }
@@ -294,7 +295,7 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
         self.isCoverImageAnimating = YES;
         self.coverImageView.hidden = NO;
         
-        [UIView animateWithDuration:self.automaticFadeDuration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        [UIView animateWithDuration:self.coverImageFadeDuration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
             self.coverImageView.alpha = 1.f;
         } completion:^(BOOL finished) {
             self.isShowingCoverImage = YES;
@@ -307,7 +308,7 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
         self.isCoverImageAnimating = YES;
         [self restartAnimation];
         [self setSlideshow:YES];
-        [UIView animateWithDuration:self.automaticFadeDuration delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [UIView animateWithDuration:self.coverImageFadeDuration delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
             self.coverImageView.alpha = 0;
         } completion:^(BOOL finished) {
             self.isCoverImageAnimating = NO;
