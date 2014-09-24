@@ -71,6 +71,7 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
             contentSize.width += rect.size.width;
         }];
         self.scrollView.contentSize = contentSize;
+        self.scrollView.contentOffset = CGPointZero;
         layoutUpdated = YES;
     }
 }
@@ -663,8 +664,8 @@ kenBurnsGradationImage(CGSize size)
         //// GradientOverlay2 Drawing
     UIBezierPath* gradientOverlay2Path = [UIBezierPath bezierPath];
     [gradientOverlay2Path moveToPoint: CGPointMake(CGRectGetMinX(frame), CGRectGetMinY(frame) + 1)];
-    [gradientOverlay2Path addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 320, CGRectGetMinY(frame))];
-    [gradientOverlay2Path addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 320, CGRectGetMinY(frame) + 130)];
+    [gradientOverlay2Path addLineToPoint: CGPointMake(CGRectGetMinX(frame) + CGRectGetWidth(frame), CGRectGetMinY(frame))];
+    [gradientOverlay2Path addLineToPoint: CGPointMake(CGRectGetMinX(frame) + CGRectGetWidth(frame), CGRectGetMinY(frame) + 130)];
     [gradientOverlay2Path addLineToPoint: CGPointMake(CGRectGetMinX(frame), CGRectGetMinY(frame) + 131)];
     [gradientOverlay2Path addLineToPoint: CGPointMake(CGRectGetMinX(frame), CGRectGetMinY(frame) + 1)];
     [gradientOverlay2Path closePath];
@@ -672,8 +673,8 @@ kenBurnsGradationImage(CGSize size)
     [gradientOverlay2Path addClip];
     CGRect gradientOverlay2Bounds = CGPathGetPathBoundingBox(gradientOverlay2Path.CGPath);
     CGContextDrawLinearGradient(context, gradient2,
-                                CGPointMake(CGRectGetMidX(gradientOverlay2Bounds) + 0 * CGRectGetWidth(gradientOverlay2Bounds) / 320, CGRectGetMidY(gradientOverlay2Bounds) + 65.5 * CGRectGetHeight(gradientOverlay2Bounds) / 131),
-                                CGPointMake(CGRectGetMidX(gradientOverlay2Bounds) + 0 * CGRectGetWidth(gradientOverlay2Bounds) / 320, CGRectGetMidY(gradientOverlay2Bounds) + -65.5 * CGRectGetHeight(gradientOverlay2Bounds) / 131),
+                                CGPointMake(CGRectGetMidX(gradientOverlay2Bounds) + 0 * CGRectGetWidth(gradientOverlay2Bounds) / CGRectGetWidth(frame), CGRectGetMidY(gradientOverlay2Bounds) + 65.5 * CGRectGetHeight(gradientOverlay2Bounds) / 131),
+                                CGPointMake(CGRectGetMidX(gradientOverlay2Bounds) + 0 * CGRectGetWidth(gradientOverlay2Bounds) / CGRectGetWidth(frame), CGRectGetMidY(gradientOverlay2Bounds) + -65.5 * CGRectGetHeight(gradientOverlay2Bounds) / 131),
                                 kCGGradientDrawsBeforeStartLocation | kCGGradientDrawsAfterEndLocation);
     CGContextRestoreGState(context);
     
