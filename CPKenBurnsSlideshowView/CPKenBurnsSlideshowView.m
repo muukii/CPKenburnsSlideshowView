@@ -24,6 +24,9 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 @end
 
 @implementation CPKenburnsSlideshowView
+{
+    BOOL layoutUpdated;
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -53,6 +56,23 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     self.coverImageFadeDuration = 1.0f;
     self.slideshowDuration = 10.f;
     self.slideshow = YES;
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    if (!layoutUpdated) {
+        __block CGSize contentSize = CGSizeMake(0, self.bounds.size.height);
+        [self.kenburnsTitleViews enumerateObjectsUsingBlock:^(CPKenburnsSlideshowTitleView *view, NSUInteger idx, BOOL *stop) {
+            CGRect rect = self.bounds;
+            rect.origin.x = CGRectGetWidth(self.bounds) * idx;
+            view.frame = rect;
+            contentSize.width += rect.size.width;
+        }];
+        self.scrollView.contentSize = contentSize;
+        layoutUpdated = YES;
+    }
 }
 
 - (void)configureView
