@@ -20,7 +20,6 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 @property (nonatomic, strong) UIView *darkCoverView;
 @property (nonatomic, strong) UIImageView *coverImageView;
 @property (nonatomic, readwrite) BOOL isShowingCoverImage;
-@property (nonatomic, assign) BOOL isCoverImageAnimating;
 @end
 
 @implementation CPKenburnsSlideshowView
@@ -131,7 +130,6 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     self.coverImageView.userInteractionEnabled = YES;
     self.coverImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.coverImageView.backgroundColor = [UIColor blackColor];
-    self.coverImageView.hidden = !self.coverImageAppearing;
     self.coverImageView.alpha = self.coverImageAppearing ? 1.f : 0;
     self.coverImageView.image = self.coverImage;
     [self addSubview:self.coverImageView];
@@ -201,7 +199,6 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
 {
     _coverImageAppearing = coverImageAppearing;
     self.coverImageView.alpha = coverImageAppearing ? 1.f : 0;
-    self.coverImageView.hidden = !coverImageAppearing;
     self.isShowingCoverImage = coverImageAppearing;
 }
 
@@ -300,42 +297,32 @@ typedef NS_ENUM(NSInteger, CPKenburnsSlideshowViewOrder) {
     [self.kenburnsViews enumerateObjectsUsingBlock:^(CPKenburnsView *view, NSUInteger idx, BOOL *stop) {
         [view restartMotion];
     }];
+    [self restartAnimation];
 }
 
 - (void)showCoverImage:(BOOL)show
 {
-    if (self.isCoverImageAnimating) {
-        return;
-    }
-    
     if (!self.coverImage) {
         return;
     }
     
     if (show) {
-        self.isCoverImageAnimating = YES;
-        self.coverImageView.hidden = NO;
-        
-        [UIView animateWithDuration:self.coverImageFadeDuration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        self.isShowingCoverImage = YES;
+        [UIView animateWithDuration:self.coverImageFadeDuration delay:0 options:UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionBeginFromCurrentState animations:^{
             self.coverImageView.alpha = 1.f;
         } completion:^(BOOL finished) {
-            self.isShowingCoverImage = YES;
-            [self stopAnimation];
-            [self setSlideshow:NO];
-            
-            self.isCoverImageAnimating = NO;
+            if (finished) {
+                [self stopAnimation];
+                [self setSlideshow:NO];
+            }
         }];
     }else {
-        self.isCoverImageAnimating = YES;
+        self.isShowingCoverImage = NO;
         [self restartAnimation];
         [self setSlideshow:YES];
-        [UIView animateWithDuration:self.coverImageFadeDuration delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [UIView animateWithDuration:self.coverImageFadeDuration delay:0 options:UIViewAnimationOptionCurveEaseIn | UIViewAnimationOptionBeginFromCurrentState animations:^{
             self.coverImageView.alpha = 0;
-        } completion:^(BOOL finished) {
-            self.isCoverImageAnimating = NO;
-            self.isShowingCoverImage = NO;
-            self.coverImageView.hidden = YES;
-        }];
+        } completion:nil];
     }
 }
 
