@@ -31,9 +31,9 @@
     }
 
     NSLog(@"%@",images);
+    self.kenburnsSlideshowView.delegate = self;
     self.kenburnsSlideshowView.titleViewClass = [CPExampleTitleView class];
     self.kenburnsSlideshowView.images = images;
-    self.kenburnsSlideshowView.delegate = self;
     self.kenburnsSlideshowView.longTapGestureEnable = YES;
 }
 
@@ -54,11 +54,12 @@
     self.kenburnsSlideshowView.frame = rect;
 }
 
-- (void)slideshowView:(CPKenburnsSlideshowView *)slideshowView willShowKenBurnsView:(CPKenburnsView *)kenBurnsView
+- (void)slideshowView:(CPKenburnsSlideshowView *)slideshowView willShowKenburnsView:(CPKenburnsView *)kenBurnsView
 {
-    kenBurnsView.animationDuration = 1.f;
+    kenBurnsView.animationDuration = 40.f;
     kenBurnsView.startZoomRate = 1;
     kenBurnsView.endZoomRate = 1;
+    kenBurnsView.enableMotion = YES;
 }
 - (void)slideshowView:(CPKenburnsSlideshowView *)slideshowView downloadImageUrl:(NSURL *)imageUrl completionBlock:(DownloadCompletionBlock)completionBlock
 {
